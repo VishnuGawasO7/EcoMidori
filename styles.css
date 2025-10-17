@@ -1,0 +1,150 @@
+/* styles.css — EcoMidori homepage (dark theme & leaf particles) */
+:root{
+  --bg-dark-1: #071914;
+  --bg-dark-2: #0b2a1b;
+  --green-1: #9EE6B2;
+  --green-2: #5FE07A;
+  --muted: #9fbda7;
+  --glass-dark: rgba(255,255,255,0.03);
+  --card-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  --accent: rgba(158,230,178,0.08);
+  --radius: 14px;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 10%, rgba(95,224,122,0.06), transparent), linear-gradient(180deg,var(--bg-dark-1) 0%, var(--bg-dark-2) 100%); color:var(--green-1); -webkit-font-smoothing:antialiased}
+.container{max-width:1150px; margin:0 auto; padding:28px}
+
+/* Floating ambient particles (fireflies) */
+.ambient {
+  position:fixed; inset:0; pointer-events:none; z-index:5;
+}
+.firefly{
+  position:absolute; width:6px; height:6px; border-radius:50%; background:radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(158,230,178,0.9) 40%, rgba(95,224,122,0.4) 100%); filter:blur(4px); opacity:0.9; mix-blend-mode:screen;
+  animation:drift linear infinite;
+}
+@keyframes drift { from{transform:translateY(0)} to{transform:translateY(-40px)} }
+
+/* Header */
+.site-header{position:fixed; width:100%; top:0; left:0; z-index:60; transition:background 300ms ease, backdrop-filter 300ms ease}
+.header-inner{display:flex; align-items:center; justify-content:space-between}
+.site-header.transparent{background:transparent}
+.site-header.scrolled{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); box-shadow:0 2px 12px rgba(0,0,0,0.5)}
+
+.logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--green-1)}
+.logo .brand{font-weight:700; font-size:18px; color:var(--green-1)}
+.main-nav a{margin:0 12px; text-decoration:none; color:inherit; padding:6px 8px; border-radius:8px; transition:all 220ms ease}
+.main-nav a:hover{background:rgba(255,255,255,0.02); color:var(--green-2); transform:translateY(-2px)}
+
+/* mobile menu */
+.menu-toggle{display:none; background:none; border:0; font-size:20px; color:var(--green-1)}
+
+/* Hero */
+.hero{min-height:92vh; display:flex; align-items:center; padding-top:100px; overflow:hidden; position:relative}
+.hero-inner{display:flex; gap:40px; align-items:center; justify-content:space-between}
+.hero-content{flex:1; max-width:620px}
+.headline{font-size:34px; margin:0 0 14px; color:var(--green-1); line-height:1.05; text-shadow:0 6px 30px rgba(0,0,0,0.6)}
+.subhead{margin:0 0 18px; color:var(--muted); font-weight:400}
+.hero-cta{display:flex; gap:12px; align-items:center}
+.btn{display:inline-block; padding:12px 20px; border-radius:999px; text-decoration:none; font-weight:600; transition:transform 220ms ease, box-shadow 220ms ease; position:relative; overflow:hidden}
+.btn.primary{background:linear-gradient(90deg,var(--green-2),var(--green-1)); color:#062512; box-shadow:0 12px 30px rgba(16,40,20,0.4)}
+.btn.primary:hover{transform:translateY(-4px); box-shadow:0 22px 48px rgba(16,40,20,0.5)}
+.btn.outline{border:1px solid rgba(158,230,178,0.12); background:transparent; color:var(--green-1)}
+
+/* floating leaves (hero) */
+.floating-leaves{position:relative; width:360px; height:360px}
+.leaf{position:absolute; width:28px; height:16px; background:linear-gradient(90deg,#9feab1,#2fa04a); border-radius:14px; opacity:0.95; filter:drop-shadow(0 8px 14px rgba(0,0,0,0.6))}
+.leaf-1{left:10%; top:15%; transform:rotate(-10deg); animation:float1 8s linear infinite}
+.leaf-2{left:60%; top:5%; transform:rotate(30deg); animation:float2 10s linear infinite}
+.leaf-3{left:75%; top:45%; transform:rotate(60deg); animation:float3 12s linear infinite}
+.leaf-4{left:35%; top:70%; transform:rotate(20deg); animation:float2 9s linear infinite}
+
+/* Circular model */
+.circular-section{padding:52px 28px}
+.section-title{font-size:22px; color:var(--green-1); margin:6px 0 8px}
+.section-sub{color:var(--muted); margin-bottom:18px}
+.circle-wrap{display:flex; align-items:center; justify-content:center; gap:32px; position:relative; padding:24px}
+.circle{width:420px; height:420px; border-radius:50%; position:relative; transform-origin:center center; animation:spin 30s linear infinite; background: radial-gradient(circle at 30% 30%, rgba(158,230,178,0.02), transparent), linear-gradient(180deg, rgba(255,255,255,0.01), transparent); box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.circle .seg{
+  position:absolute; width:150px; height:64px;
+  transform-origin:center center;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition:transform 300ms ease, box-shadow 280ms ease;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow:0 8px 30px rgba(0,0,0,0.55);
+  padding:12px;
+  text-align:center;
+  color:var(--green-1);
+  font-weight:700;
+  transform-style:preserve-3d;
+  will-change:transform;
+  border:1px solid rgba(158,230,178,0.04);
+}
+.circle .seg:hover{transform:scale(1.06) translateZ(1px); box-shadow:0 20px 50px rgba(12,30,12,0.5)}
+.circle .seg .seg-label{pointer-events:none; transform-origin:center center; padding:6px}
+
+/* center */
+.circle-center{position:absolute; width:160px; height:160px; border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; flex-direction:column; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 12px 30px rgba(0,0,0,0.6); border:1px solid rgba(158,230,178,0.04)}
+.center-text{font-weight:700; color:var(--green-1)}
+
+/* segment info card */
+.segment-info{position:fixed; right:28px; bottom:120px; width:320px; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(5,10,6,0.9), rgba(8,18,12,0.9)); box-shadow:0 18px 40px rgba(0,0,0,0.6); display:none; z-index:200; color:var(--green-1)}
+.segment-info h3{margin:0 0 8px; color:var(--green-1)}
+.segment-info p{margin:0 0 12px; color:var(--muted)}
+.segment-info .btn.ghost{background:transparent; border:1px solid rgba(158,230,178,0.06); color:var(--green-1)}
+
+/* Info cards */
+.info-cards{padding:40px 28px}
+.cards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:14px; padding:22px; box-shadow:var(--card-shadow); transition:transform 260ms ease; border:1px solid rgba(158,230,178,0.03)}
+.card:hover{transform:translateY(-8px)}
+.card .icon{font-size:28px; margin-bottom:12px}
+
+/* CTA */
+.cta-section{padding:40px 28px; background:linear-gradient(180deg, rgba(10,30,16,0.6), rgba(6,22,12,0.6)); text-align:center; border-radius:14px; margin:20px 28px; border:1px solid rgba(158,230,178,0.03)}
+.cta-buttons{display:flex; gap:12px; justify-content:center; margin-top:12px}
+
+/* Teasers */
+.teasers{display:flex; gap:24px; margin:28px 0}
+.teaser{flex:1; padding:20px; background:transparent; border-radius:12px; box-shadow:var(--card-shadow); border:1px solid rgba(158,230,178,0.02)}
+.link-cta{color:var(--green-1); text-decoration:none; font-weight:600}
+
+/* Contact */
+.contact-form{display:flex; flex-direction:column; gap:12px; max-width:720px}
+.contact-form input, .contact-form textarea{padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:rgba(0,0,0,0.25); color:var(--green-1)}
+.contact-form button{align-self:flex-start}
+
+/* Footer */
+.site-footer{margin-top:40px; padding:18px 0; background:linear-gradient(180deg, rgba(5,10,6,0.5), rgba(6,10,8,0.5))}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.footer-nav a{margin:0 8px; text-decoration:none; color:var(--green-1)}
+
+/* Leaf particle effect */
+.leaf-particle{
+  position:fixed;
+  width:22px;
+  height:22px;
+  pointer-events:none;
+  z-index:9999;
+  transform-origin:center center;
+  will-change:transform, opacity;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,0.6));
+  opacity:0.95;
+}
+.leaf-svg{width:100%; height:100%; display:block}
+
+/* Responsive */
+@media (max-width:900px){
+  .cards-grid{grid-template-columns:1fr}
+  .hero-inner{flex-direction:column; align-items:flex-start}
+  .floating-leaves{width:220px;height:220px}
+  .circle{width:300px;height:300px}
+  .menu-toggle{display:block}
+  .main-nav{display:none}
+  .site-header.scrolled .main-nav{display:none}
+}

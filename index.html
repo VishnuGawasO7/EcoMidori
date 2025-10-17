@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoMidori — Where Sustainability Meets Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- GSAP for smooth animations (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="dark-theme">
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="#" aria-label="EcoMidori Home">
+        <!-- Placeholder SVG logo -->
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#concepts">Concepts</a>
+        <a href="#examples">Examples</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <h1 class="headline">EcoMidori 🌿 — Where Sustainability Meets Innovation.</h1>
+          <p class="subhead">Discover how green entrepreneurship and the circular economy drive a regenerative future.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#concepts" id="exploreBtn">Explore the Future</a>
+            <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="Toggle ambient sound">🔊</button>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Floating leaves / particles -->
+          <div class="floating-leaves" aria-hidden="true">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Circular Model -->
+    <section id="concepts" class="circular-section container">
+      <h2 class="section-title">The Circular Economy Loop</h2>
+      <p class="section-sub">Interact with the loop to learn each stage — tap or hover any segment.</p>
+
+      <div class="circle-wrap" aria-hidden="false">
+        <div class="circle" id="circle" aria-hidden="false" role="application" aria-label="Circular economy interactive diagram">
+          <!-- segments injected by JS for clarity -->
+        </div>
+
+        <div class="circle-center" aria-hidden="false">
+          <!-- center emblem -->
+          <svg width="84" height="84" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.02)"></circle>
+            <path d="M12 4.5C9 4.5 6.5 8 6.5 11.5S8 18 12 19.5 17.5 17 17.5 13.5 15 4.5 12 4.5z" fill="#9EE6B2"></path>
+          </svg>
+          <div class="center-text">EcoMidori</div>
+        </div>
+      </div>
+
+      <!-- tooltip / info card -->
+      <div id="segmentInfo" class="segment-info" role="dialog" aria-modal="false" aria-hidden="true">
+        <h3 id="segTitle">Title</h3>
+        <p id="segDesc">Description</p>
+        <a href="examples.html" class="btn ghost">See Examples</a>
+      </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section id="about" class="info-cards container">
+      <div class="cards-grid">
+        <article class="card" data-animate>
+          <div class="icon" aria-hidden="true">🍃</div>
+          <h3>Green Entrepreneurship</h3>
+          <p>Companies and founders building businesses that create environmental value and economic opportunity.</p>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="icon" aria-hidden="true">♻️</div>
+          <h3>Circular Economy</h3>
+          <p>An economic model designed around recovery, reuse, and regeneration to eliminate waste and keep resources in use.</p>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="icon" aria-hidden="true">💡</div>
+          <h3>EcoMidori's Approach</h3>
+          <p>Bridging entrepreneurship and circular thinking with tools, examples, and community to scale sustainable impact.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <h2>Be Part of the Green Revolution.</h2>
+        <p>Join us in shaping a regenerative, circular future.</p>
+        <div class="cta-buttons">
+          <a class="btn outline" href="about.html">Learn More</a>
+          <a class="btn primary" href="concepts.html">Start Exploring</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples and Benefits teaser -->
+    <section id="examples" class="teasers container">
+      <div class="teaser">
+        <h3>Examples</h3>
+        <p>Real-world startups and local projects that embody circular thinking.</p>
+        <a href="examples.html" class="link-cta">Explore Examples →</a>
+      </div>
+      <div class="teaser">
+        <h3>Benefits</h3>
+        <p>The environmental, social, and economic gains from adopting circular practices.</p>
+        <a href="benefits.html" class="link-cta">Learn about Benefits →</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact container">
+      <h2>Contact EcoMidori</h2>
+      <p>Have questions or want to collaborate? Reach out.</p>
+      <form class="contact-form" action="#" method="post" aria-label="Contact form">
+        <label><span class="sr-only">Name</span><input type="text" name="name" placeholder="Your name" required></label>
+        <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Your email" required></label>
+        <label><span class="sr-only">Message</span><textarea name="message" placeholder="Tell us about your idea" rows="4" required></textarea></label>
+        <button class="btn primary" type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <small>© 2025 EcoMidori</small>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#concepts">Concepts</a>
+        <a href="#examples">Examples</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="socials" aria-hidden="true">
+        <a href="#" class="social">🐦</a>
+        <a href="#" class="social">📘</a>
+        <a href="#" class="social">📸</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Ambient audio (optional, not autoplay) -->
+  <audio id="ambientAudio" loop preload="none" src=""></audio>
+
+</body>
+</html>
