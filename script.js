@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // Create circular nodes
 
 
-  createCircularNodes();
+  //createCircularNodes();
 
   const modal = document.getElementById('nodeModal');
   const modalTitle = document.getElementById('modalTitle');

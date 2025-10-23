@@ -1,9 +1,11 @@
 // leaf-particles.js - Reusable leaf particles for all pages
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
 class LeafParticles {
     constructor() {
         this.init();
     }
-
+    
     init() {
         // Spawn initial leaves
         this.spawnInitialLeaves();
@@ -34,8 +36,7 @@ class LeafParticles {
     }
 
     spawnRandomLeaf() {
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
+
         
         // Spawn from random positions at the top
         const x = Math.random() * viewportWidth;
