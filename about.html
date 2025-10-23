@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | EcoMidori</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script defer src="script.js"></script>
+      <script src="leaf-particles.js" defer></script>
+  <style>
+    /* small page-specific overrides for layout */
+    header.main-header, .main-footer { display:none; } /* header/footer handled by site-header in styles */
+    .about-hero { padding-top:120px; min-height:64vh; display:flex; align-items:center; }
+    .values-grid{display:flex;gap:18px;flex-wrap:wrap}
+    .value-card{flex:1;min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(158,230,178,0.03);box-shadow:var(--card-shadow)}
+    blockquote{font-style:italic;color:var(--muted);border-left:3px solid rgba(158,230,178,0.06);padding-left:14px;margin:24px 0}
+  </style>
+</head>
+<body>
+  <!-- Ambient fireflies -->
+  <div class="ambient" aria-hidden="true">
+    <div class="firefly" style="left:8%; top:20%; animation-duration:10s;"></div>
+    <div class="firefly" style="left:70%; top:60%; animation-duration:8s;"></div>
+    <div class="firefly" style="left:40%; top:40%; animation-duration:12s;"></div>
+  </div>
+
+  <!-- leaf particles -->
+  <div class="leaf-particle" style="left:10%; top:80%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div>
+
+  <!-- site header (matches homepage) -->
+  <header class="site-header transparent" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="11" fill="rgba(29,130,60,0.04)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero about-hero container">
+      <div class="hero-inner" style="display:flex;gap:36px;align-items:center">
+        <div data-aos="fade-up" class="hero-content">
+          <h1 class="headline">Our Vision & Purpose</h1>
+          <p class="subhead">Cultivating sustainable innovation through harmony, regeneration, and mindful entrepreneurship.</p>
+          <div style="margin-top:12px">
+            <a class="btn primary" href="contact.html">Join the Movement</a>
+            <a class="btn outline" href="ecosymbiosis.html">See Our Approach</a>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" class="hero-visual" aria-hidden="true">
+          <div style="width:320px;height:220px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))">
+            <div style="text-align:center;color:var(--green-1);font-weight:700">EcoMidori Timeline</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-story container" data-aos="fade-up">
+      <h2 class="section-title">Our Story</h2>
+      <p class="section-sub">Born from a desire to blend entrepreneurship with ecological wisdom, EcoMidori supports innovators who build businesses that regenerate. We combine research, mentorship, and practical tools to scale solutions that respect planetary boundaries.</p>
+    </section>
+
+    <section class="about-values container" style="padding-top:24px">
+      <h2 class="section-title" data-aos="fade-up">Our Core Principles</h2>
+      <div class="values-grid" style="margin-top:12px">
+        <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+          <h3>🌱 Innovation</h3>
+          <p>We support creative solutions that reduce harm and add ecological value.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+          <h3>🔄 Regeneration</h3>
+          <p>Practices that restore ecosystems and cycle materials back to nature.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up" data-aos-delay="240">
+          <h3>🤝 Collaboration</h3>
+          <p>Working together to scale impact across communities and supply chains.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline container" style="padding:28px 0" data-aos="fade-up">
+      <h2 class="section-title">Milestones</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>2022</strong><p>Project inception and pilot programs.</p>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>2023</strong><p>First cohort of green startups graduated.</p>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <strong>2024</strong><p>Launch of circular design toolkit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section container" data-aos="fade-up">
+      <blockquote>"Sustainability is not a goal, it's a way of being — a balance between what we create and what we preserve."</blockquote>
+    </section>
+
+    <section class="cta-section container" data-aos="zoom-in">
+      <h2>Join the Journey</h2>
+      <p>Be part of a regenerative, circular future with EcoMidori.</p>
+      <a class="btn primary" href="contact.html">Connect with Us</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <small>© 2025 EcoMidori</small>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+      </nav>
+      <div class="socials" aria-hidden="true">
+        <a href="#" class="social">🐦</a>
+        <a href="#" class="social">📘</a>
+        <a href="#" class="social">📸</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-quart' });
+  </script>
+</body>
+</html>

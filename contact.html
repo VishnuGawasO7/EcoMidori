@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | EcoMidori</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script defer src="script.js"></script>
+      <script src="leaf-particles.js" defer></script>
+  <style>
+    .contact-hero{padding-top:120px;min-height:58vh;display:flex;align-items:center}
+    .map-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(158,230,178,0.03);box-shadow:var(--card-shadow);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start}
+    @media (max-width:900px){ .contact-grid{grid-template-columns:1fr} }
+    .success-msg{display:none;padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(95,224,122,0.12), rgba(158,230,178,0.08));color:var(--green-1);margin-top:8px}
+  </style>
+</head>
+<body>
+  <!-- Ambient fireflies -->
+  <div class="ambient" aria-hidden="true">
+    <div class="firefly" style="left:12%; top:30%; animation-duration:9s;"></div>
+    <div class="firefly" style="left:78%; top:18%; animation-duration:11s;"></div>
+    <div class="firefly" style="left:52%; top:52%; animation-duration:10s;"></div>
+  </div>
+
+  <!-- leaf particles -->
+  <div class="leaf-particle" style="left:88%; top:76%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div>
+
+  <header class="site-header transparent" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="11" fill="rgba(29,130,60,0.04)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html">About</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero contact-hero" data-aos="fade-up">
+      <div class="hero-inner" style="display:flex;gap:36px;align-items:center">
+        <div class="hero-content">
+          <h1 class="headline">Connect & Collaborate</h1>
+          <p class="subhead">Let’s grow a greener future together — one innovation at a time.</p>
+          <div style="margin-top:12px">
+            <a class="btn primary" href="#form">Send a Message</a>
+            <a class="btn outline" href="about.html">Learn About Us</a>
+          </div>
+        </div>
+        <div class="hero-visual" data-aos="fade-left" aria-hidden="true">
+          <div style="width:320px;height:220px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))">
+            <div style="text-align:center;color:var(--green-1);font-weight:700">Get in Touch</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form-section" id="form" style="padding:28px 0" data-aos="fade-up">
+      <div class="contact-grid">
+        <div>
+          <h2 class="section-title">Send Us a Message</h2>
+          <form class="contact-form" id="contactForm" onsubmit="return false;">
+            <label class="sr-only">Name<input type="text" id="name" name="name" placeholder="Your name" required></label>
+            <label class="sr-only">Email<input type="email" id="email" name="email" placeholder="you@example.com" required></label>
+            <label class="sr-only">Message<textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea></label>
+            <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
+            <div id="success" class="success-msg" role="status" aria-live="polite">Thanks — your message has been prepared. (This is a static demo.)</div>
+          </form>
+
+          <div style="margin-top:18px" data-aos="fade-up" data-aos-delay="120">
+            <h3>Contact Details</h3>
+            <ul>
+              <li>📧 <a href="mailto:info@ecomidori.org">info@ecomidori.org</a></li>
+              <li>📍 Kyoto, Japan</li>
+              <li>📞 +81 75 000 0000 (placeholder)</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="map-wrap" data-aos="fade-left">
+          <!-- Stylized SVG map placeholder -->
+          <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" id="mapSVG" style="width:100%;height:100%">
+            <defs>
+              <linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#0b2a1b"/><stop offset="1" stop-color="#071914"/></linearGradient>
+              <radialGradient id="lg" cx="30%" cy="20%"><stop offset="0" stop-color="#9EE6B2" stop-opacity="0.14"/><stop offset="1" stop-color="transparent"/></radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#mg)"></rect>
+            <g transform="translate(40,30)" fill="none" stroke="rgba(158,230,178,0.06)">
+              <path d="M20 300 C80 220, 150 220, 220 300" stroke-width="2"></path>
+              <path d="M180 260 C240 180, 320 180, 380 260" stroke-width="2"></path>
+              <circle cx="80" cy="240" r="6" fill="#9EE6B2"></circle>
+              <circle cx="320" cy="220" r="6" fill="#5FE07A"></circle>
+            </g>
+            <g><text x="30" y="30" fill="#9EE6B2" font-size="18">EcoMidori — Location</text></g>
+          </svg>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section" data-aos="zoom-in">
+      <h2>Let’s Build a Circular Future Together</h2>
+      <p>We collaborate with founders, designers, and communities to scale regenerative models.</p>
+      <a class="btn outline" href="ecosymbiosis.html">See Integrated Strategies</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <small>© 2025 EcoMidori</small>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html">About</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+      </nav>
+      <div class="socials" aria-hidden="true">
+        <a href="#" class="social">🐦</a>
+        <a href="#" class="social">📘</a>
+        <a href="#" class="social">📸</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-quart' });
+
+    // simple simulated submit behaviour
+    document.addEventListener('DOMContentLoaded', function(){
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('success');
+      const send = document.getElementById('sendBtn');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        send.setAttribute('disabled','true');
+        send.textContent = 'Sending...';
+        setTimeout(()=>{
+          send.removeAttribute('disabled');
+          send.textContent = 'Send Message';
+          success.style.display = 'block';
+          success.textContent = 'Thanks — your message has been prepared. (This is a static demo.)';
+          success.animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}], {duration:520, easing:'ease-out', fill:'forwards'});
+          form.reset();
+        }, 900);
+      });
+    });
+  </script>
+</body>
+</html>

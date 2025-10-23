@@ -1,0 +1,133 @@
+        <div class="svg-wrap" role="img" aria-label="Interactive circular economy diagram">
+          <svg id="flowSvg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" tabindex="0">
+            <!-- Ring path -->
+            <defs>
+              <linearGradient id="ringGrad" x1="0" x2="1">
+                <stop offset="0%" stop-color="#7DE9A2"/>
+                <stop offset="100%" stop-color="#2FBF6A"/>
+              </linearGradient>
+
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L6,3 L0,6 z" fill="#9EE6B2"></path>
+              </marker>
+            </defs>
+
+            <!-- circular spline path -->
+            <g id="flowGroup">
+              <path id="flowPath" d="M400,120
+                                     C540,120 700,240 700,360
+                                     C700,480 540,580 400,580
+                                     C260,580 100,480 100,360
+                                     C100,240 260,120 400,120 Z"
+                    fill="none" stroke="url(#ringGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+            </g>
+
+            <!-- Animated arrow stroke (dashed moving) -->
+            <path id="movingArrows" d="M400,120
+                                     C540,120 700,240 700,360
+                                     C700,480 540,580 400,580
+                                     C260,580 100,480 100,360
+                                     C100,240 260,120 400,120 Z"
+                  fill="none" stroke="#9EE6B2" stroke-width="3" stroke-dasharray="8 28" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowhead)"/>
+
+            <!-- Node groups (icons + labels). positions calculated visually -->
+            <!-- Make -->
+            <g class="node" id="node-make" data-key="Make" transform="translate(620,170)" tabindex="0" role="button" aria-label="Make: Design and produce">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-14,-14)" aria-hidden="true">
+                <path d="M4 20 L20 20 L20 12 L4 12 Z M8 4 L16 4 L16 10 L8 10 Z" fill="#062512"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Make</text>
+            </g>
+
+            <!-- Use -->
+            <g class="node" id="node-use" data-key="Use" transform="translate(700,360)" tabindex="0" role="button" aria-label="Use: Products used and maintained">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-10,-12)" aria-hidden="true">
+                <circle cx="8" cy="8" r="6" fill="#062512"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Use</text>
+            </g>
+
+            <!-- Collect -->
+            <g class="node" id="node-collect" data-key="Collect" transform="translate(620,530)" tabindex="0" role="button" aria-label="Collect: Systems to collect end-of-life items">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-12,-14)" aria-hidden="true">
+                <rect x="0" y="0" width="20" height="20" fill="#062512" />
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Collect</text>
+            </g>
+
+            <!-- Recycle -->
+            <g class="node" id="node-recycle" data-key="Recycle" transform="translate(400,560)" tabindex="0" role="button" aria-label="Recycle: Materials recovered and processed">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-12,-14)" aria-hidden="true">
+                <path d="M4 8 L12 16 L20 8" fill="none" stroke="#062512" stroke-width="2"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Recycle</text>
+            </g>
+
+            <!-- Regenerate -->
+            <g class="node" id="node-regenerate" data-key="Regenerate" transform="translate(180,530)" tabindex="0" role="button" aria-label="Regenerate: Restoring ecosystems">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-12,-16)" aria-hidden="true">
+                <path d="M6 16 C10 8 14 8 18 16" fill="none" stroke="#062512" stroke-width="2"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Regenerate</text>
+            </g>
+
+            <!-- Reinvent -->
+            <g class="node" id="node-reinvent" data-key="Reinvent" transform="translate(140,360)" tabindex="0" role="button" aria-label="Reinvent: New business models">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-12,-12)" aria-hidden="true">
+                <path d="M4 12 L12 4 L20 12" fill="none" stroke="#062512" stroke-width="2"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Reinvent</text>
+            </g>
+
+            <!-- Reuse (between Reinvent & Make) -->
+            <g class="node" id="node-reuse" data-key="Reuse" transform="translate(260,170)" tabindex="0" role="button" aria-label="Reuse: Extending life through reuse">
+              <circle r="36" class="node-bg"></circle>
+              <g class="node-icon" transform="translate(-10,-12)" aria-hidden="true">
+                <path d="M2 10 L18 10" stroke="#062512" stroke-width="2"/>
+              </g>
+              <text class="node-label" x="0" y="64" text-anchor="middle">Reuse</text>
+            </g>
+
+            <!-- moving resource particles (SVG group) -->
+            <g id="particles"></g>
+
+          </svg>
+        </div>
+      <div class="flow-wrap">
+
+
+        <!-- info modal -->
+        <div id="nodeModal" class="node-modal" role="dialog" aria-hidden="true" aria-modal="false">
+          <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+          <h3 id="modalTitle">Title</h3>
+          <p id="modalBody">Detailed description about this stage of the circular economy, examples, and how entrepreneurs can implement it.</p>
+          <a id="modalLink" class="btn outline" href="examples.html">See Examples</a>
+        </div>
+      </div>
+
+
+
+
+        //2
+    <svg>
+      <!-- moving resource particles (SVG group) -->
+      <g id="particles">
+        <path id="flowPath" />
+      </g>
+
+    </svg>
+          <button  id="modalClose" ></button>

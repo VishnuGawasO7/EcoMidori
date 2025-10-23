@@ -1,40 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EcoMidori — Where Sustainability Meets Innovation</title>
+  <title>EcoMidori — Circular Economy Flow</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!-- GSAP for smooth animations (CDN) -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
   <script src="script.js" defer></script>
+      <script src="leaf-particles.js" defer></script>
+      <script src="mobile-menu.js" defer></script>
 </head>
+
 <body class="dark-theme">
-  <header class="site-header" id="header">
-    <div class="container header-inner">
-      <a class="logo" href="#" aria-label="EcoMidori Home">
-        <!-- Placeholder SVG logo -->
-        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="logo" href="#" aria-label="EcoMidori Home">
+      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+      </svg>
+      <span class="brand">EcoMidori</span>
+    </a>
+
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+      <!-- Mobile menu header -->
+      <div class="mobile-logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
           <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
         </svg>
-        <span class="brand">EcoMidori</span>
-      </a>
+        <span>EcoMidori</span>
+      </div>
+      
+      <!-- <button class="menu-close" aria-label="Close menu">×</button> -->
+      
+      <!-- Navigation Links -->
+      <a href="index.html#hero">Home</a>
+      <a href="about.html">About</a>
+      <a href="green-entrepreneurship.html">Green</a>
+      <a href="circular-economy.html">Circular</a>
+      <a href="ecosymbiosis.html">Symbiosis</a>
+      <a href="contact.html">Contact</a>
+      
+      <!-- Mobile Controls (optional - if you want them in mobile menu too) -->
+      <div class="mobile-controls">
+        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
+          <span class="control-icon">🔊</span>
+        </button>
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
 
-      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#concepts">Concepts</a>
-        <a href="#examples">Examples</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <!-- Desktop Controls -->
+    <div class="header-controls">
+      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
+        <span class="control-icon">🔊</span>
+      </button>
+      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="control-icon">🌙</span>
+      </button>
     </div>
-  </header>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    
+    <!-- Overlay -->
+    <div class="nav-overlay"></div>
+  </div>
+</header>
+
+<!-- Keep your existing audio element -->
+<audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
 
   <main>
     <!-- Hero -->
@@ -45,12 +93,11 @@
           <p class="subhead">Discover how green entrepreneurship and the circular economy drive a regenerative future.</p>
           <div class="hero-cta">
             <a class="btn primary" href="#concepts" id="exploreBtn">Explore the Future</a>
-            <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="Toggle ambient sound">🔊</button>
+            <!-- <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="Toggle ambient sound">🔊</button> -->
           </div>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <!-- Floating leaves / particles -->
           <div class="floating-leaves" aria-hidden="true">
             <div class="leaf leaf-1"></div>
             <div class="leaf leaf-2"></div>
@@ -61,33 +108,24 @@
       </div>
     </section>
 
-    <!-- Circular Model -->
-    <section id="concepts" class="circular-section container">
-      <h2 class="section-title">The Circular Economy Loop</h2>
-      <p class="section-sub">Interact with the loop to learn each stage — tap or hover any segment.</p>
-
-      <div class="circle-wrap" aria-hidden="false">
-        <div class="circle" id="circle" aria-hidden="false" role="application" aria-label="Circular economy interactive diagram">
-          <!-- segments injected by JS for clarity -->
+    <!-- Circular Economy Flow Section -->
+    <section id="concepts" class="circular-section">
+      <div class="container">
+        <h2 class="section-title">Circular Economy Flow</h2>
+        <p class="section-sub">Click on each segment to learn more about the circular process</p>
+        
+        <div class="circle-wrap">
+          <div class="circle">
+            <!-- Circular nodes will be added by JavaScript here -->
+            <div class="circle-center">
+              <span class="center-text">Circular<br>Flow</span>
+            </div>
+          </div>
         </div>
-
-        <div class="circle-center" aria-hidden="false">
-          <!-- center emblem -->
-          <svg width="84" height="84" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.02)"></circle>
-            <path d="M12 4.5C9 4.5 6.5 8 6.5 11.5S8 18 12 19.5 17.5 17 17.5 13.5 15 4.5 12 4.5z" fill="#9EE6B2"></path>
-          </svg>
-          <div class="center-text">EcoMidori</div>
-        </div>
-      </div>
-
-      <!-- tooltip / info card -->
-      <div id="segmentInfo" class="segment-info" role="dialog" aria-modal="false" aria-hidden="true">
-        <h3 id="segTitle">Title</h3>
-        <p id="segDesc">Description</p>
-        <a href="examples.html" class="btn ghost">See Examples</a>
       </div>
     </section>
+
+
 
     <!-- Info Cards -->
     <section id="about" class="info-cards container">
@@ -175,8 +213,16 @@
     </div>
   </footer>
 
-  <!-- Ambient audio (optional, not autoplay) -->
-  <audio id="ambientAudio" loop preload="none" src=""></audio>
+
+  <!-- Node Modal -->
+  <div id="nodeModal" class="modal" aria-hidden="true" style="display: none;">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">&times;</button>
+      <h2 id="modalTitle">Node Title</h2>
+      <p id="modalBody">Node description will appear here.</p>
+      <a id="modalLink" href="#" class="btn primary">Learn More</a>
+    </div>
+  </div>
 
 </body>
 </html>

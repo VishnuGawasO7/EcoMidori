@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoMidori — Circular Economy</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <script src="script.js" defer></script>
+      <script src="leaf-particles.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="header" data-aos="fade-down" data-aos-duration="1000">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" fill="rgba(29,130,60,0.08)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#1D823C"></path>
+        </svg>
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="examples.html">Examples</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" style="min-height:62vh; padding-top:120px;">
+      <div class="hero-inner container">
+        <div class="hero-content" data-aos="fade-up">
+          <h1 class="headline">Circular Economy — Closing the Loop for a Regenerative World</h1>
+          <p class="subhead" data-aos="fade-up" data-aos-delay="150">From take-make-waste to design-for-circulation. Explore principles and practical methods to keep materials and value in use.</p>
+          <div class="hero-cta" data-aos="zoom-in" data-aos-delay="300">
+            <a class="btn primary" href="#flow">Explore the Circular Loop</a>
+            <a class="btn outline" href="ecosymbiosis.html">See Integrated Models</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true" data-aos="fade-left" data-aos-delay="250">
+          <div style="width:320px;height:220px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);background:linear-gradient(180deg,#ffffff,#f3fff6)">
+            <div style="text-align:center;color:var(--green-1);font-weight:700">Circular Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Circular Flow -->
+    <section id="flow" class="circular-section container" data-aos="fade-up">
+      <h2 class="section-title">Interactive Circular Flow</h2>
+      <p class="section-sub">Hover or tap each stage to reveal insights and sustainable actions.</p>
+
+      <div class="circle-wrap" data-aos="zoom-in" data-aos-delay="150">
+        <div class="circle" id="circleFlow">
+          <!-- You can insert SVG or interactive JS-based segments here -->
+        </div>
+        <div class="circle-center" style="width:140px;height:140px">
+          <div class="center-text">Circular System</div>
+        </div>
+      </div>
+
+      <div id="flowInfo" class="segment-info" aria-hidden="true" data-aos="fade-up" data-aos-delay="200">
+        <h3 id="flowTitle">Stage</h3>
+        <p id="flowDesc">Description of the stage and practical approaches.</p>
+        <a href="resources.html" class="btn ghost">Learn more</a>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="container" style="padding:36px 28px">
+      <h2 class="section-title" data-aos="fade-up">Principles of Circular Design</h2>
+      <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Key approaches to design systems that circulate materials and restore ecosystems.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px">
+        <div class="card" data-aos="fade-right">
+          <h3>Eliminate Waste</h3>
+          <p>Design processes and products that prevent waste from being created in the first place.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Keep Products in Use</h3>
+          <p>Enable repair, refurbishment, and reuse through business models and material choices.</p>
+        </div>
+        <div class="card" data-aos="fade-left" data-aos-delay="200">
+          <h3>Regenerate Nature</h3>
+          <p>Restore ecosystems and return nutrients to the biosphere through regenerative practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="teasers container" style="padding:28px">
+      <div class="teaser" data-aos="fade-up">
+        <h3>Global Examples</h3>
+        <p>From material innovation to policy changes — examples of circular strategies in action.</p>
+        <a href="examples.html" class="link-cta">Explore Examples →</a>
+      </div>
+      <div class="teaser" data-aos="fade-up" data-aos-delay="150">
+        <h3>Tools & Guides</h3>
+        <p>Design tools, business models, and resources to implement circular solutions.</p>
+        <a href="resources.html" class="link-cta">View tools →</a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" style="margin:18px 28px" data-aos="fade-up">
+      <div class="container cta-inner">
+        <h2>Build Circular, Build Resilient</h2>
+        <p>Transform products, processes, and mindsets to keep value in circulation.</p>
+        <div class="cta-buttons" data-aos="zoom-in" data-aos-delay="200">
+          <a class="btn primary" href="contact.html">Start a Project</a>
+          <a class="btn outline" href="ecosymbiosis.html">See Combined Strategies</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#1D823C"></path>
+        </svg>
+        <small>© 2025 EcoMidori</small>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+      </nav>
+      <div class="socials" aria-hidden="true">
+        <a href="#" class="social">🐦</a>
+        <a href="#" class="social">📘</a>
+        <a href="#" class="social">📸</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 120,
+    });
+  </script>
+</body>
+</html>
