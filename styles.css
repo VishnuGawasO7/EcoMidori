@@ -249,72 +249,10 @@ html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 
   .hero-inner{flex-direction:column; align-items:flex-start}
   .floating-leaves{width:220px;height:220px}
   .circle{width:300px;height:300px}
-  .menu-toggle{display:block}
-  .main-nav{display:none}
-  .site-header.scrolled .main-nav{display:none}
-  .node {
-    width: 100px;
-    height: 100px;
-    font-size: 0.8rem;
-  }
-  /* Adjust node positions for smaller circle */
-  #node-make { transform: translate(0px, -130px); }
-  #node-use { transform: translate(90px, -90px); }
-  #node-collect { transform: translate(130px, 0px); }
-  #node-recycle { transform: translate(90px, 90px); }
-  #node-regenerate { transform: translate(0px, 130px); }
-  #node-reinvent { transform: translate(-90px, 90px); }
-  #node-reuse { transform: translate(-130px, 0px); }
-}
-
-
-
-
-
-
-
-/* Leaf Particles - Reusable across all pages */
-.leaf-particle {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform-origin: center center;
-    will-change: transform, opacity;
-    filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
-    opacity: 0.95;
-}
-
-.leaf-particle svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.leaf-particle.interactive {
-    z-index: 10000;
-}
-
-/* Optional: Different sizes for variety */
-.leaf-particle.small {
-    width: 16px;
-    height: 16px;
-}
-
-.leaf-particle.medium {
-    width: 22px;
-    height: 22px;
-}
-
-.leaf-particle.large {
-    width: 28px;
-    height: 28px;
-}
-
-
-/* Mobile Menu Styles */
-@media (max-width: 900px){
-  .menu-toggle {
-    display: flex;
+  
+  /* FIXED: Menu toggle always visible on mobile */
+  .menu-toggle{
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -341,61 +279,7 @@ html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 
     border-color: var(--green-1);
   }
 
-  /* Hamburger icon */
-  .hamburger-box {
-    width: 20px;
-    height: 16px;
-    display: inline-block;
-    position: relative;
-  }
-
-  .hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -1px;
-  }
-
-  .hamburger-inner,
-  .hamburger-inner::before,
-  .hamburger-inner::after {
-    width: 20px;
-    height: 2px;
-    background-color: var(--green-1);
-    border-radius: 1px;
-    position: absolute;
-    transition: transform 0.3s ease;
-  }
-
-  .hamburger-inner::before,
-  .hamburger-inner::after {
-    content: "";
-    display: block;
-  }
-
-  .hamburger-inner::before {
-    top: -6px;
-  }
-
-  .hamburger-inner::after {
-    bottom: -6px;
-  }
-
-  /* Hamburger animation when active */
-  .menu-toggle[aria-expanded="true"] .hamburger-inner {
-    transform: rotate(45deg);
-  }
-
-  .menu-toggle[aria-expanded="true"] .hamburger-inner::before {
-    top: 0;
-    transform: rotate(-90deg);
-  }
-
-  .menu-toggle[aria-expanded="true"] .hamburger-inner::after {
-    bottom: 0;
-    opacity: 0;
-    transform: rotate(90deg);
-  }
-
+  /* FIXED: Main nav always hidden by default, shown when active */
   .main-nav {
     position: fixed;
     top: 0;
@@ -409,9 +293,14 @@ html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 
     z-index: 999;
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
     border-left: 1px solid rgba(158, 230, 178, 0.1);
-    display: flex;
+    display: flex !important; /* Force display flex */
     flex-direction: column;
     gap: 8px;
+  }
+
+  /* FIXED: Remove the scrolled state hiding the nav */
+  .site-header.scrolled .main-nav {
+    display: flex !important; /* Override any display: none */
   }
 
   .main-nav.active {
@@ -505,6 +394,20 @@ html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 
     width: 32px;
     height: 32px;
   }
+
+  .node {
+    width: 100px;
+    height: 100px;
+    font-size: 0.8rem;
+  }
+  /* Adjust node positions for smaller circle */
+  #node-make { transform: translate(0px, -130px); }
+  #node-use { transform: translate(90px, -90px); }
+  #node-collect { transform: translate(130px, 0px); }
+  #node-recycle { transform: translate(90px, 90px); }
+  #node-regenerate { transform: translate(0px, 130px); }
+  #node-reinvent { transform: translate(-90px, 90px); }
+  #node-reuse { transform: translate(-130px, 0px); }
 }
 
 /* Enhanced desktop menu */
@@ -664,3 +567,97 @@ html,body{height:100%; margin:0; background:radial-gradient(1200px 600px at 10% 
     display: none;
   }
 }
+
+/* Leaf Particles - Reusable across all pages */
+.leaf-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform-origin: center center;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
+    opacity: 0.95;
+}
+
+.leaf-particle svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.leaf-particle.interactive {
+    z-index: 10000;
+}
+
+/* Optional: Different sizes for variety */
+.leaf-particle.small {
+    width: 16px;
+    height: 16px;
+}
+
+.leaf-particle.medium {
+    width: 22px;
+    height: 22px;
+}
+
+.leaf-particle.large {
+    width: 28px;
+    height: 28px;
+}
+
+
+
+  /* Hamburger icon */
+  .hamburger-box {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -1px;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 20px;
+    height: 2px;
+    background-color: var(--green-1);
+    border-radius: 1px;
+    position: absolute;
+    transition: transform 0.3s ease;
+  }
+
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    content: "";
+    display: block;
+  }
+
+  .hamburger-inner::before {
+    top: -6px;
+  }
+
+  .hamburger-inner::after {
+    bottom: -6px;
+  }
+
+  /* Hamburger animation when active */
+  .menu-toggle[aria-expanded="true"] .hamburger-inner {
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger-inner::before {
+    top: 0;
+    transform: rotate(-90deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .hamburger-inner::after {
+    bottom: 0;
+    opacity: 0;
+    transform: rotate(90deg);
+  }

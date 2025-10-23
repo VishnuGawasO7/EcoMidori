@@ -20,15 +20,10 @@
   </style>
 </head>
 <body>
-  <!-- Ambient fireflies -->
-  <div class="ambient" aria-hidden="true">
-    <div class="firefly" style="left:12%; top:30%; animation-duration:9s;"></div>
-    <div class="firefly" style="left:78%; top:18%; animation-duration:11s;"></div>
-    <div class="firefly" style="left:52%; top:52%; animation-duration:10s;"></div>
-  </div>
+
 
   <!-- leaf particles -->
-  <div class="leaf-particle" style="left:88%; top:76%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div>
+  <!-- <div class="leaf-particle" style="left:88%; top:76%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div> -->
 
 <header class="site-header" id="header">
   <div class="container header-inner">
@@ -95,6 +90,10 @@
 
 <!-- Keep your existing audio element -->
 <audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
+<svg id="flowSvg" width="300" height="100" style="display: none;">
+  <path id="flowPath" d="M10 80 Q 95 10 180 80 T 330 80" stroke="black" fill="none" />
+  <g id="particles"></g>
+</svg>
 
   <main class="container">
     <section class="hero contact-hero" data-aos="fade-up">
