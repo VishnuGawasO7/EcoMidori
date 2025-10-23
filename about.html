@@ -10,6 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <script defer src="script.js"></script>
       <script src="leaf-particles.js" defer></script>
+            <script src="mobile-menu.js" defer></script>
   <style>
     /* small page-specific overrides for layout */
     header.main-header, .main-footer { display:none; } /* header/footer handled by site-header in styles */
@@ -31,28 +32,69 @@
   <div class="leaf-particle" style="left:10%; top:80%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div>
 
   <!-- site header (matches homepage) -->
-  <header class="site-header transparent" id="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="EcoMidori Home">
-        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <circle cx="12" cy="12" r="11" fill="rgba(29,130,60,0.04)"></circle>
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="logo" href="#" aria-label="EcoMidori Home">
+      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+      </svg>
+      <span class="brand">EcoMidori</span>
+    </a>
+
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+      <!-- Mobile menu header -->
+      <div class="mobile-logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
           <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
         </svg>
-        <span class="brand">EcoMidori</span>
-      </a>
-
-      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <span>EcoMidori</span>
+      </div>
+      
+      <!-- <button class="menu-close" aria-label="Close menu">×</button> -->
+      
+      <!-- Navigation Links -->
         <a href="index.html#hero">Home</a>
-        <a href="about.html" aria-current="page">About</a>
         <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
         <a href="circular-economy.html">Circular Economy</a>
         <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-      </nav>
+      
+      <!-- Mobile Controls (optional - if you want them in mobile menu too) -->
+      <div class="mobile-controls">
+        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
+          <span class="control-icon">🔊</span>
+        </button>
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
 
-      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <!-- Desktop Controls -->
+    <div class="header-controls">
+      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
+        <span class="control-icon">🔊</span>
+      </button>
+      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="control-icon">🌙</span>
+      </button>
     </div>
-  </header>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    
+    <!-- Overlay -->
+    <div class="nav-overlay"></div>
+  </div>
+</header>
+
 
   <main>
     <section class="hero about-hero container">
