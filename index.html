@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +14,7 @@
   <script src="script.js" defer></script>
   <script src="leaf-particles.js" defer></script>
   <script src="mobile-menu.js" defer></script>
+  <script src="dropdown.js" defer></script>
 </head>
 
 <body class="dark-theme">
@@ -43,7 +43,61 @@
       <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
       <a href="circular-economy.html">Circular Economy</a>
       <a href="ecosymbiosis.html">EcoSymbiosis</a>
-      <a href="about.html">About</a>
+      
+      <!-- Enhanced Dropdown Menu -->
+      <div class="nav-dropdown">
+        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+          More
+          <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a href="about.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">👥</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">About Us</span>
+              <span class="dropdown-desc">Our mission and team</span>
+            </div>
+          </a>
+          <a href="impact-hub.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">📊</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Impact Hub</span>
+              <span class="dropdown-desc">Metrics and success stories</span>
+            </div>
+          </a>
+          <a href="contact.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">📞</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Contact</span>
+              <span class="dropdown-desc">Get in touch with us</span>
+            </div>
+          </a>
+          <a href="blog.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">📝</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Latest insights and news</span>
+            </div>
+          </a>
+          <a href="resources.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">📚</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Resources</span>
+              <span class="dropdown-desc">Tools and downloads</span>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="careers.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon">💼</div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Careers</span>
+              <span class="dropdown-desc">Join our team</span>
+            </div>
+          </a>
+        </div>
+      </div>
 
       <div class="mobile-controls">
         <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
@@ -383,7 +437,7 @@
       </form>
 
       <div class="cta-buttons">
-        <a href="#contact" class="btn outline">Schedule a Consultation</a>
+        <a href="contact.html" class="btn outline">Schedule a Consultation</a>
         <a href="about.html" class="btn glass">Meet Our Team</a>
       </div>
     </div>
@@ -433,13 +487,13 @@
         <div class="teaser">
           <h3>Quick Consultation</h3>
           <p>30-minute session to discuss your circular business idea and get immediate feedback.</p>
-          <a href="#" class="btn primary">Book Now</a>
+          <a href="contact.html" class="btn primary">Book Now</a>
         </div>
         
         <div class="teaser">
           <h3>Deep Dive Workshop</h3>
           <p>Half-day session to map your circular strategy and create an actionable implementation plan.</p>
-          <a href="#" class="btn outline">Learn More</a>
+          <a href="contact.html" class="btn outline">Learn More</a>
         </div>
         
         <div class="teaser">
@@ -460,7 +514,9 @@
       <nav class="footer-nav">
         <a href="#privacy">Privacy Policy</a>
         <a href="#terms">Terms of Service</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="impact-hub.html">Impact</a>
       </nav>
     </div>
   </div>

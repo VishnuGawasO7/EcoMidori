@@ -9,157 +9,437 @@
   <!-- AOS CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <script defer src="script.js"></script>
-      <script src="leaf-particles.js" defer></script>
-            <script src="mobile-menu.js" defer></script>
+  <script src="leaf-particles.js" defer></script>
+  <script src="mobile-menu.js" defer></script>
+
   <style>
-    .contact-hero{padding-top:120px;min-height:58vh;display:flex;align-items:center}
-    .map-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(158,230,178,0.03);box-shadow:var(--card-shadow);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
-    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start}
-    @media (max-width:900px){ .contact-grid{grid-template-columns:1fr} }
-    .success-msg{display:none;padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(95,224,122,0.12), rgba(158,230,178,0.08));color:var(--green-1);margin-top:8px}
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+      border-radius: 12px;
+      border: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(158, 230, 178, 0.1);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .contact-details h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--green-1);
+    }
+    
+    .contact-details p {
+      margin: 0;
+      color: var(--muted);
+    }
+    
+    .success-msg {
+      display: none;
+      padding: 1rem;
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(95,224,122,0.12), rgba(158,230,178,0.08));
+      color: var(--green-1);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      height: 300px;
+      background: linear-gradient(135deg, 
+        rgba(11, 42, 27, 0.8) 0%, 
+        rgba(7, 25, 20, 0.8) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .map-placeholder {
+      text-align: center;
+      color: var(--green-1);
+      padding: 2rem;
+    }
+    
+    .contact-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .office-hours {
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .office-hours h3 {
+      margin-top: 0;
+      color: var(--green-1);
+    }
+    
+    .office-hours ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .office-hours li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(158, 230, 178, 0.05);
+    }
+    
+    .office-hours li:last-child {
+      border-bottom: none;
+    }
   </style>
 </head>
-<body>
 
+<body class="dark-theme">
 
-  <!-- leaf particles -->
-  <!-- <div class="leaf-particle" style="left:88%; top:76%;"><svg class="leaf-svg" viewBox="0 0 24 24"><path d="M12 2C7 6 4 11 4 11s5 0 8-3 6-6 6-6-4 1-6 0z" fill="url(#g)"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#9feab1"/><stop offset="1" stop-color="#2fa04a"/></linearGradient></defs></svg></div> -->
-
-<header class="site-header" id="header">
-  <div class="container header-inner">
-    <a class="logo" href="#" aria-label="EcoMidori Home">
-      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
-        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
-      </svg>
-      <span class="brand">EcoMidori</span>
-    </a>
-
-    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-      <!-- Mobile menu header -->
-      <div class="mobile-logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+  <!-- site header (matches homepage) -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
           <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
         </svg>
-        <span>EcoMidori</span>
-      </div>
-      
-      <!-- <button class="menu-close" aria-label="Close menu">×</button> -->
-      
-      <!-- Navigation Links -->
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
         <a href="index.html#hero">Home</a>
         <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
         <a href="circular-economy.html">Circular Economy</a>
         <a href="ecosymbiosis.html">EcoSymbiosis</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      
-      <!-- Mobile Controls (optional - if you want them in mobile menu too) -->
-      <div class="mobile-controls">
-        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
-          <span class="control-icon">🔊</span>
-        </button>
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
-          <span class="control-icon">🌙</span>
-        </button>
-      </div>
-    </nav>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
 
-    <!-- Desktop Controls -->
-    <div class="header-controls">
-      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
-        <span class="control-icon">🔊</span>
-      </button>
-      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
-        <span class="control-icon">🌙</span>
+      <div class="header-controls">
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
+      </div>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
       </button>
     </div>
+  </header>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    
-    <!-- Overlay -->
-    <div class="nav-overlay"></div>
-  </div>
-</header>
+  <!-- Keep your existing audio element -->
+  <audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
 
-<!-- Keep your existing audio element -->
-<audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
-<svg id="flowSvg" width="300" height="100" style="display: none;">
-  <path id="flowPath" d="M10 80 Q 95 10 180 80 T 330 80" stroke="black" fill="none" />
-  <g id="particles"></g>
-</svg>
-
-  <main class="container">
-    <section class="hero contact-hero" data-aos="fade-up">
-      <div class="hero-inner" style="display:flex;gap:36px;align-items:center">
-        <div class="hero-content">
-          <h1 class="headline">Connect & Collaborate</h1>
-          <p class="subhead">Let’s grow a greener future together — one innovation at a time.</p>
-          <div style="margin-top:12px">
-            <a class="btn primary" href="#form">Send a Message</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-inner container">
+        <div class="hero-content" data-aos="fade-up">
+          <p class="eyebrow">Connect & Collaborate</p>
+          <h1 class="headline">Let's Grow a Greener Future Together</h1>
+          <p class="subhead">Ready to transform your business or community with circular economy principles? Our team is here to help you build regenerative, sustainable solutions that create lasting impact.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact-form">Send a Message</a>
             <a class="btn outline" href="about.html">Learn About Us</a>
           </div>
+          <ul class="hero-features">
+            <li>✓ Free initial consultation</li>
+            <li>✓ Customized solutions for your needs</li>
+            <li>✓ Global network of sustainability experts</li>
+          </ul>
         </div>
-        <div class="hero-visual" data-aos="fade-left" aria-hidden="true">
-          <div style="width:320px;height:220px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))">
-            <div style="text-align:center;color:var(--green-1);font-weight:700">Get in Touch</div>
+        <div class="hero-visual" data-aos="fade-left">
+          <div class="floating-leaves">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact-form-section" id="form" style="padding:28px 0" data-aos="fade-up">
-      <div class="contact-grid">
-        <div>
-          <h2 class="section-title">Send Us a Message</h2>
-          <form class="contact-form" id="contactForm" onsubmit="return false;">
-            <label class="sr-only">Name<input type="text" id="name" name="name" placeholder="Your name" required></label>
-            <label class="sr-only">Email<input type="email" id="email" name="email" placeholder="you@example.com" required></label>
-            <label class="sr-only">Message<textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea></label>
-            <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
-            <div id="success" class="success-msg" role="status" aria-live="polite">Thanks — your message has been prepared. (This is a static demo.)</div>
-          </form>
-
-          <div style="margin-top:18px" data-aos="fade-up" data-aos-delay="120">
-            <h3>Contact Details</h3>
-            <ul>
-              <li>📧 <a href="mailto:info@ecomidori.org">info@ecomidori.org</a></li>
-              <li>📍 Kyoto, Japan</li>
-              <li>📞 +81 75 000 0000 (placeholder)</li>
-            </ul>
-          </div>
+    <!-- Contact Methods -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">How We Can Help You</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Multiple ways to connect with our team of sustainability experts</p>
         </div>
 
-        <aside class="map-wrap" data-aos="fade-left">
-          <!-- Stylized SVG map placeholder -->
-          <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" id="mapSVG" style="width:100%;height:100%">
-            <defs>
-              <linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#0b2a1b"/><stop offset="1" stop-color="#071914"/></linearGradient>
-              <radialGradient id="lg" cx="30%" cy="20%"><stop offset="0" stop-color="#9EE6B2" stop-opacity="0.14"/><stop offset="1" stop-color="transparent"/></radialGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#mg)"></rect>
-            <g transform="translate(40,30)" fill="none" stroke="rgba(158,230,178,0.06)">
-              <path d="M20 300 C80 220, 150 220, 220 300" stroke-width="2"></path>
-              <path d="M180 260 C240 180, 320 180, 380 260" stroke-width="2"></path>
-              <circle cx="80" cy="240" r="6" fill="#9EE6B2"></circle>
-              <circle cx="320" cy="220" r="6" fill="#5FE07A"></circle>
-            </g>
-            <g><text x="30" y="30" fill="#9EE6B2" font-size="18">EcoMidori — Location</text></g>
-          </svg>
-        </aside>
+        <div class="contact-options">
+          <div class="card" data-aos="fade-up">
+            <div class="icon">💼</div>
+            <h3>Business Consultation</h3>
+            <p>Get personalized advice on implementing circular economy principles in your organization.</p>
+            <a href="#contact-form" class="btn outline">Schedule a Call</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon">🏛️</div>
+            <h3>Partnerships</h3>
+            <p>Explore collaboration opportunities with EcoMidori and our network of sustainable businesses.</p>
+            <a href="#contact-form" class="btn outline">Partner With Us</a>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon">🎓</div>
+            <h3>Training & Workshops</h3>
+            <p>Request customized training sessions for your team on green entrepreneurship and circular design.</p>
+            <a href="#contact-form" class="btn outline">Request Training</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="cta-section" data-aos="zoom-in">
-      <h2>Let’s Build a Circular Future Together</h2>
-      <p>We collaborate with founders, designers, and communities to scale regenerative models.</p>
-      <a class="btn outline" href="ecosymbiosis.html">See Integrated Strategies</a>
+    <!-- Contact Form & Information -->
+    <section id="contact-form" class="section-sm alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Send us a message and we'll respond within 24 hours</p>
+        </div>
+
+        <div class="contact-grid">
+          <div data-aos="fade-right">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select an option</option>
+                  <option value="consultation">Business Consultation</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="training">Training & Workshops</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="6" required></textarea>
+              </div>
+              
+              <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
+              <div id="success" class="success-msg" role="status" aria-live="polite">
+                Thank you for your message! We'll get back to you within 24 hours.
+              </div>
+            </form>
+          </div>
+
+          <div data-aos="fade-left">
+            <div class="contact-info">
+              <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                  <h3>Email Us</h3>
+                  <p><a href="mailto:info@ecomidori.org">info@ecomidori.org</a></p>
+                  <p>We typically respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">📍</div>
+                <div class="contact-details">
+                  <h3>Visit Our Office</h3>
+                  <p>Kyoto, Japan</p>
+                  <p>By appointment only</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">📞</div>
+                <div class="contact-details">
+                  <h3>Call Us</h3>
+                  <p>+81 75 000 0000</p>
+                  <p>Mon-Fri, 9am-5pm JST</p>
+                </div>
+              </div>
+
+              <div class="office-hours">
+                <h3>Office Hours</h3>
+                <ul>
+                  <li><span>Monday - Friday</span> <span>9:00 AM - 5:00 PM</span></li>
+                  <li><span>Saturday</span> <span>10:00 AM - 2:00 PM</span></li>
+                  <li><span>Sunday</span> <span>Closed</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Map -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Our Location</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Based in Kyoto, Japan with a global network of partners</p>
+        </div>
+
+        <div class="map-container" data-aos="zoom-in">
+          <div class="map-placeholder">
+            <h3>Kyoto, Japan</h3>
+            <p>Heart of sustainable innovation</p>
+            <p>📍 Map would be integrated here</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-sm alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Quick answers to common questions about working with us</p>
+        </div>
+
+        <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+          <details>
+            <summary>How quickly will I hear back after submitting my inquiry?</summary>
+            <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, please indicate this in your message subject line.</p>
+          </details>
+          
+          <details>
+            <summary>Do you offer free initial consultations?</summary>
+            <p>Yes, we offer a complimentary 30-minute consultation to discuss your needs and explore how we can help you implement circular economy principles.</p>
+          </details>
+          
+          <details>
+            <summary>What types of businesses do you work with?</summary>
+            <p>We work with businesses of all sizes and across various industries, from startups to established corporations, who are committed to implementing sustainable and circular practices.</p>
+          </details>
+          
+          <details>
+            <summary>Do you offer virtual consultations for international clients?</summary>
+            <p>Absolutely! We regularly work with clients globally through video conferencing and have flexible scheduling to accommodate different time zones.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">What to Expect When Working With Us</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Learn about our process and approach to sustainability consulting</p>
+        </div>
+        
+        <div class="video-container" data-aos="fade-up">
+          <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
+                  title="Working With EcoMidori"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+        
+        <div class="mission-grid">
+          <article class="mission-item" data-aos="fade-up">
+            <h3>Initial Assessment</h3>
+            <p>We begin with a comprehensive analysis of your current operations to identify circular economy opportunities and challenges.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
+            <h3>Strategy Development</h3>
+            <p>We co-create a customized circular strategy aligned with your business goals and sustainability objectives.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
+            <h3>Implementation Support</h3>
+            <p>We provide hands-on support to implement circular initiatives, from product redesign to supply chain optimization.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-aos="fade-up">Ready to Start Your Sustainability Journey?</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join hundreds of businesses already transforming their operations with circular principles</p>
+        </div>
+
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+          <a href="#contact-form" class="btn primary">Get Started Today</a>
+          <a href="about.html" class="btn outline">Learn More About Us</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -189,25 +469,34 @@
   <!-- AOS JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init({ duration: 700, once: true, easing: 'ease-out-quart' });
+    AOS.init({ 
+      duration: 1000, 
+      once: true, 
+      easing: 'ease-in-out',
+      offset: 100
+    });
 
-    // simple simulated submit behaviour
+    // Form submission handling
     document.addEventListener('DOMContentLoaded', function(){
       const form = document.getElementById('contactForm');
       const success = document.getElementById('success');
-      const send = document.getElementById('sendBtn');
+      const sendBtn = document.getElementById('sendBtn');
+      
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        send.setAttribute('disabled','true');
-        send.textContent = 'Sending...';
-        setTimeout(()=>{
-          send.removeAttribute('disabled');
-          send.textContent = 'Send Message';
+        sendBtn.setAttribute('disabled', 'true');
+        sendBtn.textContent = 'Sending...';
+        
+        // Simulate form submission
+        setTimeout(() => {
+          sendBtn.removeAttribute('disabled');
+          sendBtn.textContent = 'Send Message';
           success.style.display = 'block';
-          success.textContent = 'Thanks — your message has been prepared. (This is a static demo.)';
-          success.animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}], {duration:520, easing:'ease-out', fill:'forwards'});
           form.reset();
-        }, 900);
+          
+          // Scroll to success message
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 1500);
       });
     });
   </script>

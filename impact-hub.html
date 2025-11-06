@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impact Hub | EcoMidori</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <script src="script.js" defer></script>
+  <script src="leaf-particles.js" defer></script>
+  <script src="mobile-menu.js" defer></script>
+
+  <style>
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .member-card {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      border: 3px solid rgba(158, 230, 178, 0.3);
+    }
+    
+    .impact-metrics {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-item {
+      text-align: center;
+    }
+    
+    .metric-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--green-2);
+      display: block;
+    }
+    
+    .metric-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+      border-radius: 12px;
+      border: 1px solid rgba(158, 230, 178, 0.1);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      font-size: 4rem;
+      color: rgba(158, 230, 178, 0.2);
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      line-height: 1;
+    }
+    
+    .testimonial-text {
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      margin: 0;
+      color: var(--green-1);
+    }
+    
+    .author-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .event-card {
+      padding: 1.5rem;
+    }
+    
+    .event-date {
+      display: inline-block;
+      background: rgba(158, 230, 178, 0.1);
+      color: var(--green-2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .community-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .stat-circle {
+      text-align: center;
+    }
+    
+    .circle-container {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      margin: 0 auto 1rem;
+    }
+    
+    .circle-bg {
+      fill: none;
+      stroke: rgba(158, 230, 178, 0.1);
+      stroke-width: 8;
+    }
+    
+    .circle-progress {
+      fill: none;
+      stroke: var(--green-2);
+      stroke-width: 8;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+    
+    .circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-1);
+    }
+    
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body class="dark-theme">
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation">
+        <a href="index.html#hero">Home</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="impact-hub.html" class="active">Impact Hub</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-controls">
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
+      </div>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      </button>
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-content" data-aos="fade-up">
+        <p class="eyebrow">Community • Success Stories • Collective Impact</p>
+        <h1 class="headline">Impact Hub — Celebrating Our Community's Success</h1>
+        <p class="subhead">Discover inspiring stories, meet our community of change-makers, and explore the collective impact we're creating together through sustainable entrepreneurship.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#stories">Explore Success Stories</a>
+          <a class="btn outline" href="#community">Join Our Community</a>
+        </div>
+        <ul class="hero-features">
+          <li>✓ 500+ entrepreneurs in our network</li>
+          <li>✓ 80+ sustainable ventures launched</li>
+          <li>✓ ₿5.2M+ in sustainable value created</li>
+        </ul>
+      </div>
+      <div class="hero-visual" data-aos="fade-left">
+        <div class="floating-leaves">
+          <div class="leaf leaf-1"></div>
+          <div class="leaf leaf-2"></div>
+          <div class="leaf leaf-3"></div>
+          <div class="leaf leaf-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Stats -->
+  <section class="section-sm alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Our Collective Impact</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Measuring the difference our community is making together</p>
+      </div>
+
+      <div class="community-stats">
+        <div class="stat-circle" data-aos="fade-up">
+          <div class="circle-container">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle-progress"
+                stroke-dasharray="85, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <div class="circle-text">85%</div>
+          </div>
+          <div class="stat-label">Waste Reduction</div>
+        </div>
+
+        <div class="stat-circle" data-aos="fade-up" data-aos-delay="100">
+          <div class="circle-container">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle-progress"
+                stroke-dasharray="92, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <div class="circle-text">92%</div>
+          </div>
+          <div class="stat-label">Renewable Energy Use</div>
+        </div>
+
+        <div class="stat-circle" data-aos="fade-up" data-aos-delay="200">
+          <div class="circle-container">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle-progress"
+                stroke-dasharray="78, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <div class="circle-text">78%</div>
+          </div>
+          <div class="stat-label">Carbon Footprint Reduction</div>
+        </div>
+
+        <div class="stat-circle" data-aos="fade-up" data-aos-delay="300">
+          <div class="circle-container">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle-progress"
+                stroke-dasharray="65, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+            <div class="circle-text">65%</div>
+          </div>
+          <div class="stat-label">Material Cost Savings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section id="stories" class="info-cards section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Featured Success Stories</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Inspiring journeys from our community of sustainable entrepreneurs</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card" data-aos="fade-up">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="GreenTech Solutions" loading="lazy">
+          </div>
+          <h3>GreenTech Solutions</h3>
+          <p>Developed AI-powered energy optimization systems that reduced commercial building energy consumption by 40% while cutting costs by 25%.</p>
+          <div class="btn-group">
+            <a href="#" class="btn outline">Read Full Story</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="Circular Fashion Co" loading="lazy">
+          </div>
+          <h3>Circular Fashion Co</h3>
+          <p>Created a closed-loop textile system that recycles 95% of clothing waste into new garments, reducing water usage by 80% compared to conventional production.</p>
+          <div class="btn-group">
+            <a href="#" class="btn outline">Read Full Story</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=250&fit=crop" alt="Urban Farm Network" loading="lazy">
+          </div>
+          <h3>Urban Farm Network</h3>
+          <p>Transformed urban rooftops into productive farms, providing fresh produce to 10,000 city residents while creating 150 green jobs in underserved communities.</p>
+          <div class="btn-group">
+            <a href="#" class="btn outline">Read Full Story</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Spotlight Video -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Community Spotlight</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Meet the entrepreneurs driving change in our community</p>
+      </div>
+      
+      <div class="video-container" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
+                title="EcoMidori Community Spotlight"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Member Spotlights -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Meet Our Community</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">The passionate individuals driving sustainable change</p>
+      </div>
+
+      <div class="member-grid">
+        <div class="card member-card" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" alt="Sarah Johnson" class="member-photo">
+          <h3>Sarah Johnson</h3>
+          <p class="muted">Founder, BioPack Solutions</p>
+          <p>Created compostable packaging from agricultural waste, eliminating 5 tons of plastic waste monthly.</p>
+          <a href="#" class="link-cta">Connect →</a>
+        </div>
+
+        <div class="card member-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Marcus Chen" class="member-photo">
+          <h3>Marcus Chen</h3>
+          <p class="muted">CEO, SolarFlow Energy</p>
+          <p>Developed affordable solar solutions for rural communities, bringing clean energy to 50,000+ people.</p>
+          <a href="#" class="link-cta">Connect →</a>
+        </div>
+
+        <div class="card member-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Aisha Patel" class="member-photo">
+          <h3>Aisha Patel</h3>
+          <p class="muted">Founder, GreenBuild Materials</p>
+          <p>Pioneered carbon-negative building materials that sequester CO2 while constructing sustainable homes.</p>
+          <a href="#" class="link-cta">Connect →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-sm alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">What Our Community Says</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Hear from entrepreneurs who have transformed their businesses with EcoMidori</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="testimonial-text">
+            "EcoMidori's circular economy framework helped us redesign our product lifecycle, reducing material costs by 40% while eliminating waste. The community support has been invaluable."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="David Kim" class="author-avatar">
+            <div class="author-info">
+              <h4>David Kim</h4>
+              <p>Founder, ReNew Tech</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-text">
+            "The mentorship and resources provided by EcoMidori transformed my small idea into a viable business. I've connected with investors, partners, and an incredible support network."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Elena Rodriguez" class="author-avatar">
+            <div class="author-info">
+              <h4>Elena Rodriguez</h4>
+              <p>CEO, EcoFashion Forward</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-text">
+            "Being part of the EcoMidori community opened doors I never imagined. The collaborative environment and shared knowledge helped us scale our impact 10x in just two years."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="James Wilson" class="author-avatar">
+            <div class="author-info">
+              <h4>James Wilson</h4>
+              <p>Founder, Urban Green Labs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section id="community" class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Community Events & Networking</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join upcoming events to connect with fellow sustainable entrepreneurs</p>
+      </div>
+
+      <div class="event-grid">
+        <div class="card event-card" data-aos="fade-up">
+          <div class="event-date">June 15, 2024 • Virtual</div>
+          <h3>Circular Economy Masterclass</h3>
+          <p>Learn advanced strategies for implementing circular business models from industry experts and successful entrepreneurs.</p>
+          <a href="#" class="btn outline">Register Now</a>
+        </div>
+
+        <div class="card event-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="event-date">June 22, 2024 • Kyoto</div>
+          <h3>Green Entrepreneurs Meetup</h3>
+          <p>Network with fellow sustainable business owners, share challenges, and explore collaboration opportunities.</p>
+          <a href="#" class="btn outline">Join Event</a>
+        </div>
+
+        <div class="card event-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="event-date">July 5, 2024 • Virtual</div>
+          <h3>Impact Investor Pitch Session</h3>
+          <p>Pitch your sustainable venture to impact investors specifically interested in circular economy businesses.</p>
+          <a href="#" class="btn outline">Apply to Pitch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Community CTA -->
+  <section class="cta-section section-sm alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-aos="fade-up">Join Our Growing Community</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Connect with 500+ entrepreneurs building a sustainable future</p>
+      </div>
+
+      <form class="contact-form" action="#" method="post" aria-label="Community signup" data-aos="fade-up" data-aos-delay="200">
+        <div class="form-group">
+          <input type="email" name="community_email" placeholder="Your email address" required>
+          <button class="btn primary" type="submit">Join Community</button>
+        </div>
+        <small>Get access to our network, events, and resources. No spam, unsubscribe anytime.</small>
+      </form>
+
+      <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
+        <a href="contact.html" class="btn outline">Schedule Introduction Call</a>
+        <a href="green-entrepreneurship.html" class="btn glass">Explore Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <small>© 2025 EcoMidori</small>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#hero">Home</a>
+        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+        <a href="circular-economy.html">Circular Economy</a>
+        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="impact-hub.html" class="active">Impact Hub</a>
+      </nav>
+      <div class="socials">
+        <a href="#">🐦</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
+    });
+
+    // Animate circular progress charts
+    document.addEventListener('DOMContentLoaded', function() {
+      const progressCircles = document.querySelectorAll('.circle-progress');
+      progressCircles.forEach(circle => {
+        const length = circle.getTotalLength();
+        circle.style.strokeDasharray = length + ' ' + length;
+        circle.style.strokeDashoffset = length;
+        
+        // Trigger animation when element comes into view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const value = circle.getAttribute('stroke-dasharray').split(',')[0];
+              circle.style.transition = 'stroke-dashoffset 1.5s ease-in-out';
+              circle.style.strokeDashoffset = length - (value / 100) * length;
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        observer.observe(circle);
+      });
+    });
+  </script>
+
+</body>
+</html>
