@@ -1065,7 +1065,7 @@ textarea:focus {
    FAQ SECTION
    ======================================================================== */
 .faq-section {
-  background: linear-gradient(180deg, rgba(25, 45, 35, 0.7), rgba(15, 30, 20, 0.9));
+  /* background: linear-gradient(180deg, rgba(25, 45, 35, 0.7), rgba(15, 30, 20, 0.9)); */
   padding: var(--space-2xl) 0;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   margin-top: var(--space-2xl);
@@ -1991,3 +1991,892 @@ details p {
 .dropdown-menu[data-visible="true"] {
   animation: dropdownFadeIn 0.2s ease-out;
 }
+
+
+/* Add this to your existing styles.css file */
+
+/* ========================================================================
+   MOBILE OPTIMIZATIONS & GLITCH FIXES
+   ======================================================================== */
+
+/* Remove problematic animations and simplify transitions */
+@media (max-width: 900px) {
+  /* Disable complex animations on mobile */
+  * {
+    animation: none !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+  }
+  
+  /* Fix header positioning */
+  .site-header {
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(7, 25, 20, 0.95) !important;
+  }
+  
+  /* Simplify hero section */
+  .hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+  
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .floating-leaves {
+    display: none;
+  }
+  
+  /* Fix card animations */
+  .card {
+    transform: none !important;
+  }
+  
+  .card:hover {
+    transform: none !important;
+  }
+  
+  /* Improve button interactions */
+  .btn {
+    transform: none !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+  
+  /* Fix mobile menu z-index issues */
+  .main-nav {
+    z-index: 40;
+  }
+  
+  .nav-overlay {
+    z-index: 50;
+  }
+  
+  /* Remove circular model animation */
+  .circle {
+    animation: none !important;
+  }
+  
+  .circle-wrap {
+    display: none;
+  }
+}
+
+/* Simplified Circular Model - Static steps */
+.circular-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.circular-step {
+  text-align: center;
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  border: 1px solid rgba(158, 230, 178, 0.1);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--green-2);
+  color: var(--bg-dark-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto var(--space-sm);
+}
+
+.circular-step h3 {
+  color: var(--green-1);
+  margin-bottom: var(--space-xs);
+}
+
+.circular-step p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Remove problematic particle effects */
+/* .leaf-particle,
+.ambient,
+.firefly {
+  display: none !important;
+
+} */
+
+/* Simplify button animations */
+/* .btn.primary::before,
+.btn.outline::before {
+  display: none;
+} */
+
+.btn.primary:hover,
+.btn.outline:hover,
+.btn.glass:hover {
+  transform: translateY(-2px);
+}
+
+/* Remove pulse animation */
+.btn.pulse {
+  animation: none;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix video container responsiveness */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-md);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Improve image loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Enhanced mobile menu stability */
+/* .menu-toggle {
+  z-index: 1001;
+} */
+
+.main-nav.active {
+  transform: translateX(0);
+}
+
+/* Fix dropdown menu on mobile */
+@media (max-width: 900px) {
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  
+  .dropdown-menu[data-visible="true"] {
+    display: block;
+  }
+}
+
+/* Performance optimizations */
+.card,
+.btn,
+.mission-item {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+/* Remove audio controls since we removed audio */
+.audio-toggle {
+  display: none;
+}
+
+/* Ensure proper touch targets */
+@media (max-width: 900px) {
+  .btn,
+  .main-nav a,
+  .dropdown-toggle {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Fix scroll jumping */
+body {
+  overflow-x: hidden;
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .headline {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .subhead {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+}
+
+/* Ensure proper spacing on very small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* 
+----
+----
+*/
+
+/* ========================================================================
+   ENHANCED FOOTER STYLES
+   ======================================================================== */
+.site-footer {
+  background: linear-gradient(180deg, rgba(5,15,10,0.95) 0%, rgba(3,10,7,0.98) 100%);
+  border-top: 1px solid rgba(158,230,178,0.1);
+  padding: var(--space-2xl) 0 var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer-logo .brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--green-1);
+}
+
+.footer-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(158,230,178,0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(158,230,178,0.1);
+  border-color: rgba(158,230,178,0.3);
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.footer-column h4 {
+  color: var(--green-1);
+  margin-bottom: var(--space-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: var(--space-sm);
+}
+
+.footer-column a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.footer-column a:hover {
+  color: var(--green-2);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(158,230,178,0.05);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.copyright {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer-newsletter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer-newsletter p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.newsletter-form input {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 6px;
+  border: 1px solid rgba(158,230,178,0.2);
+  background: rgba(255,255,255,0.05);
+  color: var(--green-1);
+  font-size: 0.9rem;
+  min-width: 180px;
+}
+
+.newsletter-form button {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--green-2);
+  color: var(--bg-dark-1);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: var(--green-1);
+  transform: translateX(2px);
+}
+
+/* ========================================================================
+   FIXED SECTION COLORS
+   ======================================================================== */
+.cta-section {
+  background: linear-gradient(135deg, 
+    rgba(10, 30, 16, 0.7) 0%, 
+    rgba(6, 22, 12, 0.6) 100%) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(158,230,178,0.2);
+}
+
+/* .faq-section {
+  background: linear-gradient(180deg, 
+    rgba(15, 35, 20, 0.8) 0%, 
+    rgba(10, 25, 15, 0.9) 100%) !important;
+} */
+
+.contact-section {
+  background: transparent !important;
+}
+
+/* ========================================================================
+   HERO GRAPHIC (Static - No Animation)
+   ======================================================================== */
+.hero-graphic {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.graphic-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(158,230,178,0.1) 0%, transparent 70%);
+  border: 2px solid rgba(158,230,178,0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.graphic-leaf {
+  position: absolute;
+  width: 24px;
+  height: 14px;
+  background: linear-gradient(90deg, var(--green-2), var(--green-1));
+  border-radius: 12px;
+  opacity: 0.8;
+}
+
+.graphic-leaf-1 {
+  top: 30%;
+  left: 25%;
+  transform: rotate(-20deg);
+}
+
+.graphic-leaf-2 {
+  top: 60%;
+  left: 65%;
+  transform: rotate(40deg);
+}
+
+.graphic-leaf-3 {
+  top: 40%;
+  left: 70%;
+  transform: rotate(70deg);
+}
+
+/* ========================================================================
+   MOBILE RESPONSIVE FOOTER
+   ======================================================================== */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+  
+  .footer-newsletter {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .newsletter-form {
+    justify-content: center;
+  }
+  
+  .hero-graphic {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .graphic-circle {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
+}
+
+/* ========================================================================
+   ENHANCED NAVIGATION FIXES
+   ======================================================================== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, 
+    rgba(11, 42, 27, 0.98) 0%, 
+    rgba(7, 25, 20, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(158,230,178,0.2);
+  border-radius: var(--radius);
+  padding: 8px;
+  min-width: 240px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown-menu[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mobile navigation enhancements */
+@media (max-width: 900px) {
+  .main-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  
+  .nav-dropdown {
+    width: 100%;
+  }
+  
+  .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  
+  .dropdown-menu[data-visible="true"] {
+    display: block;
+  }
+}
+
+
+
+/* ========================================================================
+   RESPONSIVE VIDEO FIXES & IMAGE PLACEHOLDERS
+   ======================================================================== */
+
+/* Video container responsiveness */
+.teasers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* For larger screens: side-by-side layout */
+@media (min-width: 901px) {
+  .teasers {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    align-items: start;
+  }
+  .teaser {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  .teaser .video-container {
+    flex: 0 0 50%;
+    min-width: 300px;
+  }
+  .teaser h3,
+  .teaser p,
+  .teaser .link-cta {
+    flex: 1;
+  }
+}
+
+/* Ensure iframes always visible and scale correctly */
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.04);
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Placeholder shimmer effect for lazy-loaded images */
+img[loading="lazy"] {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Ensure placeholders visible before load */
+img:not([src]) {
+  visibility: hidden;
+}
+
+/* On small screens ensure videos are visible */
+@media (max-width: 900px) {
+  .video-container {
+    display: block;
+    height: auto;
+  }
+  .video-container iframe {
+    display: block;
+  }
+}
+
+
+
+/* ========================================================================
+   VIDEO SECTION — MOBILE / EMBED FIX (Appended override)
+   Reason: some pages include an inline <style> that sets .video-container via padding-bottom technique.
+   Inline styles have higher specificity — this block uses !important to reliably override and ensure
+   iframes render and scale correctly across devices.
+   ======================================================================== */
+
+/* Scoped to the educational videos section to avoid global side-effects */
+#educational-videos .video-teaser,
+#educational-videos .video-media,
+#educational-videos .video-body {
+  box-sizing: border-box;
+}
+
+/* Force the container to use a 16:9 aspect ratio and ensure it is visible on all viewports */
+#educational-videos .video-container,
+.video-media .video-container,
+.video-container {
+  position: relative !important;
+  width: 100% !important;
+  padding-bottom: 56.25% !important; /* 16:9 */
+  height: 0 !important;
+  overflow: hidden !important;
+  border-radius: var(--radius) !important;
+  background: transparent !important;
+  margin-bottom: var(--space-md) !important;
+}
+
+/* Ensure iframe fills the container reliably (overrides inline/author styles) */
+#educational-videos .video-container iframe,
+.video-container iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  border: 0 !important;
+  z-index: 1 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Small screens: stack and make sure videos remain tappable and visible */
+@media (max-width: 900px) {
+  #educational-videos .video-teaser {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  /* Ensure the media column never collapses to zero height */
+  #educational-videos .video-media,
+  .video-media,
+  .video-body {
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  /* Keep the padding-bottom trick active (height = 0 + padding-bottom creates aspect box) */
+  #educational-videos .video-container,
+  .video-media .video-container {
+    padding-bottom: 56.25% !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Prevent the fixed header from visually covering the top of a video when linking */
+  #educational-videos .video-container {
+    scroll-margin-top: 90px !important;
+  }
+}
+
+/* Accessibility: prefer reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  #educational-videos .video-container iframe {
+    transition: none !important;
+  }
+}
+
+/* Safety guard: if a script accidentally hides video elements, prefer visible */
+#educational-videos .video-container,
+#educational-videos .video-container iframe {
+  visibility: visible !important;
+  display: block !important;
+}
+
+
+
+/* ===============================
+   Learn from Video Grid Layout
+   =============================== */
+.learn-videos {
+  padding: 40px 20px;
+}
+
+.learn-videos .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.learn-videos .video-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.learn-videos .video-container {
+  flex: 1 1 60%;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.learn-videos .video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.learn-videos .video-description {
+  flex: 1 1 40%;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.learn-videos .video-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.learn-videos .video-text.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+.read-more-btn {
+  display: none;
+  background: none;
+  color: #0066cc;
+  border: none;
+  padding: 0;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .learn-videos .video-item {
+    flex-direction: column;
+  }
+  .read-more-btn {
+    display: inline-block;
+  }
+}
+
+
+
+
+/* 
+\
+
+*/
