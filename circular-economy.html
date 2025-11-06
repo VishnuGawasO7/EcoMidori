@@ -17,170 +17,399 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
   <script src="script.js" defer></script>
-      <script src="leaf-particles.js" defer></script>
-            <script src="mobile-menu.js" defer></script>
+  <script src="leaf-particles.js" defer></script>
+  <script src="mobile-menu.js" defer></script>
+
+  <meta name="description" content="Circular economy: practical guidance, examples and tools to close material loops and design regenerative systems." />
 </head>
 
-<body>
-
+<body class="dark-theme">
   <!-- Header -->
-<header class="site-header" id="header">
-  <div class="container header-inner">
-    <a class="logo" href="#" aria-label="EcoMidori Home">
-      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
-        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
-      </svg>
-      <span class="brand">EcoMidori</span>
-    </a>
-
-    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-      <!-- Mobile menu header -->
-      <div class="mobile-logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="EcoMidori Home">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
           <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
         </svg>
-        <span>EcoMidori</span>
-      </div>
-      
-      <!-- <button class="menu-close" aria-label="Close menu">×</button> -->
-      
-      <!-- Navigation Links -->
+        <span class="brand">EcoMidori</span>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
         <a href="index.html#hero">Home</a>
         <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
-        <a href="circular-economy.html">Circular Economy</a>
+        <a href="circular-economy.html" class="active">Circular Economy</a>
         <a href="ecosymbiosis.html">EcoSymbiosis</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-      
-      <!-- Mobile Controls (optional - if you want them in mobile menu too) -->
-      <div class="mobile-controls">
-        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
-          <span class="control-icon">🔊</span>
-        </button>
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
-          <span class="control-icon">🌙</span>
-        </button>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Desktop Controls -->
-    <div class="header-controls">
-      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">
-        <span class="control-icon">🔊</span>
-      </button>
-      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
-        <span class="control-icon">🌙</span>
+      <div class="header-controls">
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
+      </div>
+
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
       </button>
     </div>
+  </header>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    
-    <!-- Overlay -->
-    <div class="nav-overlay"></div>
-  </div>
-</header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-content" data-aos="fade-up">
+        <p class="eyebrow">Closing Loops • Regenerative Systems • Zero Waste</p>
+        <h1 class="headline">Circular Economy — Designing Out Waste, Building In Value</h1>
+        <p class="subhead">Transform your business from linear take-make-waste to circular systems that regenerate natural capital and create enduring value through intelligent design and material innovation.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#principles">Explore Principles</a>
+          <a class="btn outline" href="#case-studies">See Success Stories</a>
+        </div>
+        <ul class="hero-features">
+          <li>✓ Reduce material costs by 30-60%</li>
+          <li>✓ Create new revenue streams</li>
+          <li>✓ Future-proof your business</li>
+        </ul>
+      </div>
+      <div class="hero-visual" data-aos="fade-left">
+        <div class="floating-leaves">
+          <div class="leaf leaf-1"></div>
+          <div class="leaf leaf-2"></div>
+          <div class="leaf leaf-3"></div>
+          <div class="leaf leaf-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Keep your existing audio element -->
-<audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
+  <!-- Core Principles -->
+  <section id="principles" class="info-cards section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Core Circular Economy Principles</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Three fundamental principles that transform waste into wealth</p>
+      </div>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" style="min-height:62vh; padding-top:120px;">
-      <div class="hero-inner container">
-        <div class="hero-content" data-aos="fade-up">
-          <h1 class="headline">Circular Economy — Closing the Loop for a Regenerative World</h1>
-          <p class="subhead" data-aos="fade-up" data-aos-delay="150">From take-make-waste to design-for-circulation. Explore principles and practical methods to keep materials and value in use.</p>
-          <div class="hero-cta" data-aos="zoom-in" data-aos-delay="300">
-            <a class="btn primary" href="#flow">Explore the Circular Loop</a>
-            <a class="btn outline" href="ecosymbiosis.html">See Integrated Models</a>
+      <div class="cards-grid">
+        <article class="card" data-aos="fade-up">
+          <div class="icon">🚫</div>
+          <h3>Design Out Waste & Pollution</h3>
+          <p>Eliminate waste through intelligent design, material selection, and system thinking. Transform byproducts into valuable inputs for other processes.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon">🔄</div>
+          <h3>Keep Products & Materials in Use</h3>
+          <p>Design for durability, reuse, remanufacturing, and recycling to keep materials circulating at their highest value for as long as possible.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon">🌿</div>
+          <h3>Regenerate Natural Systems</h3>
+          <p>Return valuable nutrients to the soil and enhance natural capital through regenerative agriculture and positive environmental impact.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Circular Model Visualization -->
+  <section class="circular-section section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">The Circular Economy Framework</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">A continuous cycle of value creation and resource optimization</p>
+      </div>
+      
+      <div class="circle-wrap">
+        <div class="circle">
+          <div class="circle-center">
+            <div class="center-text">Circular<br>Economy</div>
           </div>
+          <div class="node" id="node-make">Design</div>
+          <div class="node" id="node-use">Use</div>
+          <div class="node" id="node-collect">Collect</div>
+          <div class="node" id="node-recycle">Recycle</div>
+          <div class="node" id="node-regenerate">Regenerate</div>
+          <div class="node" id="node-reinvent">Reinvent</div>
+          <div class="node" id="node-reuse">Reuse</div>
         </div>
-        <div class="hero-visual" aria-hidden="true" data-aos="fade-left" data-aos-delay="250">
-          <div style="width:320px;height:220px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);background:linear-gradient(180deg,#ffffff,#f3fff6)">
-            <div style="text-align:center;color:var(--green-1);font-weight:700">Circular Flow</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Videos -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Learn Circular Economy Fundamentals</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Expert insights and practical implementations of circular principles</p>
+      </div>
+
+      <div class="teasers">
+        <div class="teaser" data-aos="fade-up">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
+                    title="Circular Economy Explained"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
           </div>
+          <h3>Circular Economy Explained</h3>
+          <p>Comprehensive overview of circular economy principles and how they differ from traditional linear models of production and consumption.</p>
+          <a href="#" class="link-cta">Watch Full Series →</a>
+        </div>
+
+        <div class="teaser" data-aos="fade-up" data-aos-delay="100">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/nZcysS-oK8I" 
+                    title="Circular Business Models"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Circular Business Models</h3>
+          <p>Explore innovative business models that create value while eliminating waste and pollution through circular design.</p>
+          <a href="#" class="link-cta">Explore Case Studies →</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Interactive Circular Flow -->
-    <section id="flow" class="circular-section container" data-aos="fade-up">
-      <h2 class="section-title">Interactive Circular Flow</h2>
-      <p class="section-sub">Hover or tap each stage to reveal insights and sustainable actions.</p>
-
-      <div class="circle-wrap" data-aos="zoom-in" data-aos-delay="150">
-        <div class="circle" id="circleFlow">
-          <!-- You can insert SVG or interactive JS-based segments here -->
-        </div>
-        <div class="circle-center" style="width:140px;height:140px">
-          <div class="center-text">Circular System</div>
-        </div>
+  <!-- Business Models Section -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Circular Business Models</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Transformative approaches that create value from circularity</p>
       </div>
 
-      <div id="flowInfo" class="segment-info" aria-hidden="true" data-aos="fade-up" data-aos-delay="200">
-        <h3 id="flowTitle">Stage</h3>
-        <p id="flowDesc">Description of the stage and practical approaches.</p>
-        <a href="resources.html" class="btn ghost">Learn more</a>
-      </div>
-    </section>
+      <div class="mission-grid">
+        <article class="mission-item" data-aos="fade-up">
+          <div class="step-indicator">1</div>
+          <h3>Product-as-a-Service</h3>
+          <p>Sell access to products rather than ownership, maintaining control over materials and enabling continuous improvement and recovery.</p>
+        </article>
 
-    <!-- Principles -->
-    <section class="container" style="padding:36px 28px">
-      <h2 class="section-title" data-aos="fade-up">Principles of Circular Design</h2>
-      <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Key approaches to design systems that circulate materials and restore ecosystems.</p>
+        <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-indicator">2</div>
+          <h3>Resource Recovery</h3>
+          <p>Recover and repurpose waste materials into new products, creating value from what was previously considered waste.</p>
+        </article>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px">
-        <div class="card" data-aos="fade-right">
-          <h3>Eliminate Waste</h3>
-          <p>Design processes and products that prevent waste from being created in the first place.</p>
-        </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="100">
-          <h3>Keep Products in Use</h3>
-          <p>Enable repair, refurbishment, and reuse through business models and material choices.</p>
-        </div>
-        <div class="card" data-aos="fade-left" data-aos-delay="200">
-          <h3>Regenerate Nature</h3>
-          <p>Restore ecosystems and return nutrients to the biosphere through regenerative practices.</p>
-        </div>
-      </div>
-    </section>
+        <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-indicator">3</div>
+          <h3>Sharing Platforms</h3>
+          <p>Enable shared use of products and assets, increasing utilization rates and reducing the need for new production.</p>
+        </article>
 
-    <!-- Examples -->
-    <section class="teasers container" style="padding:28px">
-      <div class="teaser" data-aos="fade-up">
-        <h3>Global Examples</h3>
-        <p>From material innovation to policy changes — examples of circular strategies in action.</p>
-        <a href="examples.html" class="link-cta">Explore Examples →</a>
+        <article class="mission-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-indicator">4</div>
+          <h3>Product Life Extension</h3>
+          <p>Design for durability, repair, refurbishment, and remanufacturing to extend product lifespans and retain value.</p>
+        </article>
       </div>
-      <div class="teaser" data-aos="fade-up" data-aos-delay="150">
-        <h3>Tools & Guides</h3>
-        <p>Design tools, business models, and resources to implement circular solutions.</p>
-        <a href="resources.html" class="link-cta">View tools →</a>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA -->
-    <section class="cta-section" style="margin:18px 28px" data-aos="fade-up">
-      <div class="container cta-inner">
-        <h2>Build Circular, Build Resilient</h2>
-        <p>Transform products, processes, and mindsets to keep value in circulation.</p>
-        <div class="cta-buttons" data-aos="zoom-in" data-aos-delay="200">
-          <a class="btn primary" href="contact.html">Start a Project</a>
-          <a class="btn outline" href="ecosymbiosis.html">See Combined Strategies</a>
-        </div>
+  <!-- Case Studies -->
+  <section id="case-studies" class="info-cards section-sm alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Circular Economy Success Stories</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real businesses achieving remarkable results through circular principles</p>
       </div>
-    </section>
-  </main>
+
+      <div class="cards-grid">
+        <article class="card" data-aos="fade-up">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="Interface flooring" loading="lazy">
+          </div>
+          <h3>Interface Carpets</h3>
+          <p>Pioneered carpet tile leasing and recycling, achieving 89% recycled content and zero waste to landfill across operations.</p>
+          <div class="btn-group">
+            <a class="btn outline" href="#">Read Case Study</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Philips lighting" loading="lazy">
+          </div>
+          <h3>Philips Lighting</h3>
+          <p>Transitioned to "Lighting as a Service" model, maintaining ownership and responsibility for product performance and recovery.</p>
+          <div class="btn-group">
+            <a class="btn outline" href="#">Read Case Study</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=250&fit=crop" alt="MUD Jeans" loading="lazy">
+          </div>
+          <h3>MUD Jeans</h3>
+          <p>Lease jeans to customers and recycle them into new denim, reducing water usage by 78% and chemical use by 67%.</p>
+          <div class="btn-group">
+            <a class="btn outline" href="#">Read Case Study</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Framework -->
+  <section class="highlights-section section-sm">
+    <div class="container">
+      <div class="highlights-inner">
+        <div class="highlight-content">
+          <h3 data-aos="fade-up">Proven Implementation Framework</h3>
+          <p data-aos="fade-up" data-aos-delay="100">Structured approach to circular transformation</p>
+        </div>
+
+        <ul class="highlights-list">
+          <li data-aos="fade-up">
+            <strong>Assess</strong>
+            <span>Map material flows and identify opportunities</span>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <strong>Design</strong>
+            <span>Create circular products and business models</span>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="200">
+            <strong>Implement</strong>
+            <span>Pilot and scale circular solutions</span>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="300">
+            <strong>Optimize</strong>
+            <span>Measure impact and continuously improve</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Resources -->
+  <section class="info-cards section-sm alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Circular Economy Tools & Resources</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Practical resources to implement circular strategies in your organization</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card" data-aos="fade-up">
+          <div class="icon">📊</div>
+          <h3>Circularity Assessment Toolkit</h3>
+          <p>Complete framework to measure and improve your organization's circular performance across all operations and supply chains.</p>
+          <div class="btn-group">
+            <a class="btn primary" href="#">Download Toolkit</a>
+            <a class="link-cta" href="#">Preview →</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon">🧭</div>
+          <h3>Material Flow Analysis</h3>
+          <p>Interactive tools to map material flows, identify waste hotspots, and discover circular opportunities in your value chain.</p>
+          <div class="btn-group">
+            <a class="btn outline" href="#">Access Tools</a>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon">🔬</div>
+          <h3>Case Study Library</h3>
+          <p>Real-world examples showing successful circular economy implementations across different industries and business models.</p>
+          <div class="btn-group">
+            <a class="btn glass" href="#">Browse Library</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories Video -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Circular Economy in Action</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real companies transforming their operations through circular principles</p>
+      </div>
+      
+      <div class="video-container" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/6W1n6W-re_s" 
+                title="Circular Economy Success Stories"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      
+      <div class="center-text" data-aos="fade-up" data-aos-delay="200">
+        <a href="#" class="btn primary">Watch More Success Stories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Common questions about implementing circular economy principles</p>
+      </div>
+
+      <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+        <details>
+          <summary>What's the difference between recycling and circular economy?</summary>
+          <p>Recycling is just one component of circular economy. True circularity involves designing out waste from the beginning, keeping products and materials in use longer, and regenerating natural systems, not just managing waste at the end of life.</p>
+        </details>
+        
+        <details>
+          <summary>How can small businesses afford circular transformation?</summary>
+          <p>Start with material flow mapping to identify "low-hanging fruit" - opportunities that reduce costs while improving circularity. Many circular strategies actually reduce expenses through material efficiency and can be implemented gradually.</p>
+        </details>
+        
+        <details>
+          <summary>Is circular economy only for manufacturing companies?</summary>
+          <p>No, circular principles apply to all sectors. Service businesses can adopt circular procurement, reduce resource use in operations, and design services that enable circularity for their clients.</p>
+        </details>
+        
+        <details>
+          <summary>How do we measure circular economy success?</summary>
+          <p>Key metrics include material circularity rate, product lifetime extension, percentage of renewable/recycled inputs, waste reduction, and financial benefits from circular activities like material cost savings and new revenue streams.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-aos="fade-up">Ready to Transform Your Business?</h2>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join 500+ companies already implementing circular economy principles</p>
+      </div>
+
+      <form class="contact-form" action="#" method="post" aria-label="Circular economy updates" data-aos="fade-up" data-aos-delay="200">
+        <div class="form-group">
+          <input type="email" name="newsletter_email" placeholder="Your email address" required>
+          <button class="btn primary" type="submit">Get Started Guide</button>
+        </div>
+        <small>Free circular assessment template included. No spam, unsubscribe anytime.</small>
+      </form>
+
+      <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
+        <a href="contact.html" class="btn outline">Schedule Consultation</a>
+        <a href="resources.html" class="btn glass">Download Resources</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="site-footer" data-aos="fade-up">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
@@ -188,16 +417,16 @@
         </svg>
         <small>© 2025 EcoMidori</small>
       </div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
+      <nav class="footer-nav">
         <a href="index.html#hero">Home</a>
-        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
-        <a href="circular-economy.html">Circular Economy</a>
-        <a href="ecosymbiosis.html">EcoSymbiosis</a>
+        <a href="green-entrepreneurship.html">Green</a>
+        <a href="circular-economy.html" class="active">Circular</a>
+        <a href="ecosymbiosis.html">Symbiosis</a>
       </nav>
-      <div class="socials" aria-hidden="true">
-        <a href="#" class="social">🐦</a>
-        <a href="#" class="social">📘</a>
-        <a href="#" class="social">📸</a>
+      <div class="socials">
+        <a href="#">🐦</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
       </div>
     </div>
   </footer>
@@ -209,8 +438,38 @@
       duration: 1000,
       easing: 'ease-in-out',
       once: true,
-      offset: 120,
+      offset: 100,
     });
   </script>
+
+  <style>
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+  </style>
+
 </body>
 </html>

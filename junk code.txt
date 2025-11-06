@@ -1,133 +1,561 @@
-        <div class="svg-wrap" role="img" aria-label="Interactive circular economy diagram">
-          <svg id="flowSvg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" tabindex="0">
-            <!-- Ring path -->
-            <defs>
-              <linearGradient id="ringGrad" x1="0" x2="1">
-                <stop offset="0%" stop-color="#7DE9A2"/>
-                <stop offset="100%" stop-color="#2FBF6A"/>
-              </linearGradient>
 
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
+/* ========================================================================
+   ENHANCED BUTTON COMPONENTS WITH ANIMATIONS
+   ======================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  gap: var(--space-xs);
+  font-size: 0.95rem;
+  transform: translateY(0);
+  isolation: isolate;
+}
 
-              <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
-                <path d="M0,0 L6,3 L0,6 z" fill="#9EE6B2"></path>
-              </marker>
-            </defs>
+/* Primary Button with Shine Effect */
+.btn.primary {
+  background: linear-gradient(135deg, var(--green-2) 0%, var(--green-1) 50%, var(--green-2) 100%);
+  color: #062512;
+  box-shadow: 
+    0 8px 25px rgba(16,40,20,0.4),
+    0 2px 8px rgba(95,224,122,0.3);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  position: relative;
+}
 
-            <!-- circular spline path -->
-            <g id="flowGroup">
-              <path id="flowPath" d="M400,120
-                                     C540,120 700,240 700,360
-                                     C700,480 540,580 400,580
-                                     C260,580 100,480 100,360
-                                     C100,240 260,120 400,120 Z"
-                    fill="none" stroke="url(#ringGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-            </g>
+.btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.4), 
+    transparent);
+  transition: left 0.6s ease;
+}
 
-            <!-- Animated arrow stroke (dashed moving) -->
-            <path id="movingArrows" d="M400,120
-                                     C540,120 700,240 700,360
-                                     C700,480 540,580 400,580
-                                     C260,580 100,480 100,360
-                                     C100,240 260,120 400,120 Z"
-                  fill="none" stroke="#9EE6B2" stroke-width="3" stroke-dasharray="8 28" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrowhead)"/>
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(16,40,20,0.5),
+    0 5px 15px rgba(95,224,122,0.4);
+  background-position: 0 0;
+}
 
-            <!-- Node groups (icons + labels). positions calculated visually -->
-            <!-- Make -->
-            <g class="node" id="node-make" data-key="Make" transform="translate(620,170)" tabindex="0" role="button" aria-label="Make: Design and produce">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-14,-14)" aria-hidden="true">
-                <path d="M4 20 L20 20 L20 12 L4 12 Z M8 4 L16 4 L16 10 L8 10 Z" fill="#062512"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Make</text>
-            </g>
+.btn.primary:hover::before {
+  left: 100%;
+}
 
-            <!-- Use -->
-            <g class="node" id="node-use" data-key="Use" transform="translate(700,360)" tabindex="0" role="button" aria-label="Use: Products used and maintained">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-10,-12)" aria-hidden="true">
-                <circle cx="8" cy="8" r="6" fill="#062512"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Use</text>
-            </g>
+.btn.primary:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 5px 15px rgba(16,40,20,0.4),
+    0 2px 5px rgba(95,224,122,0.3);
+}
 
-            <!-- Collect -->
-            <g class="node" id="node-collect" data-key="Collect" transform="translate(620,530)" tabindex="0" role="button" aria-label="Collect: Systems to collect end-of-life items">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-12,-14)" aria-hidden="true">
-                <rect x="0" y="0" width="20" height="20" fill="#062512" />
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Collect</text>
-            </g>
+/* Outline Button with Border Animation */
+.btn.outline {
+  border: 2px solid rgba(158,230,178,0.3);
+  background: transparent;
+  color: var(--green-1);
+  position: relative;
+  background: rgba(158,230,178,0.05);
+  backdrop-filter: blur(10px);
+}
 
-            <!-- Recycle -->
-            <g class="node" id="node-recycle" data-key="Recycle" transform="translate(400,560)" tabindex="0" role="button" aria-label="Recycle: Materials recovered and processed">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-12,-14)" aria-hidden="true">
-                <path d="M4 8 L12 16 L20 8" fill="none" stroke="#062512" stroke-width="2"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Recycle</text>
-            </g>
+.btn.outline::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--green-2), var(--green-1), var(--green-2));
+  border-radius: 999px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-            <!-- Regenerate -->
-            <g class="node" id="node-regenerate" data-key="Regenerate" transform="translate(180,530)" tabindex="0" role="button" aria-label="Regenerate: Restoring ecosystems">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-12,-16)" aria-hidden="true">
-                <path d="M6 16 C10 8 14 8 18 16" fill="none" stroke="#062512" stroke-width="2"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Regenerate</text>
-            </g>
+.btn.outline:hover {
+  background: rgba(158,230,178,0.1);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16,40,20,0.3);
+}
 
-            <!-- Reinvent -->
-            <g class="node" id="node-reinvent" data-key="Reinvent" transform="translate(140,360)" tabindex="0" role="button" aria-label="Reinvent: New business models">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-12,-12)" aria-hidden="true">
-                <path d="M4 12 L12 4 L20 12" fill="none" stroke="#062512" stroke-width="2"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Reinvent</text>
-            </g>
+.btn.outline:hover::before {
+  opacity: 1;
+  animation: borderRotate 3s linear infinite;
+}
 
-            <!-- Reuse (between Reinvent & Make) -->
-            <g class="node" id="node-reuse" data-key="Reuse" transform="translate(260,170)" tabindex="0" role="button" aria-label="Reuse: Extending life through reuse">
-              <circle r="36" class="node-bg"></circle>
-              <g class="node-icon" transform="translate(-10,-12)" aria-hidden="true">
-                <path d="M2 10 L18 10" stroke="#062512" stroke-width="2"/>
-              </g>
-              <text class="node-label" x="0" y="64" text-anchor="middle">Reuse</text>
-            </g>
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-            <!-- moving resource particles (SVG group) -->
-            <g id="particles"></g>
+/* Glass Button */
+.btn.glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--green-1);
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
 
-          </svg>
-        </div>
-      <div class="flow-wrap">
+.btn.glass:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Pulse Animation Button */
+.btn.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(95,224,122,0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(95,224,122,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(95,224,122,0);
+  }
+}
+
+/* Icon Button */
+.btn.icon {
+  padding: var(--space-sm);
+  width: 44px;
+  height: 44px;
+}
+
+/* Button Groups */
+.btn-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-group.center {
+  justify-content: center;
+}
+
+.btn-group.right {
+  justify-content: flex-end;
+}
+
+/* ========================================================================
+   HEADER / NAVIGATION
+   ======================================================================== */
+.site-header {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  transition: all 0.3s ease;
+  padding: 0 var(--space-lg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-header.transparent {
+  background: transparent;
+}
+
+.site-header.scrolled {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--green-1);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.main-nav a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  background: rgba(255,255,255,0.05);
+  color: var(--green-2);
+  transform: translateY(-1px);
+}
+
+/* Header controls */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.control-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(158,230,178,0.2);
+  color: var(--green-1);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+  background: rgba(158,230,178,0.15);
+  border-color: rgba(158,230,178,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================================================================
+   HERO SECTION - MOBILE OPTIMIZED
+   ======================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xl);
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 620px;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--green-2);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  display: inline-block;
+  background: rgba(158,230,178,0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(158,230,178,0.2);
+}
+
+.headline {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-md);
+  color: var(--green-1);
+  line-height: 1.1;
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.subhead {
+  margin-bottom: var(--space-lg);
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-features {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.hero-features li {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 8px 0;
+}
+
+.hero-features li::before {
+  content: "✓";
+  color: var(--green-2);
+  font-weight: bold;
+}
+
+/* Floating Elements */
+.floating-leaves {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  z-index: 1;
+}
+
+.leaf {
+  position: absolute;
+  width: 32px;
+  height: 18px;
+  background: linear-gradient(135deg, var(--green-1), var(--green-3));
+  border-radius: 16px;
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+  animation-timing-function: ease-in-out;
+}
+
+.leaf-1 { left: 10%; top: 15%; transform: rotate(-10deg); animation: float1 8s ease-in-out infinite }
+.leaf-2 { left: 60%; top: 5%; transform: rotate(30deg); animation: float2 10s ease-in-out infinite 1s }
+.leaf-3 { left: 75%; top: 45%; transform: rotate(60deg); animation: float3 12s ease-in-out infinite 2s }
+.leaf-4 { left: 35%; top: 70%; transform: rotate(20deg); animation: float2 9s ease-in-out infinite 0.5s }
+
+@keyframes float1 { 
+  0%, 100% { transform: translateY(0) rotate(-10deg) scale(1); } 
+  50% { transform: translateY(-25px) rotate(-5deg) scale(1.05); } 
+}
+
+@keyframes float2 { 
+  0%, 100% { transform: translateY(0) rotate(30deg) scale(1); } 
+  50% { transform: translateY(-20px) rotate(35deg) scale(1.03); } 
+}
+
+@keyframes float3 { 
+  0%, 100% { transform: translateY(0) rotate(60deg) scale(1); } 
+  50% { transform: translateY(-30px) rotate(65deg) scale(1.07); } 
+}
 
 
-        <!-- info modal -->
-        <div id="nodeModal" class="node-modal" role="dialog" aria-hidden="true" aria-modal="false">
-          <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-          <h3 id="modalTitle">Title</h3>
-          <p id="modalBody">Detailed description about this stage of the circular economy, examples, and how entrepreneurs can implement it.</p>
-          <a id="modalLink" class="btn outline" href="examples.html">See Examples</a>
-        </div>
-      </div>
 
+/* ========================================================================
+   MOBILE RESPONSIVE DESIGN - ENHANCED
+   ======================================================================== */
+@media (max-width: 768px) {
+  /* General Mobile Improvements */
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  .section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .section-sm {
+    padding: var(--space-lg) 0;
+  }
 
+  /* Header & Navigation Mobile */
+  .site-header {
+    height: 60px;
+    padding: 0 var(--space-md);
+  }
+  
+  .header-controls .control-btn:not(.menu-toggle) {
+    display: none;
+  }
+  
+  .logo .brand {
+    font-size: 1.1rem;
+  }
 
+  /* Mobile Menu */
+  .menu-toggle {
+    display: flex !important;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(158,230,178,0.2);
+    border-radius: var(--radius-sm);
+    z-index: 1000;
+  }
 
-        //2
-    <svg>
-      <!-- moving resource particles (SVG group) -->
-      <g id="particles">
-        <path id="flowPath" />
-      </g>
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bg-dark-2) 0%, var(--bg-dark-1) 100%);
+    backdrop-filter: blur(25px);
+    padding: 80px var(--space-lg) var(--space-lg);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: -5px 0 40px rgba(0,0,0,0.5);
+    border-left: 1px solid rgba(158,230,178,0.1);
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
 
-    </svg>
-          <button  id="modalClose" ></button>
+  .main-nav.active {
+    right: 0;
+  }
+
+  .main-nav a {
+    margin: 0;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    border: 1px solid transparent;
+    text-align: left;
+    background: rgba(255,255,255,0.03);
+    transition: all 0.3s ease;
+  }
+
+  .main-nav a:hover {
+    background: rgba(158,230,178,0.1);
+    border-color: rgba(158,230,178,0.2);
+    transform: translateX(8px);
+  }
+
+  /* Hero Section Mobile */
+  .hero {
+    min-height: 90vh;
+    padding: 80px 0 40px;
+    text-align: center;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    order: 2;
+  }
+
+  .floating-leaves {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    order: 1;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .subhead {
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-cta {
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-cta .btn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 200px;
+  }
+
+  .hero-features {
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero-features li {
+    font-size: 0.85rem;
+    flex: 0 0 auto;
+  }
+
+  /* Button Groups Mobile */
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+
+  .btn-group .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Cards & Grids Mobile */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .teasers {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
