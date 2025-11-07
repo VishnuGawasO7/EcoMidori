@@ -5,66 +5,502 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | EcoMidori</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <!-- AOS CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <script defer src="script.js"></script>
-  <script src="leaf-particles.js" defer></script>
-  <script src="mobile-menu.js" defer></script>
 
   <style>
-    .video-container {
+    :root {
+      --dark-bg: #0a1929;
+      --dark-card: #132f4c;
+      --green-1: #9EE6B2;
+      --green-2: #66BB6A;
+      --muted: #a0aec0;
+      --radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: white;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 25, 41, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(158, 230, 178, 0.1);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      gap: 10px;
+    }
+
+    .brand {
+      color: var(--green-1);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .main-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .main-nav a:hover, .main-nav a.active {
+      color: var(--green-1);
+    }
+
+    .nav-dropdown {
       position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
+    }
+
+    .dropdown-toggle {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s;
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--green-1);
+    }
+
+    .dropdown-arrow {
+      transition: transform 0.3s;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--dark-card);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 0.5rem;
+      min-width: 250px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      z-index: 100;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-dropdown:hover .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(158, 230, 178, 0.1);
+      color: var(--green-1);
+    }
+
+    .dropdown-icon {
+      width: 24px;
+      text-align: center;
+    }
+
+    .dropdown-title {
+      font-weight: 600;
+      display: block;
+    }
+
+    .dropdown-desc {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 0.5rem 0;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .control-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(158, 230, 178, 0.1);
+      color: var(--muted);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .control-btn:hover {
+      background: rgba(158, 230, 178, 0.1);
+      color: var(--green-1);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger-box {
+      width: 24px;
+      height: 18px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .hamburger-inner {
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 1px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.3s;
+    }
+
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 1px;
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s;
+    }
+
+    .hamburger-inner::before {
+      top: -8px;
+    }
+
+    .hamburger-inner::after {
+      bottom: -8px;
+    }
+
+    /* Mobile nav elements */
+    .mobile-logo, .mobile-controls {
+      display: none;
+    }
+
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 4rem;
+      background: linear-gradient(135deg, rgba(30, 60, 40, 0.8) 0%, rgba(20, 40, 30, 0.9) 100%);
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
     
-    .video-container iframe {
+    .hero:before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(158,230,178,0.03)"/></svg>');
+      background-size: cover;
     }
     
-    .contact-grid {
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+    
+    .eyebrow {
+      color: var(--green-1);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    
+    .headline {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .subhead {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn.primary {
+      background: var(--green-2);
+      color: var(--dark-bg);
+    }
+    
+    .btn.primary:hover {
+      background: var(--green-1);
+      transform: translateY(-2px);
+    }
+    
+    .btn.outline {
+      background: transparent;
+      color: var(--green-1);
+      border: 1px solid var(--green-1);
+    }
+    
+    .btn.outline:hover {
+      background: rgba(158, 230, 178, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .hero-features {
+      list-style: none;
+    }
+    
+    .hero-features li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .floating-leaves {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    
+    .leaf {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: var(--green-1);
+      border-radius: 50% 0 50% 0;
+      opacity: 0.7;
+      animation: float 6s infinite ease-in-out;
+    }
+    
+    .leaf-1 {
+      top: 20px;
+      left: 50px;
+      animation-delay: 0s;
+    }
+    
+    .leaf-2 {
+      top: 120px;
+      right: 30px;
+      animation-delay: 1s;
+    }
+    
+    .leaf-3 {
+      bottom: 40px;
+      left: 80px;
+      animation-delay: 2s;
+    }
+    
+    .leaf-4 {
+      bottom: 100px;
+      right: 80px;
+      animation-delay: 3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 4rem 0;
+    }
+    
+    .section-sm {
+      padding: 3rem 0;
+    }
+    
+    .alt-bg {
+      background: rgba(19, 47, 76, 0.3);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .section-sub {
+      font-size: 1.125rem;
+      color: var(--muted);
+    }
+
+    /* Contact Container */
+    .contact-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
+      gap: 4rem;
+      margin-top: 3rem;
     }
     
-    @media (max-width: 900px) {
-      .contact-grid {
+    @media (max-width: 768px) {
+      .contact-container {
         grid-template-columns: 1fr;
       }
     }
     
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .contact-info, .contact-form {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .contact-methods {
+      margin-top: 2rem;
     }
     
     .contact-method {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
+      margin-bottom: 2rem;
       padding: 1.5rem;
-      background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        rgba(255, 255, 255, 0.02) 100%);
-      border-radius: 12px;
-      border: 1px solid rgba(158, 230, 178, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    
+    .contact-method:hover {
+      background: rgba(158, 230, 178, 0.05);
+      transform: translateY(-3px);
     }
     
     .contact-icon {
       font-size: 1.5rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
       width: 50px;
       height: 50px;
       display: flex;
@@ -72,92 +508,429 @@
       justify-content: center;
       background: rgba(158, 230, 178, 0.1);
       border-radius: 50%;
-      flex-shrink: 0;
     }
     
     .contact-details h3 {
-      margin: 0 0 0.5rem 0;
+      margin-bottom: 0.5rem;
       color: var(--green-1);
     }
     
     .contact-details p {
-      margin: 0;
+      margin: 0.25rem 0;
       color: var(--muted);
     }
     
-    .success-msg {
-      display: none;
-      padding: 1rem;
-      border-radius: 8px;
-      background: linear-gradient(90deg, rgba(95,224,122,0.12), rgba(158,230,178,0.08));
-      color: var(--green-1);
+    .office-hours {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .hours-list {
       margin-top: 1rem;
-      text-align: center;
     }
     
-    .map-container {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      height: 300px;
-      background: linear-gradient(135deg, 
-        rgba(11, 42, 27, 0.8) 0%, 
-        rgba(7, 25, 20, 0.8) 100%);
+    .hour-item {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0;
     }
     
-    .map-placeholder {
-      text-align: center;
+    .hour-day {
       color: var(--green-1);
-      padding: 2rem;
     }
     
-    .contact-options {
+    .hour-time {
+      color: var(--muted);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--green-1);
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(158, 230, 178, 0.2);
+      border-radius: 8px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--green-2);
+      box-shadow: 0 0 0 2px rgba(158, 230, 178, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239EE6B2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.7rem top 50%;
+      background-size: 0.65rem auto;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background: var(--green-2);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .form-submit:hover {
+      background: var(--green-1);
+      transform: translateY(-2px);
+    }
+    
+    .faq-section {
+      margin-top: 4rem;
+    }
+    
+    .faq-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
     
-    .office-hours {
-      background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.05) 0%, 
-        rgba(255, 255, 255, 0.02) 100%);
+    .faq-item {
       padding: 1.5rem;
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
       border: 1px solid rgba(158, 230, 178, 0.1);
     }
     
-    .office-hours h3 {
-      margin-top: 0;
+    .faq-question {
+      color: var(--green-1);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .faq-answer {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    
+    .map-section {
+      margin-top: 4rem;
+    }
+    
+    .map-container {
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      border: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .map-placeholder {
+      height: 100%;
+      background: linear-gradient(135deg, rgba(30, 60, 40, 0.8) 0%, rgba(20, 40, 30, 0.9) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green-1);
+      font-size: 1.2rem;
+    }
+    
+    .social-connect {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(158, 230, 178, 0.1);
+      color: var(--green-1);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: var(--green-2);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    /* Footer Styles */
+    .site-footer {
+      background: var(--dark-card);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(158, 230, 178, 0.1);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (max-width: 900px) {
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .footer-column h4 {
+      color: var(--green-1);
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-column a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-column a:hover {
       color: var(--green-1);
     }
     
-    .office-hours ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .office-hours li {
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(158, 230, 178, 0.05);
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
     
-    .office-hours li:last-child {
-      border-bottom: none;
+    @media (max-width: 768px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+    
+    .copyright {
+      color: var(--muted);
+    }
+    
+    .footer-newsletter {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .footer-newsletter p {
+      color: var(--muted);
+      margin-right: 1rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    
+    .newsletter-form input {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .newsletter-form input::placeholder {
+      color: var(--muted);
+    }
+    
+    .newsletter-form button {
+      padding: 0.5rem 1rem;
+      background: var(--green-2);
+      color: var(--dark-bg);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background: var(--green-1);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .headline {
+        font-size: 2.5rem;
+      }
+      
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-content {
+        max-width: 100%;
+      }
+      
+      .hero-cta {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .main-nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background: var(--dark-bg);
+        flex-direction: column;
+        padding: 2rem;
+        transition: right 0.3s;
+        z-index: 1000;
+      }
+      
+      .main-nav.active {
+        right: 0;
+      }
+      
+      .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 2rem;
+        color: var(--green-1);
+        font-weight: 700;
+      }
+      
+      .mobile-controls {
+        display: flex;
+        margin-top: 2rem;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-dropdown .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0.5rem 0 0.5rem 1rem;
+        min-width: auto;
+      }
+      
+      .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .header-controls {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body class="dark-theme">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- site header (matches homepage) -->
+  <!-- Header (matches the provided structure exactly) -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="EcoMidori Home">
@@ -169,48 +942,114 @@
       </a>
 
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="index.html#hero">Home</a>
+        <div class="mobile-logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+            <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+          </svg>
+          <span>EcoMidori</span>
+        </div>
+
+        <a href="index.html">Home</a>
         <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
         <a href="circular-economy.html">Circular Economy</a>
         <a href="ecosymbiosis.html">EcoSymbiosis</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="active">Contact</a>
+        
+        <!-- Enhanced Dropdown Menu -->
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="about.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">About Us</span>
+                <span class="dropdown-desc">Our mission and team</span>
+              </div>
+            </a>
+            <a href="impact-hub.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Impact Hub</span>
+                <span class="dropdown-desc">Metrics and success stories</span>
+              </div>
+            </a>
+            <a href="contact.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Contact</span>
+                <span class="dropdown-desc">Get in touch with us</span>
+              </div>
+            </a>
+            <a href="blog.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Blog</span>
+                <span class="dropdown-desc">Latest insights and news</span>
+              </div>
+            </a>
+            <a href="resources.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Resources</span>
+                <span class="dropdown-desc">Tools and downloads</span>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="careers.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Careers</span>
+                <span class="dropdown-desc">Join our team</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mobile-controls">
+          <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+            <span class="control-icon">🌙</span>
+          </button>
+        </div>
       </nav>
 
       <div class="header-controls">
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
         <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
       </div>
 
       <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
       </button>
     </div>
   </header>
 
-  <!-- Keep your existing audio element -->
-  <audio id="ambientAudio" loop src="ambient-m1.mp3"></audio>
+  <!-- Nav overlay for mobile -->
+  <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>
 
-  <main>
+  <main id="main">
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-inner container">
         <div class="hero-content" data-aos="fade-up">
-          <p class="eyebrow">Connect & Collaborate</p>
-          <h1 class="headline">Let's Grow a Greener Future Together</h1>
-          <p class="subhead">Ready to transform your business or community with circular economy principles? Our team is here to help you build regenerative, sustainable solutions that create lasting impact.</p>
+          <p class="eyebrow">Get In Touch</p>
+          <h1 class="headline">Connect With Our Sustainable Innovation Community</h1>
+          <p class="subhead">Have questions about our programs, partnerships, or how to get involved? We're here to help guide your journey toward sustainable entrepreneurship.</p>
           <div class="hero-cta">
             <a class="btn primary" href="#contact-form">Send a Message</a>
-            <a class="btn outline" href="about.html">Learn About Us</a>
+            <a class="btn outline" href="#contact-info">Contact Info</a>
           </div>
-          <ul class="hero-features">
-            <li>✓ Free initial consultation</li>
-            <li>✓ Customized solutions for your needs</li>
-            <li>✓ Global network of sustainability experts</li>
-          </ul>
         </div>
-        <div class="hero-visual" data-aos="fade-left">
-          <div class="floating-leaves">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-leaves" aria-hidden="true">
             <div class="leaf leaf-1"></div>
             <div class="leaf leaf-2"></div>
             <div class="leaf leaf-3"></div>
@@ -220,248 +1059,265 @@
       </div>
     </section>
 
-    <!-- Contact Methods -->
-    <section class="section-sm">
+    <!-- Contact Section -->
+    <section class="section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos="fade-up">How We Can Help You</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Multiple ways to connect with our team of sustainability experts</p>
-        </div>
-
-        <div class="contact-options">
-          <div class="card" data-aos="fade-up">
-            <div class="icon">💼</div>
-            <h3>Business Consultation</h3>
-            <p>Get personalized advice on implementing circular economy principles in your organization.</p>
-            <a href="#contact-form" class="btn outline">Schedule a Call</a>
+        <div class="contact-container">
+          <!-- Contact Information -->
+          <div class="contact-info" id="contact-info" data-aos="fade-right">
+            <h2>Let's Start a Conversation</h2>
+            <p>We're passionate about supporting sustainable ventures and connecting with like-minded innovators. Reach out through any of these channels.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                  <h3>Email Us</h3>
+                  <p>hello@ecomidori.org</p>
+                  <p>We typically respond within 24 hours</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">📞</div>
+                <div class="contact-details">
+                  <h3>Call Us</h3>
+                  <p>+1 (555) 123-4567</p>
+                  <p>Mon-Fri, 9am-6pm EST</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">📍</div>
+                <div class="contact-details">
+                  <h3>Visit Us</h3>
+                  <p>123 Sustainability Lane</p>
+                  <p>Green City, GC 10001</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="office-hours">
+              <h3>Office Hours</h3>
+              <div class="hours-list">
+                <div class="hour-item">
+                  <span class="hour-day">Monday - Friday</span>
+                  <span class="hour-time">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="hour-item">
+                  <span class="hour-day">Saturday</span>
+                  <span class="hour-time">10:00 AM - 4:00 PM</span>
+                </div>
+                <div class="hour-item">
+                  <span class="hour-day">Sunday</span>
+                  <span class="hour-time">Closed</span>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon">🏛️</div>
-            <h3>Partnerships</h3>
-            <p>Explore collaboration opportunities with EcoMidori and our network of sustainable businesses.</p>
-            <a href="#contact-form" class="btn outline">Partner With Us</a>
-          </div>
-
-          <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon">🎓</div>
-            <h3>Training & Workshops</h3>
-            <p>Request customized training sessions for your team on green entrepreneurship and circular design.</p>
-            <a href="#contact-form" class="btn outline">Request Training</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Form & Information -->
-    <section id="contact-form" class="section-sm alt-bg">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Send us a message and we'll respond within 24 hours</p>
-        </div>
-
-        <div class="contact-grid">
-          <div data-aos="fade-right">
-            <form class="contact-form" id="contactForm">
+          
+          <!-- Contact Form -->
+          <div class="contact-form" id="contact-form" data-aos="fade-left">
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form id="contactForm">
               <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Your name" required>
               </div>
               
               <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
               </div>
               
               <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject" required>
-                  <option value="">Select an option</option>
-                  <option value="consultation">Business Consultation</option>
-                  <option value="partnership">Partnership Opportunity</option>
-                  <option value="training">Training & Workshops</option>
+                <label class="form-label" for="subject">Subject</label>
+                <select id="subject" class="form-control form-select" required>
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="partnership">Partnership Inquiry</option>
+                  <option value="program">Program Information</option>
+                  <option value="mentorship">Mentorship Program</option>
+                  <option value="event">Event Information</option>
                   <option value="general">General Inquiry</option>
                   <option value="other">Other</option>
                 </select>
               </div>
               
               <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." rows="6" required></textarea>
+                <label class="form-label" for="message">Your Message</label>
+                <textarea id="message" class="form-control" placeholder="Tell us about your project, question, or how we can collaborate..." required></textarea>
               </div>
               
-              <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
-              <div id="success" class="success-msg" role="status" aria-live="polite">
-                Thank you for your message! We'll get back to you within 24 hours.
-              </div>
+              <button type="submit" class="form-submit">Send Message</button>
             </form>
-          </div>
-
-          <div data-aos="fade-left">
-            <div class="contact-info">
-              <div class="contact-method">
-                <div class="contact-icon">📧</div>
-                <div class="contact-details">
-                  <h3>Email Us</h3>
-                  <p><a href="mailto:info@ecomidori.org">info@ecomidori.org</a></p>
-                  <p>We typically respond within 24 hours</p>
-                </div>
-              </div>
-
-              <div class="contact-method">
-                <div class="contact-icon">📍</div>
-                <div class="contact-details">
-                  <h3>Visit Our Office</h3>
-                  <p>Kyoto, Japan</p>
-                  <p>By appointment only</p>
-                </div>
-              </div>
-
-              <div class="contact-method">
-                <div class="contact-icon">📞</div>
-                <div class="contact-details">
-                  <h3>Call Us</h3>
-                  <p>+81 75 000 0000</p>
-                  <p>Mon-Fri, 9am-5pm JST</p>
-                </div>
-              </div>
-
-              <div class="office-hours">
-                <h3>Office Hours</h3>
-                <ul>
-                  <li><span>Monday - Friday</span> <span>9:00 AM - 5:00 PM</span></li>
-                  <li><span>Saturday</span> <span>10:00 AM - 2:00 PM</span></li>
-                  <li><span>Sunday</span> <span>Closed</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Location Map -->
-    <section class="section-sm">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" data-aos="fade-up">Our Location</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Based in Kyoto, Japan with a global network of partners</p>
-        </div>
-
-        <div class="map-container" data-aos="zoom-in">
-          <div class="map-placeholder">
-            <h3>Kyoto, Japan</h3>
-            <p>Heart of sustainable innovation</p>
-            <p>📍 Map would be integrated here</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section section-sm alt-bg">
+    <section class="section alt-bg">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Quick answers to common questions about working with us</p>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Quick answers to common questions about our programs and services</p>
         </div>
-
-        <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
-          <details>
-            <summary>How quickly will I hear back after submitting my inquiry?</summary>
-            <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, please indicate this in your message subject line.</p>
-          </details>
+        
+        <div class="faq-grid">
+          <div class="faq-item" data-aos="fade-up">
+            <h3 class="faq-question">How can I apply for the Green Entrepreneurship program?</h3>
+            <p class="faq-answer">Applications open quarterly. Visit our Green Entrepreneurship page for details on upcoming cohorts and application deadlines.</p>
+          </div>
           
-          <details>
-            <summary>Do you offer free initial consultations?</summary>
-            <p>Yes, we offer a complimentary 30-minute consultation to discuss your needs and explore how we can help you implement circular economy principles.</p>
-          </details>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="faq-question">Do you offer funding for sustainable startups?</h3>
+            <p class="faq-answer">While we don't provide direct funding, we connect qualified ventures with our network of impact investors and grant opportunities.</p>
+          </div>
           
-          <details>
-            <summary>What types of businesses do you work with?</summary>
-            <p>We work with businesses of all sizes and across various industries, from startups to established corporations, who are committed to implementing sustainable and circular practices.</p>
-          </details>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="faq-question">Can I volunteer with EcoMidori?</h3>
+            <p class="faq-answer">Yes! We welcome volunteers with expertise in sustainability, business, design, and education. Contact us to discuss opportunities.</p>
+          </div>
           
-          <details>
-            <summary>Do you offer virtual consultations for international clients?</summary>
-            <p>Absolutely! We regularly work with clients globally through video conferencing and have flexible scheduling to accommodate different time zones.</p>
-          </details>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="faq-question">Do you offer custom workshops for organizations?</h3>
+            <p class="faq-answer">Absolutely. We develop tailored workshops on circular economy, sustainable design, and green entrepreneurship for businesses and educational institutions.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="section">
+    <!-- Map Section -->
+    <section class="section map-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title" data-aos="fade-up">What to Expect When Working With Us</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Learn about our process and approach to sustainability consulting</p>
+          <h2 class="section-title" data-aos="fade-up">Visit Our Innovation Hub</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Our space is designed for collaboration, learning, and sustainable innovation</p>
         </div>
         
-        <div class="video-container" data-aos="fade-up">
-          <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
-                  title="Working With EcoMidori"
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen>
-          </iframe>
+        <div class="map-container" data-aos="fade-up">
+          <div class="map-placeholder">
+            <div style="text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
+              <p>Interactive Map Location</p>
+              <p style="font-size: 0.9rem; margin-top: 0.5rem;">123 Sustainability Lane, Green City</p>
+            </div>
+          </div>
         </div>
         
-        <div class="mission-grid">
-          <article class="mission-item" data-aos="fade-up">
-            <h3>Initial Assessment</h3>
-            <p>We begin with a comprehensive analysis of your current operations to identify circular economy opportunities and challenges.</p>
-          </article>
-
-          <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
-            <h3>Strategy Development</h3>
-            <p>We co-create a customized circular strategy aligned with your business goals and sustainability objectives.</p>
-          </article>
-
-          <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
-            <h3>Implementation Support</h3>
-            <p>We provide hands-on support to implement circular initiatives, from product redesign to supply chain optimization.</p>
-          </article>
+        <div class="social-connect">
+          <h3 data-aos="fade-up">Connect With Us Online</h3>
+          <p data-aos="fade-up" data-aos-delay="100">Follow our journey and join the conversation on social media</p>
+          
+          <div class="social-links" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section section-sm">
+    <section class="cta-section section-sm alt-bg">
       <div class="container">
         <div class="section-header">
-          <h2 data-aos="fade-up">Ready to Start Your Sustainability Journey?</h2>
-          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join hundreds of businesses already transforming their operations with circular principles</p>
+          <h2 data-aos="fade-up">Ready to Make an Impact?</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join our community of sustainable innovators and change-makers</p>
         </div>
 
         <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
-          <a href="#contact-form" class="btn primary">Get Started Today</a>
+          <a href="#contact-form" class="btn primary">Start a Conversation</a>
           <a href="about.html" class="btn outline">Learn More About Us</a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer (matches the provided structure exactly) -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
-        </svg>
-        <small>© 2025 EcoMidori</small>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+              <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+            </svg>
+            <span class="brand">EcoMidori</span>
+          </div>
+          <p class="footer-desc">Building sustainable ventures for a regenerative future through circular economy and green entrepreneurship.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="green-entrepreneurship.html">Green Entrepreneurship</a></li>
+              <li><a href="circular-economy.html">Circular Economy</a></li>
+              <li><a href="ecosymbiosis.html">EcoSymbiosis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="resources.html">Toolkits & Guides</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="impact-hub.html">Impact Hub</a></li>
+              <li><a href="case-studies.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms">Terms</a></li>
+              <li><a href="#cookies">Cookie Policy</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html#hero">Home</a>
-        <a href="about.html">About</a>
-        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
-        <a href="circular-economy.html">Circular Economy</a>
-        <a href="ecosymbiosis.html">EcoSymbiosis</a>
-      </nav>
-      <div class="socials" aria-hidden="true">
-        <a href="#" class="social">🐦</a>
-        <a href="#" class="social">📘</a>
-        <a href="#" class="social">📸</a>
+
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2023 EcoMidori. All rights reserved.</div>
+        <div class="footer-newsletter">
+          <p>Stay updated with sustainability insights</p>
+          <form class="newsletter-form" action="#" method="post" aria-label="Footer newsletter">
+            <input type="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit">→</button>
+          </form>
+        </div>
       </div>
     </div>
   </footer>
@@ -469,35 +1325,42 @@
   <!-- AOS JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Initialize AOS animations
     AOS.init({ 
       duration: 1000, 
       once: true, 
       easing: 'ease-in-out',
       offset: 100
     });
-
+    
     // Form submission handling
-    document.addEventListener('DOMContentLoaded', function(){
-      const form = document.getElementById('contactForm');
-      const success = document.getElementById('success');
-      const sendBtn = document.getElementById('sendBtn');
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        sendBtn.setAttribute('disabled', 'true');
-        sendBtn.textContent = 'Sending...';
-        
-        // Simulate form submission
-        setTimeout(() => {
-          sendBtn.removeAttribute('disabled');
-          sendBtn.textContent = 'Send Message';
-          success.style.display = 'block';
-          form.reset();
-          
-          // Scroll to success message
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 1500);
-      });
+      // In a real implementation, you would send the form data to a server
+      // For this example, we'll just show an alert
+      alert('Thank you for your message! We will get back to you soon.');
+      
+      // Reset the form
+      this.reset();
+    });
+    
+    // Mobile menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+    
+    menuToggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      mainNav.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+    });
+    
+    navOverlay.addEventListener('click', function() {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('active');
+      this.classList.remove('active');
     });
   </script>
 </body>

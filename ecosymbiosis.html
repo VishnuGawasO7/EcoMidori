@@ -3,50 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EcoMidori — EcoSymbiosis</title>
+  <meta name="description" content="EcoSymbiosis — The intersection of green entrepreneurship and circular economy for regenerative business models." />
+  <title>EcoMidori — EcoSymbiosis: Green Entrepreneurship Meets Circular Economy</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome CDN (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-  <script src="script.js" defer></script>
-  <script src="leaf-particles.js" defer></script>
-  <script src="mobile-menu.js" defer></script>
 
+  <!-- App scripts (deferred) -->
+  <script src="script.js" defer></script>
+  <script src="mobile-menu.js" defer></script>
+  <script src="leaf-particles.js" defer></script>
+  <script src="dropdown.js" defer></script>
+  
   <style>
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    .card-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    
+    /* Enhanced symbiosis model */
     .symbiosis-model {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem 0;
+      padding: 3rem 0;
+      position: relative;
     }
     
     .model-container {
@@ -58,67 +45,222 @@
     
     .model-circle {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(158, 230, 178, 0.1);
-      border: 2px solid rgba(158, 230, 178, 0.3);
+      text-align: center;
+      padding: 20px;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .model-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
     }
     
     .model-circle.entrepreneurship {
       left: 10%;
-      top: 10%;
+      top: 20%;
+      background: rgba(95, 224, 122, 0.15);
+      border: 2px solid rgba(95, 224, 122, 0.4);
     }
     
     .model-circle.circular {
       right: 10%;
-      top: 10%;
+      top: 20%;
+      background: rgba(158, 230, 178, 0.15);
+      border: 2px solid rgba(158, 230, 178, 0.4);
     }
     
     .model-circle.intersection {
-      bottom: 10%;
+      bottom: 20%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(95, 224, 122, 0.2);
-      border-color: rgba(95, 224, 122, 0.5);
+      background: rgba(95, 224, 122, 0.25);
+      border: 2px solid rgba(95, 224, 122, 0.6);
+      width: 220px;
+      height: 220px;
     }
     
     .connection-line {
       position: absolute;
-      background: rgba(158, 230, 178, 0.3);
+      background: linear-gradient(90deg, rgba(95,224,122,0.5), rgba(158,230,178,0.5));
       height: 2px;
       transform-origin: 0 0;
     }
     
     .connection-1 {
       width: 180px;
-      top: 150px;
+      top: 120px;
       left: 160px;
       transform: rotate(45deg);
     }
     
     .connection-2 {
       width: 180px;
-      top: 150px;
+      top: 120px;
       right: 160px;
       transform: rotate(-45deg);
     }
     
     .connection-3 {
       width: 100px;
-      bottom: 150px;
+      bottom: 120px;
       left: 50%;
       transform: translateX(-50%);
+    }
+    
+    /* Enhanced section backgrounds */
+    .alt-bg {
+      background: linear-gradient(180deg, 
+        rgba(10, 30, 16, 0.3) 0%, 
+        rgba(6, 22, 12, 0.2) 100%);
+      position: relative;
+    }
+    
+    .alt-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(95,224,122,0.05), transparent);
+      pointer-events: none;
+    }
+    
+    /* Step indicator styling */
+    .step-indicator {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-2), var(--green-1));
+      color: var(--bg-dark-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: var(--space-sm);
+      box-shadow: 0 4px 12px rgba(95,224,122,0.3);
+    }
+    
+    /* Enhanced highlights section */
+    .highlights-section .highlights-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-lg);
+      width: 100%;
+    }
+    
+    .highlights-section .highlights-list li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      border: 1px solid rgba(158,230,178,0.1);
+    }
+    
+    .highlights-section .highlights-list strong {
+      font-size: 2rem;
+      color: var(--green-2);
+      margin-bottom: var(--space-xs);
+    }
+    
+    /* Enhanced footer */
+    .site-footer {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) 0;
+      background: linear-gradient(180deg, rgba(5,15,10,0.95) 0%, rgba(3,10,7,0.98) 100%);
+      border-top: 1px solid rgba(158,230,178,0.1);
+    }
+    
+    /* Enhanced form styling */
+    .form-group {
+      display: flex;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .form-group input {
+      flex: 1;
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: var(--green-1);
+      font-family: inherit;
+    }
+    
+    /* Mobile responsive improvements */
+    @media (max-width: 900px) {
+      .model-container {
+        height: 300px;
+      }
+      
+      .model-circle {
+        width: 150px;
+        height: 150px;
+        font-size: 0.9rem;
+      }
+      
+      .model-circle.intersection {
+        width: 170px;
+        height: 170px;
+      }
+      
+      .connection-1,
+      .connection-2 {
+        width: 120px;
+        top: 90px;
+      }
+      
+      .connection-1 {
+        left: 110px;
+      }
+      
+      .connection-2 {
+        right: 110px;
+      }
+      
+      .connection-3 {
+        bottom: 90px;
+        width: 80px;
+      }
+      
+      .form-group {
+        flex-direction: column;
+      }
+      
+      .highlights-section .highlights-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .model-container {
+        display: none;
+      }
+      
+      .highlights-section .highlights-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body class="dark-theme">
-  <!-- Header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
   <header class="site-header" id="header">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="EcoMidori Home">
@@ -130,431 +272,562 @@
       </a>
 
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <a href="index.html#hero">Home</a>
+        <div class="mobile-logo" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+            <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+          </svg>
+          <span>EcoMidori</span>
+        </div>
+
+        <a href="index.html">Home</a>
         <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
         <a href="circular-economy.html">Circular Economy</a>
         <a href="ecosymbiosis.html" class="active">EcoSymbiosis</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        
+        <!-- Enhanced Dropdown Menu -->
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="about.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">About Us</span>
+                <span class="dropdown-desc">Our mission and team</span>
+              </div>
+            </a>
+            <a href="impact-hub.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Impact Hub</span>
+                <span class="dropdown-desc">Metrics and success stories</span>
+              </div>
+            </a>
+            <a href="contact.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Contact</span>
+                <span class="dropdown-desc">Get in touch with us</span>
+              </div>
+            </a>
+            <a href="blog.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Blog</span>
+                <span class="dropdown-desc">Latest insights and news</span>
+              </div>
+            </a>
+            <a href="resources.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Resources</span>
+                <span class="dropdown-desc">Tools and downloads</span>
+              </div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="careers.html" class="dropdown-item" role="menuitem">
+              <div class="dropdown-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+              <div class="dropdown-content">
+                <span class="dropdown-title">Careers</span>
+                <span class="dropdown-desc">Join our team</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mobile-controls">
+          <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+            <span class="control-icon">🌙</span>
+          </button>
+        </div>
       </nav>
 
       <div class="header-controls">
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
         <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
       </div>
 
       <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
       </button>
     </div>
   </header>
+  
+  <!-- Nav overlay for mobile -->
+  <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-inner container">
-      <div class="hero-content" data-aos="fade-up">
-        <p class="eyebrow">Synergistic Systems • Regenerative Networks • Mutual Growth</p>
-        <h1 class="headline">EcoSymbiosis — Where Business Growth Meets Regeneration</h1>
-        <p class="subhead">Combining the creative energy of entrepreneurs with circular systems to build resilient, regenerative economies where businesses and ecosystems thrive together.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#concept">Explore the Concept</a>
-          <a class="btn outline" href="#case-studies">See Examples</a>
-        </div>
-        <ul class="hero-features">
-          <li>✓ Create mutual value between businesses</li>
-          <li>✓ Eliminate waste through collaboration</li>
-          <li>✓ Build resilient local economies</li>
-        </ul>
-      </div>
-      <div class="hero-visual" data-aos="fade-left">
-        <div class="floating-leaves">
-          <div class="leaf leaf-1"></div>
-          <div class="leaf leaf-2"></div>
-          <div class="leaf leaf-3"></div>
-          <div class="leaf leaf-4"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <p class="eyebrow">Synergistic Systems • Regenerative Networks • Mutual Growth</p>
+          <h1 class="headline">EcoSymbiosis — Where Green Entrepreneurship Meets Circular Economy</h1>
+          <p class="subhead">The powerful intersection where innovative business models meet circular systems to create regenerative economies that benefit businesses, communities, and ecosystems simultaneously.</p>
 
-  <!-- Core Concept -->
-  <section id="concept" class="info-cards section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">What is EcoSymbiosis?</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Creating mutually beneficial relationships between businesses and ecosystems</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="icon">🤝</div>
-          <h3>Mutual Benefit</h3>
-          <p>Businesses create value for each other by transforming waste streams into resources, reducing costs while improving environmental performance.</p>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon">🔄</div>
-          <h3>Resource Exchange</h3>
-          <p>One company's byproducts become another's raw materials, creating closed-loop systems that minimize waste and maximize resource efficiency.</p>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon">🌿</div>
-          <h3>Ecosystem Integration</h3>
-          <p>Business operations are designed to enhance rather than extract from natural systems, creating positive environmental impact.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Symbiosis Model Visualization -->
-  <section class="section-sm alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">The EcoSymbiosis Model</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">How entrepreneurship and circular economy intersect to create regenerative systems</p>
-      </div>
-      
-      <div class="symbiosis-model" data-aos="zoom-in">
-        <div class="model-container">
-          <div class="model-circle entrepreneurship">
-            <div class="center-text">Green<br>Entrepreneurship</div>
+          <div class="hero-cta">
+            <a class="btn primary" href="#concept"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Explore the Model</a>
+            <a class="btn outline" href="#case-studies"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> See Examples</a>
           </div>
-          <div class="model-circle circular">
-            <div class="center-text">Circular<br>Economy</div>
-          </div>
-          <div class="model-circle intersection">
-            <div class="center-text">EcoSymbiosis</div>
-          </div>
-          <div class="connection-line connection-1"></div>
-          <div class="connection-line connection-2"></div>
-          <div class="connection-line connection-3"></div>
-        </div>
-      </div>
-      
-      <div class="mission-grid">
-        <article class="mission-item" data-aos="fade-up">
-          <h3>Green Entrepreneurship</h3>
-          <p>Market-driven innovation, scalable business models, and value creation with environmental purpose at the core.</p>
-        </article>
 
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
-          <h3>Circular Economy</h3>
-          <p>Materials kept in continuous use, design for recovery, and systems thinking to eliminate waste.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
-          <h3>EcoSymbiosis</h3>
-          <p>Business models that are profitable, regenerative, and built to scale within circular systems through collaboration.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Educational Videos -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Understanding EcoSymbiosis</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Learn how businesses can create symbiotic relationships for mutual benefit</p>
-      </div>
-
-      <div class="teasers">
-        <div class="teaser" data-aos="fade-up">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
-                    title="Industrial Symbiosis Explained"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-          </div>
-          <h3>Industrial Symbiosis Explained</h3>
-          <p>How businesses can collaborate to turn waste into resources, creating economic and environmental benefits for all participants.</p>
-          <a href="#" class="link-cta">Learn More →</a>
+          <ul class="hero-features">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Create mutual value between businesses</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Eliminate waste through collaboration</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Build resilient local economies</li>
+          </ul>
         </div>
 
-        <div class="teaser" data-aos="fade-up" data-aos-delay="100">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/nZcysS-oK8I" 
-                    title="Circular Business Collaboration"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-leaves" aria-hidden="true">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
           </div>
-          <h3>Circular Business Collaboration</h3>
-          <p>Real-world examples of companies working together to create closed-loop systems and eliminate waste through partnership.</p>
-          <a href="#" class="link-cta">Explore Case Studies →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Implementation Framework -->
-  <section class="section-sm alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">The EcoSymbiosis Pathway</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">From idea to implementation: creating symbiotic business relationships</p>
-      </div>
-
-      <div class="mission-grid">
-        <article class="mission-item" data-aos="fade-up">
-          <div class="step-indicator">1</div>
-          <h3>Identify Opportunities</h3>
-          <p>Map local resource flows to identify potential symbiotic relationships and waste-to-resource opportunities.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="step-indicator">2</div>
-          <h3>Build Partnerships</h3>
-          <p>Connect with complementary businesses to explore collaboration opportunities and shared value creation.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="step-indicator">3</div>
-          <h3>Design Systems</h3>
-          <p>Co-create material exchange systems, shared infrastructure, and collaborative business models.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="step-indicator">4</div>
-          <h3>Implement & Scale</h3>
-          <p>Launch symbiotic relationships, measure impact, and expand the network to include more partners.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Studies -->
-  <section id="case-studies" class="info-cards section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">EcoSymbiosis Success Stories</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real businesses achieving remarkable results through symbiotic relationships</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="Kalundborg Symbiosis" loading="lazy">
-          </div>
-          <h3>Kalundborg Symbiosis</h3>
-          <p>World's first industrial symbiosis where companies exchange materials, energy, and water, reducing costs and environmental impact.</p>
-          <div class="btn-group">
-            <a class="btn outline" href="#">Read Case Study</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Circular Food Systems" loading="lazy">
-          </div>
-          <h3>Circular Food Systems</h3>
-          <p>Restaurants, farms, and compost facilities collaborating to create closed-loop food systems that eliminate organic waste.</p>
-          <div class="btn-group">
-            <a class="btn outline" href="#">Read Case Study</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=250&fit=crop" alt="Textile Recycling Network" loading="lazy">
-          </div>
-          <h3>Textile Recycling Network</h3>
-          <p>Fashion brands, manufacturers, and recycling facilities collaborating to create circular textile flows and reduce fashion waste.</p>
-          <div class="btn-group">
-            <a class="btn outline" href="#">Read Case Study</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="highlights-section section-sm alt-bg">
-    <div class="container">
-      <div class="highlights-inner">
-        <div class="highlight-content">
-          <h3 data-aos="fade-up">Benefits of EcoSymbiosis</h3>
-          <p data-aos="fade-up" data-aos-delay="100">Creating value for businesses, communities, and ecosystems</p>
+    <!-- CORE CONCEPT -->
+    <section id="concept" class="info-cards section-sm" aria-labelledby="concept-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="concept-heading" class="section-title">What is EcoSymbiosis?</h2>
+          <p class="section-sub">The synergistic integration of green entrepreneurship and circular economy principles</p>
         </div>
 
-        <ul class="highlights-list">
-          <li data-aos="fade-up">
-            <strong>30-50%</strong>
-            <span>Reduction in material costs</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="100">
-            <strong>60-90%</strong>
-            <span>Waste reduction through exchanges</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="200">
-            <strong>25%</strong>
-            <span>Energy savings through shared systems</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="300">
-            <strong>New Revenue</strong>
-            <span>From previously wasted materials</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Mutual Benefit</h3>
+            <p>Businesses create value for each other by transforming waste streams into resources, reducing costs while improving environmental performance.</p>
+          </article>
 
-  <!-- Tools & Resources -->
-  <section class="info-cards section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">EcoSymbiosis Tools & Resources</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Practical resources to identify and implement symbiotic relationships</p>
-      </div>
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <h3>Resource Exchange</h3>
+            <p>One company's byproducts become another's raw materials, creating closed-loop systems that minimize waste and maximize resource efficiency.</p>
+          </article>
 
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="icon">🗺️</div>
-          <h3>Resource Mapping Toolkit</h3>
-          <p>Tools to map local resource flows and identify potential symbiotic relationships in your business ecosystem.</p>
-          <div class="btn-group">
-            <a class="btn primary" href="#">Download Toolkit</a>
-            <a class="link-cta" href="#">Preview →</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon">🤝</div>
-          <h3>Partnership Framework</h3>
-          <p>Guidance on building successful symbiotic partnerships, including legal frameworks and value-sharing models.</p>
-          <div class="btn-group">
-            <a class="btn outline" href="#">Access Framework</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon">📚</div>
-          <h3>Case Study Library</h3>
-          <p>Collection of successful EcoSymbiosis implementations across different industries and regions.</p>
-          <div class="btn-group">
-            <a class="btn glass" href="#">Browse Library</a>
-          </div>
-        </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Ecosystem Integration</h3>
+            <p>Business operations are designed to enhance rather than extract from natural systems, creating positive environmental impact.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Success Stories Video -->
-  <section class="section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">EcoSymbiosis in Action</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real examples of businesses creating symbiotic relationships</p>
-      </div>
-      
-      <div class="video-container" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/6W1n6W-re_s" 
-                title="EcoSymbiosis Success Stories"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe>
-      </div>
-      
-      <div class="center-text" data-aos="fade-up" data-aos-delay="200">
-        <a href="#" class="btn primary">Watch More Success Stories</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Common questions about implementing EcoSymbiosis principles</p>
-      </div>
-
-      <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
-        <details>
-          <summary>What's the difference between circular economy and EcoSymbiosis?</summary>
-          <p>Circular economy focuses on designing out waste and keeping materials in use. EcoSymbiosis takes this further by creating collaborative networks where multiple businesses exchange resources, creating mutual benefits beyond individual circular systems.</p>
-        </details>
+    <!-- SYMBIOSIS MODEL VISUALIZATION -->
+    <section class="section-sm alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">The EcoSymbiosis Model</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">How entrepreneurship and circular economy intersect to create regenerative systems</p>
+        </div>
         
-        <details>
-          <summary>How do I find potential symbiotic partners?</summary>
-          <p>Start by mapping your resource inputs and outputs, then identify local businesses that might benefit from your waste streams or whose waste streams could become your resources. Industry associations, sustainability networks, and local business chambers can help facilitate connections.</p>
-        </details>
-        
-        <details>
-          <summary>What are the legal considerations for resource exchanges?</summary>
-          <p>Key considerations include liability for materials, quality standards, intellectual property, and contractual agreements. Our Partnership Framework provides templates and guidance for establishing successful symbiotic relationships.</p>
-        </details>
-        
-        <details>
-          <summary>Is EcoSymbiosis only for manufacturing companies?</summary>
-          <p>No, EcoSymbiosis principles apply to all sectors. Service businesses can share facilities, equipment, and expertise. Retail and hospitality can collaborate on waste reduction and local sourcing. The key is identifying complementary needs and resources.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-aos="fade-up">Ready to Create Symbiotic Relationships?</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join our network of businesses collaborating for mutual benefit and environmental impact</p>
-      </div>
-
-      <form class="contact-form" action="#" method="post" aria-label="EcoSymbiosis updates" data-aos="fade-up" data-aos-delay="200">
-        <div class="form-group">
-          <input type="email" name="newsletter_email" placeholder="Your email address" required>
-          <button class="btn primary" type="submit">Get Started Guide</button>
+        <div class="symbiosis-model" data-aos="zoom-in">
+          <div class="model-container">
+            <div class="model-circle entrepreneurship">
+              <div class="center-text"><i class="fa-solid fa-lightbulb"></i><br>Green<br>Entrepreneurship</div>
+            </div>
+            <div class="model-circle circular">
+              <div class="center-text"><i class="fa-solid fa-recycle"></i><br>Circular<br>Economy</div>
+            </div>
+            <div class="model-circle intersection">
+              <div class="center-text"><i class="fa-solid fa-network-wired"></i><br>EcoSymbiosis</div>
+            </div>
+            <div class="connection-line connection-1"></div>
+            <div class="connection-line connection-2"></div>
+            <div class="connection-line connection-3"></div>
+          </div>
         </div>
-        <small>Free resource mapping template included. No spam, unsubscribe anytime.</small>
-      </form>
+        
+        <div class="mission-grid">
+          <article class="mission-item" data-aos="fade-up">
+            <h3><i class="fa-solid fa-lightbulb"></i> Green Entrepreneurship</h3>
+            <p>Market-driven innovation, scalable business models, and value creation with environmental purpose at the core.</p>
+          </article>
 
-      <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-        <a href="contact.html" class="btn outline">Schedule Consultation</a>
-        <a href="resources.html" class="btn glass">Download Resources</a>
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fa-solid fa-recycle"></i> Circular Economy</h3>
+            <p>Materials kept in continuous use, design for recovery, and systems thinking to eliminate waste.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
+            <h3><i class="fa-solid fa-network-wired"></i> EcoSymbiosis</h3>
+            <p>Business models that are profitable, regenerative, and built to scale within circular systems through collaboration.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- EDUCATIONAL VIDEOS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Understanding EcoSymbiosis</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Learn how businesses can create symbiotic relationships for mutual benefit</p>
+        </div>
+
+        <div class="teasers">
+          <div class="teaser" data-aos="fade-up">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/ZcSB3w3YbgU" 
+                      title="Industrial Symbiosis Explained"
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+              </iframe>
+            </div>
+            <h3>Industrial Symbiosis Explained</h3>
+            <p>How businesses can collaborate to turn waste into resources, creating economic and environmental benefits for all participants.</p>
+            <a href="#" class="link-cta">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="teaser" data-aos="fade-up" data-aos-delay="100">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/nZcysS-oK8I" 
+                      title="Circular Business Collaboration"
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+              </iframe>
+            </div>
+            <h3>Circular Business Collaboration</h3>
+            <p>Real-world examples of companies working together to create closed-loop systems and eliminate waste through partnership.</p>
+            <a href="#" class="link-cta">Explore Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPLEMENTATION FRAMEWORK -->
+    <section class="section-sm alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">The EcoSymbiosis Pathway</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">From idea to implementation: creating symbiotic business relationships</p>
+        </div>
+
+        <div class="mission-grid">
+          <article class="mission-item" data-aos="fade-up">
+            <div class="step-indicator">1</div>
+            <h3>Identify Opportunities</h3>
+            <p>Map local resource flows to identify potential symbiotic relationships and waste-to-resource opportunities.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-indicator">2</div>
+            <h3>Build Partnerships</h3>
+            <p>Connect with complementary businesses to explore collaboration opportunities and shared value creation.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-indicator">3</div>
+            <h3>Design Systems</h3>
+            <p>Co-create material exchange systems, shared infrastructure, and collaborative business models.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-indicator">4</div>
+            <h3>Implement & Scale</h3>
+            <p>Launch symbiotic relationships, measure impact, and expand the network to include more partners.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="info-cards section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">EcoSymbiosis Success Stories</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real businesses achieving remarkable results through symbiotic relationships</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="Kalundborg Symbiosis" loading="lazy">
+            </div>
+            <h3>Kalundborg Symbiosis</h3>
+            <p>World's first industrial symbiosis where companies exchange materials, energy, and water, reducing costs and environmental impact.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#"><i class="fa-solid fa-book-open"></i> Read Case Study</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Circular Food Systems" loading="lazy">
+            </div>
+            <h3>Circular Food Systems</h3>
+            <p>Restaurants, farms, and compost facilities collaborating to create closed-loop food systems that eliminate organic waste.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#"><i class="fa-solid fa-book-open"></i> Read Case Study</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=250&fit=crop" alt="Textile Recycling Network" loading="lazy">
+            </div>
+            <h3>Textile Recycling Network</h3>
+            <p>Fashion brands, manufacturers, and recycling facilities collaborating to create circular textile flows and reduce fashion waste.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#"><i class="fa-solid fa-book-open"></i> Read Case Study</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="highlights-section section-sm alt-bg">
+      <div class="container">
+        <div class="highlights-inner">
+          <div class="highlight-content">
+            <h3 data-aos="fade-up">Benefits of EcoSymbiosis</h3>
+            <p data-aos="fade-up" data-aos-delay="100">Creating value for businesses, communities, and ecosystems</p>
+          </div>
+
+          <ul class="highlights-list">
+            <li data-aos="fade-up">
+              <strong>30-50%</strong>
+              <span>Reduction in material costs</span>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="100">
+              <strong>60-90%</strong>
+              <span>Waste reduction through exchanges</span>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="200">
+              <strong>25%</strong>
+              <span>Energy savings through shared systems</span>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+              <strong>New Revenue</strong>
+              <span>From previously wasted materials</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS & RESOURCES -->
+    <section class="info-cards section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">EcoSymbiosis Tools & Resources</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Practical resources to identify and implement symbiotic relationships</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-map"></i></div>
+            <h3>Resource Mapping Toolkit</h3>
+            <p>Tools to map local resource flows and identify potential symbiotic relationships in your business ecosystem.</p>
+            <div class="btn-group">
+              <a class="btn primary" href="#"><i class="fa-solid fa-download"></i> Download Toolkit</a>
+              <a class="link-cta" href="#">Preview <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
+            <h3>Partnership Framework</h3>
+            <p>Guidance on building successful symbiotic partnerships, including legal frameworks and value-sharing models.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#"><i class="fa-solid fa-file-lines"></i> Access Framework</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+            <h3>Case Study Library</h3>
+            <p>Collection of successful EcoSymbiosis implementations across different industries and regions.</p>
+            <div class="btn-group">
+              <a class="btn glass" href="#"><i class="fa-solid fa-magnifying-glass"></i> Browse Library</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS STORIES VIDEO -->
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">EcoSymbiosis in Action</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real examples of businesses creating symbiotic relationships</p>
+        </div>
+        
+        <div class="video-container" data-aos="fade-up">
+          <iframe src="https://www.youtube.com/embed/6W1n6W-re_s" 
+                  title="EcoSymbiosis Success Stories"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+        
+        <div class="center-text" data-aos="fade-up" data-aos-delay="200">
+          <a href="#" class="btn primary"><i class="fa-solid fa-play-circle"></i> Watch More Success Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Common questions about implementing EcoSymbiosis principles</p>
+        </div>
+
+        <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+          <details>
+            <summary>What's the difference between circular economy and EcoSymbiosis?</summary>
+            <p>Circular economy focuses on designing out waste and keeping materials in use. EcoSymbiosis takes this further by creating collaborative networks where multiple businesses exchange resources, creating mutual benefits beyond individual circular systems.</p>
+          </details>
+          
+          <details>
+            <summary>How do I find potential symbiotic partners?</summary>
+            <p>Start by mapping your resource inputs and outputs, then identify local businesses that might benefit from your waste streams or whose waste streams could become your resources. Industry associations, sustainability networks, and local business chambers can help facilitate connections.</p>
+          </details>
+          
+          <details>
+            <summary>What are the legal considerations for resource exchanges?</summary>
+            <p>Key considerations include liability for materials, quality standards, intellectual property, and contractual agreements. Our Partnership Framework provides templates and guidance for establishing successful symbiotic relationships.</p>
+          </details>
+          
+          <details>
+            <summary>Is EcoSymbiosis only for manufacturing companies?</summary>
+            <p>No, EcoSymbiosis principles apply to all sectors. Service businesses can share facilities, equipment, and expertise. Retail and hospitality can collaborate on waste reduction and local sourcing. The key is identifying complementary needs and resources.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-aos="fade-up">Ready to Create Symbiotic Relationships?</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join our network of businesses collaborating for mutual benefit and environmental impact</p>
+        </div>
+
+        <form class="contact-form" action="#" method="post" aria-label="EcoSymbiosis updates" data-aos="fade-up" data-aos-delay="200">
+          <div class="form-group">
+            <input type="email" name="newsletter_email" placeholder="Your email address" required>
+            <button class="btn primary" type="submit"><i class="fa-solid fa-envelope-open-text"></i> Get Started Guide</button>
+          </div>
+          <small>Free resource mapping template included. No spam, unsubscribe anytime.</small>
+        </form>
+
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
+          <a href="contact.html" class="btn outline"><i class="fa-solid fa-calendar-check"></i> Schedule Consultation</a>
+          <a href="resources.html" class="btn glass"><i class="fa-solid fa-download"></i> Download Resources</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#1D823C"></path>
-        </svg>
-        <small>© 2025 EcoMidori</small>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+              <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+            </svg>
+            <span class="brand">EcoMidori</span>
+          </div>
+          <p class="footer-desc">Building sustainable ventures for a regenerative future through circular economy and green entrepreneurship.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="green-entrepreneurship.html">Green Entrepreneurship</a></li>
+              <li><a href="circular-economy.html">Circular Economy</a></li>
+              <li><a href="ecosymbiosis.html">EcoSymbiosis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="resources.html">Toolkits & Guides</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="impact-hub.html">Impact Hub</a></li>
+              <li><a href="case-studies.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms">Terms</a></li>
+              <li><a href="#cookies">Cookie Policy</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <a href="index.html#hero">Home</a>
-        <a href="green-entrepreneurship.html">Green</a>
-        <a href="circular-economy.html">Circular</a>
-        <a href="ecosymbiosis.html" class="active">Symbiosis</a>
-      </nav>
-      <div class="socials">
-        <a href="#">🐦</a>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
+
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2023 EcoMidori. All rights reserved.</div>
+        <div class="footer-newsletter">
+          <p>Stay updated with sustainability insights</p>
+          <form class="newsletter-form" action="#" method="post" aria-label="Footer newsletter">
+            <input type="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit">→</button>
+          </form>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init({
-        duration: 1000,
-        easing: "ease-in-out",
-        once: true,
-        offset: 120
-      });
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
     });
   </script>
-
 </body>
 </html>

@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="EcoMidori — Practical resources for green entrepreneurship and circular economy innovation." />
   <title>EcoMidori — Green Entrepreneurship</title>
 
-  <!-- Fonts & Styles -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome CDN (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -16,431 +20,458 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
+  <!-- App scripts (deferred) -->
   <script src="script.js" defer></script>
-  <script src="leaf-particles.js" defer></script>
   <script src="mobile-menu.js" defer></script>
+  <script src="leaf-particles.js" defer></script>
+  <script src="dropdown.js" defer></script>
 </head>
 
 <body class="dark-theme">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header -->
-  <header class="site-header" id="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="EcoMidori Home">
-        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+  <!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="logo" href="#hero" aria-label="EcoMidori Home">
+      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+      </svg>
+      <span class="brand">EcoMidori</span>
+    </a>
+
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+      <div class="mobile-logo" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
           <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
         </svg>
-        <span class="brand">EcoMidori</span>
-      </a>
-
-      <nav class="main-nav" role="navigation">
-        <a href="index.html#hero">Home</a>
-        <a href="green-entrepreneurship.html" class="active">Green Entrepreneurship</a>
-        <a href="circular-economy.html">Circular Economy</a>
-        <a href="ecosymbiosis.html">EcoSymbiosis</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <div class="header-controls">
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
-        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
+        <span>EcoMidori</span>
       </div>
 
-      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      <a href="index.html" class="active">Home</a>
+      <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+      <a href="circular-economy.html">Circular Economy</a>
+      <a href="ecosymbiosis.html">EcoSymbiosis</a>
+      
+      <!-- Enhanced Dropdown Menu -->
+      <div class="nav-dropdown">
+        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+          More
+          <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a href="about.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">About Us</span>
+              <span class="dropdown-desc">Our mission and team</span>
+            </div>
+          </a>
+          <a href="impact-hub.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Impact Hub</span>
+              <span class="dropdown-desc">Metrics and success stories</span>
+            </div>
+          </a>
+          <a href="contact.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Contact</span>
+              <span class="dropdown-desc">Get in touch with us</span>
+            </div>
+          </a>
+          <a href="blog.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Latest insights and news</span>
+            </div>
+          </a>
+          <a href="resources.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Resources</span>
+              <span class="dropdown-desc">Tools and downloads</span>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="careers.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Careers</span>
+              <span class="dropdown-desc">Join our team</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-controls">
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="header-controls">
+      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="control-icon">🌙</span>
       </button>
-      <div class="nav-overlay"></div>
+      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-inner container">
-      <div class="hero-content" data-aos="fade-up">
-        <p class="eyebrow">Sustainable Innovation • Regenerative Business • Positive Impact</p>
-        <h1 class="headline">Green Entrepreneurship — Building Businesses That Regenerate Our World</h1>
-        <p class="subhead">Transform your entrepreneurial vision into a force for positive change. Learn how to build profitable ventures that solve environmental challenges while creating lasting value for communities and ecosystems.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#definition">Start Your Journey</a>
-          <a class="btn outline" href="#case-studies">See Success Stories</a>
-        </div>
-        <ul class="hero-features">
-          <li>✓ Proven frameworks for sustainable business</li>
-          <li>✓ Access to green investors and grants</li>
-          <li>✓ Community of 500+ eco-entrepreneurs</li>
-        </ul>
-      </div>
-      <div class="hero-visual" data-aos="fade-left">
-        <div class="floating-leaves">
-          <div class="leaf leaf-1"></div>
-          <div class="leaf leaf-2"></div>
-          <div class="leaf leaf-3"></div>
-          <div class="leaf leaf-4"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+</header>
+  <!-- Nav overlay for mobile -->
+  <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>
 
-  <!-- Core Principles -->
-  <section id="definition" class="info-cards section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">What is Green Entrepreneurship?</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Building businesses that address environmental challenges while creating economic value</p>
-      </div>
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <p class="eyebrow">Sustainability × Innovation × Impact</p>
+          <h1 class="headline">Green Entrepreneurship — Build Ventures That Regenerate</h1>
+          <p class="subhead">Turn an idea into a resilient, revenue-generating venture that restores ecosystems and strengthens communities. Practical frameworks, funding pathways, and hands-on support for founders ready to do business differently.</p>
 
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="icon">🌿</div>
-          <h3>Environmental Focus</h3>
-          <p>Design every business stage to minimize environmental impact — from sustainable sourcing to circular end-of-life solutions.</p>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon">💡</div>
-          <h3>Innovation Driven</h3>
-          <p>Apply clean technology, renewable energy, and circular thinking to create breakthrough sustainable business models.</p>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon">🤝</div>
-          <h3>Community-Centered</h3>
-          <p>Build inclusive networks and partnerships that benefit local communities while protecting planetary health.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Educational Videos -->
-  <section class="section alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Learn From Successful Green Entrepreneurs</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real stories and practical insights from those building sustainable businesses</p>
-      </div>
-
-      <div class="teasers">
-        <div class="teaser" data-aos="fade-up">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/nZcysS-oK8I" 
-                    title="Green Entrepreneurship Success Stories"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
+          <div class="hero-cta">
+            <a class="btn primary" href="#definition"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Explore Our Framework</a>
+            <a class="btn outline" href="resources.html"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Start Your Journey</a>
           </div>
-          <h3>Success Stories in Sustainability</h3>
-          <p>Learn how entrepreneurs are building profitable businesses while making positive environmental impact across different industries.</p>
-          <a href="#" class="link-cta">Watch Full Series →</a>
-        </div>
-        
-        <div class="teaser" data-aos="fade-up" data-aos-delay="100">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/FrO3g5kso90" 
-                    title="Sustainable Business Models"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-          </div>
-          <h3>Sustainable Business Models</h3>
-          <p>Explore innovative business models that prioritize people, planet, and profit simultaneously while creating market advantage.</p>
-          <a href="#" class="link-cta">Explore Case Studies →</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How They Create Change -->
-  <section class="section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">How Green Entrepreneurs Create Change</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Transforming industries through innovative approaches and sustainable practices</p>
-      </div>
-
-      <div class="mission-grid">
-        <article class="mission-item" data-aos="fade-up">
-          <div class="step-indicator">1</div>
-          <h3>Redesign Product Lifecycles</h3>
-          <p>Transform linear take-make-waste models into circular systems where materials continuously circulate at their highest value.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="step-indicator">2</div>
-          <h3>Integrate Renewable Solutions</h3>
-          <p>Power operations with clean energy, use sustainable materials, and implement nature-positive production methods.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="step-indicator">3</div>
-          <h3>Build Ethical Supply Chains</h3>
-          <p>Create transparent, fair-trade networks that benefit producers while minimizing environmental footprint.</p>
-        </article>
-
-        <article class="mission-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="step-indicator">4</div>
-          <h3>Measure & Report Impact</h3>
-          <p>Track environmental and social performance, creating accountability and building trust with stakeholders.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tools & Resources -->
-  <section class="info-cards section-sm alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Essential Tools & Resources</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Practical resources to launch and grow your green venture</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="icon">📊</div>
-          <h3>Sustainability Assessment Toolkit</h3>
-          <p>Comprehensive tools to measure and improve your environmental impact across operations and supply chain.</p>
-          <div class="btn-group">
-            <a href="#" class="btn primary">Access Tools</a>
-            <a href="#" class="link-cta">Preview →</a>
-          </div>
-        </article>
-        
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon">💰</div>
-          <h3>Green Funding Guide</h3>
-          <p>Complete guide to impact investors, grants, and sustainable business financing options with application templates.</p>
-          <div class="btn-group">
-            <a href="#" class="btn outline">Download Guide</a>
-          </div>
-        </article>
-        
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon">🌍</div>
-          <h3>Market Research Database</h3>
-          <p>Data and insights on sustainable consumer trends, green market opportunities, and competitive landscape analysis.</p>
-          <div class="btn-group">
-            <a href="#" class="btn glass">Explore Data</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Success Stories Section -->
-  <section id="case-studies" class="section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Green Entrepreneurship Success Stories</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real businesses achieving remarkable environmental and economic impact</p>
-      </div>
-
-      <div class="cards-grid">
-        <article class="card" data-aos="fade-up">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=250&fit=crop" alt="EcoBricks facility" loading="lazy">
-          </div>
-          <h3>EcoBricks (India)</h3>
-          <p>Transforms plastic waste into durable, low-cost construction materials, reducing landfill pressure by 85% and creating 200+ local jobs.</p>
-          <div class="btn-group">
-            <a href="#" class="btn outline">Read Full Study</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="FairFood operations" loading="lazy">
-          </div>
-          <h3>FairFood (Netherlands)</h3>
-          <p>Uses blockchain to ensure transparency in food supply chains — empowering 5,000+ farmers while reducing food waste by 60%.</p>
-          <div class="btn-group">
-            <a href="#" class="btn outline">Read Full Study</a>
-          </div>
-        </article>
-
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=250&fit=crop" alt="EcoLife installation" loading="lazy">
-          </div>
-          <h3>EcoLife Solutions (Kenya)</h3>
-          <p>Provides solar-powered water purification to 50,000+ people in off-grid communities, eliminating plastic water bottle waste.</p>
-          <div class="btn-group">
-            <a href="#" class="btn outline">Read Full Study</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Section -->
-  <section class="highlights-section section-sm alt-bg">
-    <div class="container">
-      <div class="highlights-inner">
-        <div class="highlight-content">
-          <h3 data-aos="fade-up">Proven Impact of Green Ventures</h3>
-          <p data-aos="fade-up" data-aos-delay="100">Measurable results from businesses built on sustainable principles</p>
-        </div>
-
-        <ul class="highlights-list">
-          <li data-aos="fade-up">
-            <strong>40%</strong>
-            <span>Higher customer loyalty</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="100">
-            <strong>30-50%</strong>
-            <span>Reduced operational costs</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="200">
-            <strong>85%</strong>
-            <span>Waste reduction</span>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="300">
-            <strong>₿5.2M</strong>
-            <span>Value created</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Success Stories Video -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Green Entrepreneurs in Action</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real entrepreneurs sharing their journey building sustainable businesses</p>
-      </div>
-      
-      <div class="video-container" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/6W1n6W-re_s" 
-                title="Green Entrepreneur Interviews"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe>
-      </div>
-      
-      <div class="center-text" data-aos="fade-up" data-aos-delay="200">
-        <a href="#" class="btn primary">Watch More Success Stories</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Challenges & Opportunities -->
-  <section class="section-sm alt-bg">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Challenges and Opportunities</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Entrepreneurs balance innovation, cost, and scale in a growing green ecosystem</p>
-      </div>
-
-      <div class="cards-grid">
-        <div class="card" data-aos="fade-right">
-          <h3>Challenges</h3>
-          <ul>
-            <li>Higher initial R&D investment</li>
-            <li>Complex regulatory environments</li>
-            <li>Consumer education requirements</li>
-            <li>Supply chain transformation needs</li>
+          <ul class="hero-features">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> No-fluff, actionable guidance</li>
+            <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> Real-world case studies</li>
+            <li><i class="fa-solid fa-people-roof" aria-hidden="true"></i> Community of 500+ founders</li>
           </ul>
         </div>
-        <div class="card" data-aos="fade-left" data-aos-delay="100">
-          <h3>Opportunities</h3>
-          <ul>
-            <li>Access to $50B+ in green funding</li>
-            <li>Growing consumer demand for sustainability</li>
-            <li>Government incentives and tax benefits</li>
-            <li>First-mover advantage in emerging markets</li>
-          </ul>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-leaves" aria-hidden="true">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Common questions about starting and growing green businesses</p>
-      </div>
-
-      <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
-        <details>
-          <summary>What is the main goal of green entrepreneurship?</summary>
-          <p>To create sustainable value by integrating environmental and social goals into profitable business models that benefit both people and planet while generating economic returns.</p>
-        </details>
-        
-        <details>
-          <summary>Is green entrepreneurship only for environmental startups?</summary>
-          <p>No — any business can become a green entrepreneur by adopting eco-friendly operations, circular practices, and sustainability principles across their value chain.</p>
-        </details>
-        
-        <details>
-          <summary>How can I start a green business with limited funding?</summary>
-          <p>Begin with identifying local environmental issues, research sustainable models, leverage grants and impact investment, and seek mentorship through programs like EcoMidori's incubator.</p>
-        </details>
-        
-        <details>
-          <summary>Are green ventures actually profitable?</summary>
-          <p>Yes. While initial costs can be higher, green ventures often achieve 30-50% cost savings through efficiency, enjoy premium pricing, and access growing markets of conscious consumers.</p>
-        </details>
-        
-        <details>
-          <summary>What support exists for green startups?</summary>
-          <p>Many countries offer grants, accelerators, tax incentives, and impact investment programs specifically for sustainability-focused startups, along with growing networks of green mentors.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-aos="fade-up">Ready to Start Your Green Journey?</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Join 500+ entrepreneurs building the future of sustainable business</p>
-      </div>
-
-      <form class="contact-form" action="#" method="post" aria-label="Green entrepreneurship updates" data-aos="fade-up" data-aos-delay="200">
-        <div class="form-group">
-          <input type="email" name="newsletter_email" placeholder="Your email address" required>
-          <button class="btn primary" type="submit">Get Started Guide</button>
+    <!-- DEFINITION SECTION -->
+    <section id="definition" class="info-cards section-sm" aria-labelledby="definition-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="definition-heading" class="section-title">What is Green Entrepreneurship?</h2>
+          <p class="section-sub">Building businesses that address environmental challenges while creating durable economic value.</p>
         </div>
-        <small>Free sustainability assessment template included. No spam, unsubscribe anytime.</small>
-      </form>
 
-      <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-        <a href="contact.html" class="btn outline">Schedule Consultation</a>
-        <a href="resources.html" class="btn glass">Download Resources</a>
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Environmental Focus</h3>
+            <p>Design every stage to minimize impact — from responsible sourcing to circular end-of-life strategies that recover value and reduce waste.</p>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Innovation Driven</h3>
+            <p>Use clean technologies, systems thinking, and circular models to create products and services that scale without depleting natural capital.</p>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-hands-holding-child"></i></div>
+            <h3>Community-Centered</h3>
+            <p>Build inclusive value chains that create local jobs, respect rights, and share the benefits of sustainable growth.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <!-- HOW THEY CREATE CHANGE -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How Green Entrepreneurs Create Change</h2>
+          <p class="section-sub">Practical levers founders use to scale impact while staying financially strong.</p>
+        </div>
+
+        <div class="mission-grid">
+          <article class="mission-item" data-aos="fade-up">
+            <div class="step-indicator">1</div>
+            <h3>Design for Durability & Repair</h3>
+            <p>Create modular, repairable products that retain value and extend useful life.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-indicator">2</div>
+            <h3>Deploy Circular Business Models</h3>
+            <p>Leasing, take-back, and product-as-a-service keep materials in use and open new revenue streams.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-indicator">3</div>
+            <h3>Regenerate Supply Chains</h3>
+            <p>Work with suppliers to restore ecosystems, use regenerative agriculture, and reduce upstream emissions.</p>
+          </article>
+
+          <article class="mission-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-indicator">4</div>
+            <h3>Measure & Communicate Impact</h3>
+            <p>Track circular KPIs and ESG metrics to prove progress to customers and investors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS & RESOURCES -->
+    <section class="info-cards section-sm alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Essential Tools & Resources</h2>
+          <p class="section-sub">Practical resources to launch and grow your green venture.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Sustainability Assessment Toolkit</h3>
+            <p>Step-by-step templates to map your material flows, emissions, and opportunities for circular redesign.</p>
+            <div class="btn-group">
+              <a href="resources.html" class="btn primary">Access Tools</a>
+              <a href="#" class="link-cta">Preview →</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3>Green Funding Guide</h3>
+            <p>Investor lists, grant programs, and pitch templates tailored for circular and regenerative startups.</p>
+            <div class="btn-group">
+              <a href="resources.html" class="btn outline">Download Guide</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon" aria-hidden="true"><i class="fa-solid fa-database"></i></div>
+            <h3>Market Research Database</h3>
+            <p>Data on sustainable consumer behavior, sector opportunities, and regulatory trends to inform product-market fit.</p>
+            <div class="btn-group">
+              <a href="resources.html" class="btn glass">Explore Data</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS STORIES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Success Stories</h2>
+          <p class="section-sub">Real ventures built on circular economy principles.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card" data-aos="fade-up">
+            <div class="card-image">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=60&auto=format&fit=crop" alt="Upcycled fashion">
+            </div>
+            <h3>ReFashion Co.</h3>
+            <p>Transformed textile waste into high-fashion clothing — reducing landfill and creating local jobs.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#">Read Case Study</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-image">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1556909114-4d0d853e5e25?w=800&q=60&auto=format&fit=crop" alt="Zero-waste restaurant">
+            </div>
+            <h3>GreenPlate Bistro</h3>
+            <p>Eliminated 95% of restaurant waste through composting and circular packaging.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#">Read Case Study</a>
+            </div>
+          </article>
+
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-image">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1563013541-3f7e66c328ca?w=800&q=60&auto=format&fit=crop" alt="Circular tech products">
+            </div>
+            <h3>EcoTech Solutions</h3>
+            <p>Recovers and reuses 90% of materials to build affordable tech for underserved communities.</p>
+            <div class="btn-group">
+              <a class="btn outline" href="#">Read Case Study</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-header">
+          <h2 class="section-title" data-aos="fade-up">Green Entrepreneurs in Action</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Real entrepreneurs sharing their journey building sustainable businesses</p>
+        </div>
+        
+        <div class="video-container" data-aos="fade-up">
+          <iframe src="https://www.youtube.com/embed/6W1n6W-re_s" 
+                  title="Green Entrepreneur Interviews"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+        
+        <div class="center-text" data-aos="fade-up" data-aos-delay="200">
+          <a href="impact-hub.html" class="btn primary">Watch More Success Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faq-section section-sm" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+          <p class="section-sub">Quick answers to help you get started with circular entrepreneurship</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>What makes a business truly circular vs just "green"?</summary>
+            <p>Truly circular ventures design out waste: materials stay in use, products are made for repair & reuse, and business models prioritize access and value retention over single-use sales.</p>
+          </details>
+          
+          <details>
+            <summary>How can startups access funding for circular projects?</summary>
+            <p>Tap climate tech funds, impact investors, corporate partnerships, and targeted grants. EcoMidori connects founders with 50+ active impact investors and provides application templates.</p>
+          </details>
+          
+          <details>
+            <summary>Is circular entrepreneurship actually profitable?</summary>
+            <p>Yes. Circular models reduce raw material costs, open new revenue streams (services, refurbishment), and deepen customer loyalty—which often leads to faster profitability.</p>
+          </details>
+          
+          <details>
+            <summary>What's the first step to start a circular business?</summary>
+            <p>Run a material flow analysis: map inputs, outputs, and value losses. From there, test small circular interventions (repair programs, take-back pilots) and measure results.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-sm" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="contact-heading" class="section-title">Ready to Build Circular?</h2>
+          <p class="section-sub">Let's discuss your venture, challenge, or collaboration idea</p>
+        </div>
+
+        <div class="teasers">
+          <div class="teaser" data-aos="fade-up">
+            <h3>Quick Consultation</h3>
+            <p>30-minute session to discuss your circular business idea and get immediate feedback.</p>
+            <a href="contact.html" class="btn primary">Book Now</a>
+          </div>
+          
+          <div class="teaser" data-aos="fade-up" data-aos-delay="100">
+            <h3>Deep Dive Workshop</h3>
+            <p>Half-day session to map your circular strategy and create an actionable implementation plan.</p>
+            <a href="contact.html" class="btn outline">Learn More</a>
+          </div>
+          
+          <div class="teaser" data-aos="fade-up" data-aos-delay="200">
+            <h3>Join Our Community</h3>
+            <p>Connect with 500+ circular entrepreneurs, share challenges, and find collaborators.</p>
+            <a href="#" class="btn glass">Join Slack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (kept original structure) -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#1D823C"></path>
-        </svg>
-        <small>© 2025 EcoMidori</small>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="logo.svg" alt="EcoMidori logo" width="36" height="36" />
+            <span class="brand">EcoMidori</span>
+          </div>
+          <p class="footer-desc">Building sustainable ventures for a regenerative future through circular economy and green entrepreneurship.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#hero">Home</a></li>
+              <li><a href="green-entrepreneurship.html">Green Entrepreneurship</a></li>
+              <li><a href="circular-economy.html">Circular Economy</a></li>
+              <li><a href="ecosymbiosis.html">EcoSymbiosis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="resources.html">Toolkits & Guides</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="impact-hub.html">Impact Hub</a></li>
+              <li><a href="case-studies.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#privacy">Privacy Policy</a></li>
+              <li><a href="#terms">Terms</a></li>
+              <li><a href="#cookies">Cookie Policy</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <a href="index.html#hero">Home</a>
-        <a href="green-entrepreneurship.html">Green</a>
-        <a href="circular-economy.html">Circular</a>
-        <a href="ecosymbiosis.html">Symbiosis</a>
-      </nav>
-      <div class="socials">
-        <a href="#">🐦</a>
-        <a href="#">📘</a>
-        <a href="#">📸</a>
+
+      <div class="footer-bottom">
+        <div class="copyright">&copy; 2023 EcoMidori. All rights reserved.</div>
+        <div class="footer-newsletter">
+          <p>Stay updated with sustainability insights</p>
+          <form class="newsletter-form" action="#" method="post" aria-label="Footer newsletter">
+            <input type="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit">→</button>
+          </form>
+        </div>
       </div>
     </div>
   </footer>
+
 
   <!-- AOS Init -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -453,34 +484,98 @@
     });
   </script>
 
+  <!-- Page-specific small styles -->
   <style>
+    /* Enhanced video container */
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
-      margin-bottom: 1.5rem;
-      border-radius: 12px;
+      margin-bottom: 2rem;
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(158,230,178,0.1);
     }
     
     .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      border: 0;
     }
     
-    .card-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+    /* Card image enhancements */
+    .card-image img { 
+      width: 100%; 
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: var(--radius-sm); 
+      margin-bottom: 1rem; 
+      display: block; 
     }
-  </style>
+    
+    /* Enhanced teasers */
+    .teasers .teaser { 
+      padding: var(--space-lg); 
+      background: linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); 
+      border-radius: var(--radius);
+      border: 1px solid rgba(158,230,178,0.15);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    
+    .teasers .teaser:hover {
+      transform: translateY(-4px);
+      border-color: rgba(158,230,178,0.3);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    
+    /* Step indicator styling */
+    .step-indicator {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-2), var(--green-1));
+      color: var(--bg-dark-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: var(--space-sm);
+      box-shadow: 0 4px 12px rgba(95,224,122,0.3);
+    }
+    
 
+    
+    /* Center text utility */
+    .center-text {
+      text-align: center;
+      margin-top: var(--space-lg);
+    }
+    
+    /* Active nav link */
+    /* .main-nav a.active {
+      background: rgba(158,230,178,0.1);
+      color: var(--green-2);
+      position: relative;
+    }
+    
+    .main-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--green-2);
+    } */
+  </style>
 </body>
 </html>

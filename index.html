@@ -62,72 +62,106 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- HEADER (restored structure from original file you provided) -->
-  <header class="site-header" id="header" role="banner">
-    <div class="container header-inner">
-      <a class="logo" href="#hero" aria-label="EcoMidori Home">
-        <img src="logo.svg" alt="EcoMidori logo" width="44" height="44" />
-        <span class="brand">EcoMidori</span>
-      </a>
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="logo" href="#hero" aria-label="EcoMidori Home">
+      <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+        <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+      </svg>
+      <span class="brand">EcoMidori</span>
+    </a>
 
-      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <div class="mobile-logo" aria-hidden="true">
-          <img src="logo.svg" alt="" width="32" height="32" aria-hidden="true">
-          <span>EcoMidori</span>
-        </div>
-
-        <a href="#hero">Home</a>
-        <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
-        <a href="circular-economy.html">Circular Economy</a>
-        <a href="ecosymbiosis.html">EcoSymbiosis</a>
-
-        <!-- Enhanced Dropdown Menu (structure same as your original) -->
-        <div class="nav-dropdown">
-          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" type="button">
-            More
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          </button>
-
-          <div class="dropdown-menu" role="menu" aria-hidden="true" data-visible="false" id="more-menu">
-            <a href="about.html" class="dropdown-item" role="menuitem">
-              <div class="dropdown-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
-              <div class="dropdown-content"><span class="dropdown-title">About Us</span><span class="dropdown-desc">Our mission and team</span></div>
-            </a>
-            <a href="impact-hub.html" class="dropdown-item" role="menuitem">
-              <div class="dropdown-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-              <div class="dropdown-content"><span class="dropdown-title">Impact Hub</span><span class="dropdown-desc">Metrics and success stories</span></div>
-            </a>
-            <a href="resources.html" class="dropdown-item" role="menuitem">
-              <div class="dropdown-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
-              <div class="dropdown-content"><span class="dropdown-title">Resources</span><span class="dropdown-desc">Tools & downloads</span></div>
-            </a>
-
-            <div class="dropdown-divider" role="separator"></div>
-
-            <a href="careers.html" class="dropdown-item" role="menuitem">
-              <div class="dropdown-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
-              <div class="dropdown-content"><span class="dropdown-title">Careers</span><span class="dropdown-desc">Join our team</span></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="mobile-controls">
-          <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode" type="button">
-            <span class="control-icon">🌙</span>
-          </button>
-        </div>
-      </nav>
-
-      <div class="header-controls">
-        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
-        <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+      <div class="mobile-logo" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.03)"></circle>
+          <path d="M6 14c2-6 8-8 10-8s-2 7-6 10c-4 3-4 0-4-2z" fill="#9EE6B2"></path>
+        </svg>
+        <span>EcoMidori</span>
       </div>
 
-      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+      <a href="#hero" class="active">Home</a>
+      <a href="green-entrepreneurship.html">Green Entrepreneurship</a>
+      <a href="circular-economy.html">Circular Economy</a>
+      <a href="ecosymbiosis.html">EcoSymbiosis</a>
+      
+      <!-- Enhanced Dropdown Menu -->
+      <div class="nav-dropdown">
+        <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+          More
+          <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu" role="menu">
+          <a href="about.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">About Us</span>
+              <span class="dropdown-desc">Our mission and team</span>
+            </div>
+          </a>
+          <a href="impact-hub.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Impact Hub</span>
+              <span class="dropdown-desc">Metrics and success stories</span>
+            </div>
+          </a>
+          <a href="contact.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Contact</span>
+              <span class="dropdown-desc">Get in touch with us</span>
+            </div>
+          </a>
+          <a href="blog.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-blog" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Latest insights and news</span>
+            </div>
+          </a>
+          <a href="resources.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-book" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Resources</span>
+              <span class="dropdown-desc">Tools and downloads</span>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="careers.html" class="dropdown-item" role="menuitem">
+            <div class="dropdown-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+            <div class="dropdown-content">
+              <span class="dropdown-title">Careers</span>
+              <span class="dropdown-desc">Join our team</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-controls">
+        <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+          <span class="control-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="header-controls">
+      <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="control-icon">🌙</span>
       </button>
-      <div class="nav-overlay"></div>
+      <button class="control-btn audio-toggle" aria-label="Toggle ambient sound">🔊</button>
     </div>
-  </header>
+
+    <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+</header>
 
   <!-- Nav overlay for mobile -->
   <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>

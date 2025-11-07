@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" role="img">
+  <title>EcoMidori logo — regenerative leaf</title>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7BE28F"/>
+      <stop offset="100%" stop-color="#2FA04A"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#BFF6C7"/>
+      <stop offset="100%" stop-color="#5FE07A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- circular arrows -->
+  <g transform="translate(2,2) scale(0.93)">
+    <path d="M31.5 4
+             A27 27 0 1 1 8 34" fill="none" stroke="url(#g1)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- arrowhead -->
+    <path d="M9.6 31.8 L5 27.5 L10.8 25.8" fill="none" stroke="url(#g1)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- leaf in center -->
+  <g transform="translate(12,8)">
+    <path d="M20 3
+             C14 10 11 18 12 26
+             C14 24 20 18 26 12
+             C24 8 22 5 20 3Z"
+          fill="url(#g2)" stroke="#1e7a3d" stroke-width="0.9" stroke-linejoin="round"/>
+    <path d="M20 10
+             C18 12 15 15 12 18" fill="none" stroke="#0f5b33" stroke-width="0.8" stroke-linecap="round"/>
+  </g>
+</svg>
