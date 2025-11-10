@@ -14,7 +14,9 @@
 [data-theme="dark"] .hero {
     background: linear-gradient(135deg, var(--green-900) 0%, var(--earth-900) 100%);
 }
-
+.container{
+margin:auto;
+}
 .hero-background {
     position: absolute;
     top: 0;
