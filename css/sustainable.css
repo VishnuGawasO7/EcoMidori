@@ -200,8 +200,10 @@
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
-}
+    overflow-x: hidden;
 
+}
+.element::-webkit-scrollbar { display: none; }
 .slider-nav {
     display: flex;
     justify-content: space-between;
@@ -1062,15 +1064,15 @@
   position: relative;
   display: flex;
   gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+
+
   scroll-behavior: smooth;
   padding-bottom: 2rem;
 }
 
 .sdg-slide {
   flex: 0 0 auto;
-  scroll-snap-align: center;
+
   min-width: clamp(280px, 80vw, 400px);
   background: var(--card-bg);
   border-radius: 16px;
