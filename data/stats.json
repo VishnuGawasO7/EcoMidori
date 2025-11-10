@@ -1,0 +1,18 @@
+{
+  "counters": {
+    "startups_supported": 12,
+    "tons_diverted": 420,
+    "communities_engaged": 5
+  },
+  "charts": {
+    "sectorBreakdown": {
+      "labels": ["Waste", "Energy", "Agritech", "Packaging", "Services"],
+      "values": [30, 25, 20, 15, 10]
+    },
+    "circularityIndexByProject": [
+      {"project": "Parye Compost (sample)", "index": 65},
+      {"project": "Coastal Cleanup (sample)", "index": 72},
+      {"project": "BananaFiber Pack (sample)", "index": 55}
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "What is the primary goal of green entrepreneurship?",
+    "options": [
+      "Maximizing short-term profits only",
+      "Developing businesses that create environmental and social value",
+      "Exporting goods at low cost",
+      "Replacing traditional education systems"
+    ],
+    "answerIndex": 1,
+    "explanation": "Green entrepreneurship focuses on creating businesses that produce positive environmental and social outcomes while remaining economically viable."
+  },
+  {
+    "id": 2,
+    "question": "Which of the following best describes a circular economy?",
+    "options": [
+      "A system where items are used once and discarded",
+      "An economy that eliminates waste through reuse, repair, and recycling",
+      "An economy based on continuous consumption",
+      "A system that ignores product design"
+    ],
+    "answerIndex": 1,
+    "explanation": "A circular economy designs waste out of systems and keeps materials in use through reuse, repair, remanufacture, and recycling."
+  },
+  {
+    "id": 3,
+    "question": "EcoSymbiosis refers to:",
+    "options": [
+      "Competition between green companies",
+      "A collaborative relationship where entrepreneurship supports circular systems and vice versa",
+      "A type of invasive plant species",
+      "A government tax"
+    ],
+    "answerIndex": 1,
+    "explanation": "EcoSymbiosis is the interplay where green startups use circular principles, and circular systems enable entrepreneurial models."
+  },
+  {
+    "id": 4,
+    "question": "Which business model is common in circular economies?",
+    "options": [
+      "Product-as-a-service",
+      "One-time sale with no support",
+      "Price increase every year",
+      "Never repairing products"
+    ],
+    "answerIndex": 0,
+    "explanation": "Product-as-a-service encourages reuse and longer product lifetimes by retaining ownership and responsibility for returns and maintenance."
+  },
+  {
+    "id": 5,
+    "question": "What is Extended Producer Responsibility (EPR)?",
+    "options": [
+      "A consumer tax",
+      "A policy that holds producers responsible for end-of-life disposal of products",
+      "A marketing strategy",
+      "A manufacturing process"
+    ],
+    "answerIndex": 1,
+    "explanation": "EPR requires producers to manage and finance the collection, recycling, or disposal of products they put on the market."
+  },
+  {
+    "id": 6,
+    "question": "Which of these activities is an example of circular practice?",
+    "options": [
+      "Designing a product with unrecyclable mixed materials",
+      "Setting up a take-back and remanufacturing program",
+      "Increasing single-use plastic packaging",
+      "Making products that cannot be repaired"
+    ],
+    "answerIndex": 1,
+    "explanation": "Take-back and remanufacturing keeps materials circulating, reducing resource extraction and waste."
+  },
+  {
+    "id": 7,
+    "question": "Which UN SDG is most directly related to sustainable cities and communities?",
+    "options": [
+      "SDG 11",
+      "SDG 2",
+      "SDG 9",
+      "SDG 14"
+    ],
+    "answerIndex": 0,
+    "explanation": "SDG 11 focuses on making cities inclusive, safe, resilient, and sustainable."
+  },
+  {
+    "id": 8,
+    "question": "A simple way schools can promote circularity is:",
+    "options": [
+      "Using only disposable utensils",
+      "Starting a school composting program for cafeteria waste",
+      "Banning science classes",
+      "Encouraging more packaging"
+    ],
+    "answerIndex": 1,
+    "explanation": "Composting reduces organic waste and returns nutrients to the soil — a practical circular practice for schools."
+  },
+  {
+    "id": 9,
+    "question": "Which is a key challenge for green entrepreneurs in India?",
+    "options": [
+      "Lack of challenges",
+      "Access to early-stage funding and supportive infrastructure",
+      "Too much government funding",
+      "No market demand for sustainable products"
+    ],
+    "answerIndex": 1,
+    "explanation": "A common barrier is access to funding, infrastructure, and market channels specific to sustainable innovations."
+  },
+  {
+    "id": 10,
+    "question": "What does a circular statistic (circularity index) measure?",
+    "options": [
+      "How circular (reused/recycled) materials in a system are",
+      "Annual profits only",
+      "Number of trees in a forest",
+      "Population density"
+    ],
+    "answerIndex": 0,
+    "explanation": "Circularity metrics estimate the share of materials in a system that are reused, recycled, or kept in circulation rather than discarded."
+  }
+]

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - EcoMidori</title>
+    <meta name="description" content="Explore our gallery of sustainable projects, nature photography, events, and awareness campaigns from EcoMidori's initiatives in Goa.">
+    
+    <!-- CSS -->
+          <link rel="stylesheet" href="../css/leaf-particles.css">
+          <script src="../js/leaf-particles.js"></script>
+    <link rel="stylesheet" href="../universal.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="logo-loader">
+                <div class="leaf-float">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h2>EcoMidori</h2>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Enhanced Header -->
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a class="logo" href="#hero" aria-label="EcoMidori Home">
+                <img draggable="false" src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                <span class="brand">EcoMidori</span>
+            </a>
+
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <div class="mobile-logo" aria-hidden="true">
+                    <img src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                    <span>EcoMidori</span>
+                </div>
+
+               <a href="../index.html" class="nav-link active">Home</a>
+                
+                <!-- Core Topics Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Core Topics
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+<div class="dropdown-menu" role="menu">
+    <a href="green-entrepreneurship.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-seedling"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Green Entrepreneurship</span>
+            <span class="dropdown-desc">Startups and innovations driving sustainability forward.</span>
+        </div>
+    </a>
+    <a href="circular-economy.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-recycle"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Circular Economy</span>
+            <span class="dropdown-desc">Reusing, repairing, and recycling for a zero-waste future.</span>
+        </div>
+    </a>
+    <a href="ecosymbiosis.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-handshake"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">EcoSymbiosis</span>
+            <span class="dropdown-desc">Partnerships between industries for mutual sustainability.</span>
+        </div>
+    </a>
+    <a href="sustainable-development.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-globe-asia"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Sustainable Development</span>
+            <span class="dropdown-desc">Balancing economy, environment, and equity.</span>
+        </div>
+    </a>
+    <a href="eco-games.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-gamepad"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Eco Games</span>
+            <span class="dropdown-desc">Interactive learning experiences for environmental awareness.</span>
+        </div>
+    </a>
+</div>
+
+                </div>
+                
+                <!-- More Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        More
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="gallery.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-images"></i>
+                            Gallery
+                        </a>
+                        <a href="about.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                        <a href="government-policies.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-landmark"></i>
+                            Government Policies
+                        </a>
+                        <a href="contact.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mobile-controls">
+                    <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header-controls">
+                <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nav overlay for mobile -->
+        <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>
+    </header>
+
+
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="page-hero gallery-hero">
+            <div class="hero-background">
+                <div class="organic-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="floating-leaf leaf-1"><i class="fas fa-leaf"></i></div>
+                    <div class="floating-leaf leaf-2"><i class="fas fa-leaf"></i></div>
+                    <div class="floating-leaf leaf-3"><i class="fas fa-leaf"></i></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Gallery</h1>
+                    <p class="hero-subtitle">Visual Stories of Sustainable Impact</p>
+                    <p class="hero-description">
+                        Explore our collection of photographs showcasing EcoMidori's projects, community events, 
+                        and the beautiful nature we're working to protect in Goa and beyond.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#featured-slider" class="btn btn-primary">View Featured</a>
+                        <a href="#gallery-grid" class="btn btn-secondary">Browse All</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Slider Section -->
+        <section id="featured-slider" class="featured-slider section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Highlights from our sustainability initiatives</p>
+                </div>
+                
+                <div class="slider-container">
+                    <div class="featured-slider-wrapper">
+                        <div class="featured-slides">
+                            <!-- Slide 1 -->
+                            <div class="featured-slide active">
+                                <div class="slide-image">
+                                    <div class="image-placeholder featured">
+                                        <i class="fas fa-recycle"></i>
+                                        <span>Community Composting</span>
+                                    </div>
+                                </div>
+                                <div class="slide-content">
+                                    <h3>Parye Community Compost Initiative</h3>
+                                    <p>Transforming organic waste into nutrient-rich compost at Shri Bhumika Higher Secondary School, serving as a model for sustainable waste management in rural Goa.</p>
+                                    <div class="slide-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-calendar"></i>
+                                            Jan 2024 - Present
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Sattari, Goa
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-users"></i>
+                                            500+ Participants
+                                        </span>
+                                    </div>
+                                    <a href="#gallery-grid" class="btn btn-outline" data-filter="projects">
+                                        <i class="fas fa-images"></i>
+                                        View Project Photos
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="featured-slide">
+                                <div class="slide-image">
+                                    <div class="image-placeholder featured">
+                                        <i class="fas fa-water"></i>
+                                        <span>Coastal Cleanup</span>
+                                    </div>
+                                </div>
+                                <div class="slide-content">
+                                    <h3>Goa Coastal Cleanup Drive</h3>
+                                    <p>Community-led beach cleaning initiatives combined with educational programs about marine conservation and plastic pollution awareness.</p>
+                                    <div class="slide-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-calendar"></i>
+                                            Monthly Events
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Various Beaches, Goa
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-trash"></i>
+                                            2+ Tons Collected
+                                        </span>
+                                    </div>
+                                    <a href="#gallery-grid" class="btn btn-outline" data-filter="awareness">
+                                        <i class="fas fa-images"></i>
+                                        View Cleanup Photos
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="featured-slide">
+                                <div class="slide-image">
+                                    <div class="image-placeholder featured">
+                                        <i class="fas fa-seedling"></i>
+                                        <span>School Gardens</span>
+                                    </div>
+                                </div>
+                                <div class="slide-content">
+                                    <h3>School Organic Gardens Program</h3>
+                                    <p>Establishing organic vegetable gardens in schools to teach children about sustainable agriculture, nutrition, and environmental stewardship.</p>
+                                    <div class="slide-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-calendar"></i>
+                                            Ongoing
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            5 Schools in North Goa
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-leaf"></i>
+                                            15+ Varieties Grown
+                                        </span>
+                                    </div>
+                                    <a href="#gallery-grid" class="btn btn-outline" data-filter="events">
+                                        <i class="fas fa-images"></i>
+                                        View Garden Photos
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button class="slider-btn prev-btn" aria-label="Previous slide">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="slider-dots">
+                                <button class="slider-dot active" aria-label="Go to slide 1"></button>
+                                <button class="slider-dot" aria-label="Go to slide 2"></button>
+                                <button class="slider-dot" aria-label="Go to slide 3"></button>
+                            </div>
+                            <button class="slider-btn next-btn" aria-label="Next slide">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Filter Section -->
+        <section class="gallery-filter section-padding">
+            <div class="container">
+                <div class="filter-container">
+                    <h3>Filter by Category</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-th"></i>
+                            All Photos
+                        </button>
+                        <button class="filter-btn" data-filter="nature">
+                            <i class="fas fa-tree"></i>
+                            Nature
+                        </button>
+                        <button class="filter-btn" data-filter="projects">
+                            <i class="fas fa-project-diagram"></i>
+                            Projects
+                        </button>
+                        <button class="filter-btn" data-filter="events">
+                            <i class="fas fa-calendar-alt"></i>
+                            Events
+                        </button>
+                        <button class="filter-btn" data-filter="awareness">
+                            <i class="fas fa-bullhorn"></i>
+                            Awareness
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid Section -->
+        <section id="gallery-grid" class="gallery-grid-section section-padding">
+            <div class="container">
+                <div class="masonry-grid" id="masonry-grid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button class="btn btn-outline" id="load-more">
+                        <i class="fas fa-plus"></i>
+                        Load More Photos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="gallery-stats section-padding">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="stat-number" data-count="156">0</div>
+                        <div class="stat-label">Photos Shared</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="stat-number" data-count="42">0</div>
+                        <div class="stat-label">Contributors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="stat-number" data-count="18">0</div>
+                        <div class="stat-label">Locations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-number" data-count="24">0</div>
+                        <div class="stat-label">Events Captured</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section section-padding">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Share Your Eco-Story</h2>
+                    <p>Have photos of sustainable initiatives, environmental projects, or nature conservation efforts? Contribute to our gallery and inspire others.</p>
+                    <div class="cta-actions">
+                        <button class="btn btn-primary" id="contribute-photos">
+                            <i class="fas fa-upload"></i>
+                            Contribute Photos
+                        </button>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="">
+                <div class="lightbox-loader">
+                    <div class="loader-spinner"></div>
+                </div>
+            </div>
+            
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+                <div class="lightbox-meta">
+                    <span class="meta-item" id="lightbox-category"></span>
+                    <span class="meta-item" id="lightbox-date"></span>
+                    <span class="meta-item" id="lightbox-location"></span>
+                </div>
+                <div class="lightbox-actions">
+                    <button class="btn btn-outline" id="lightbox-download">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contribution Modal -->
+    <div class="modal" id="contribution-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contribute to Our Gallery</h3>
+                <button class="modal-close" id="contribution-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="contribution-form" id="contribution-form">
+                    <div class="form-group">
+                        <label for="contributor-name">Your Name</label>
+                        <input type="text" id="contributor-name" name="contributor-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contributor-email">Email Address</label>
+                        <input type="email" id="contributor-email" name="contributor-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-category">Photo Category</label>
+                        <select id="photo-category" name="photo-category" required>
+                            <option value="">Select category</option>
+                            <option value="nature">Nature</option>
+                            <option value="projects">Projects</option>
+                            <option value="events">Events</option>
+                            <option value="awareness">Awareness</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-title">Photo Title</label>
+                        <input type="text" id="photo-title" name="photo-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-description">Photo Description</label>
+                        <textarea id="photo-description" name="photo-description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-location">Location</label>
+                        <input type="text" id="photo-location" name="photo-location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-upload">Upload Photo</label>
+                        <div class="upload-area" id="upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <span>JPG, PNG, WebP (Max 5MB)</span>
+                            <input type="file" id="photo-upload" name="photo-upload" accept="image/*" required>
+                        </div>
+                        <div class="upload-preview" id="upload-preview"></div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Contribution
+                        </button>
+                        <button type="button" class="btn btn-outline" id="contribution-cancel">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- Updated Footer Section -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                    <span class="logo-text">EcoMidori</span>
+                </div>
+                <p class="footer-description">
+                    Promoting green entrepreneurship and circular economy solutions for sustainable development.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="green-entrepreneurship.html">Green Entrepreneurship</a></li>
+                    <li><a href="circular-economy.html">Circular Economy</a></li>
+                    <li><a href="ecosymbiosis.html">EcoSymbiosis</a></li>
+                    <li><a href="sustainable-development.html">Sustainable Development</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                  <li><a href="eco-games.html">Eco Games</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="government-policies.html">Government Policies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> VishnuGawas07x@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 84590 86575</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Shri Bhumika HSS, Parye, Sattari, Goa</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoMidori. All rights reserved. Created by Vishnu Gawas.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="../universal.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>

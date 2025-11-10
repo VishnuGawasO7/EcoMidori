@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMidori Waste Sorting Challenge</title>
+    <meta name="description" content="Test your recycling knowledge with EcoMidori's interactive waste sorting game. Learn proper waste segregation for a sustainable future.">
+    
+    <!-- CSS -->
+          <link rel="stylesheet" href="../css/leaf-particles.css">
+          <script src="../js/leaf-particles.js"></script>
+    <link rel="stylesheet" href="../universal.css">
+    <link rel="stylesheet" href="../css/game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="logo-loader">
+                <div class="leaf-float">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h2>EcoMidori</h2>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Enhanced Header -->
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <a class="logo" href="#hero" aria-label="EcoMidori Home">
+                <img draggable="false" src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                <span class="brand">EcoMidori</span>
+            </a>
+
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <div class="mobile-logo" aria-hidden="true">
+                    <img src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                    <span>EcoMidori</span>
+                </div>
+
+               <a href="../index.html" class="nav-link active">Home</a>
+                
+                <!-- Core Topics Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Core Topics
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+<div class="dropdown-menu" role="menu">
+    <a href="green-entrepreneurship.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-seedling"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Green Entrepreneurship</span>
+            <span class="dropdown-desc">Startups and innovations driving sustainability forward.</span>
+        </div>
+    </a>
+    <a href="circular-economy.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-recycle"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Circular Economy</span>
+            <span class="dropdown-desc">Reusing, repairing, and recycling for a zero-waste future.</span>
+        </div>
+    </a>
+    <a href="ecosymbiosis.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-handshake"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">EcoSymbiosis</span>
+            <span class="dropdown-desc">Partnerships between industries for mutual sustainability.</span>
+        </div>
+    </a>
+    <a href="sustainable-development.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-globe-asia"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Sustainable Development</span>
+            <span class="dropdown-desc">Balancing economy, environment, and equity.</span>
+        </div>
+    </a>
+    <a href="eco-games.html" class="dropdown-link" role="menuitem">
+        <i class="fas fa-gamepad"></i>
+        <div class="dropdown-content">
+            <span class="dropdown-title">Eco Games</span>
+            <span class="dropdown-desc">Interactive learning experiences for environmental awareness.</span>
+        </div>
+    </a>
+</div>
+
+                </div>
+                
+                <!-- More Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        More
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="gallery.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-images"></i>
+                            Gallery
+                        </a>
+                        <a href="about.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                        <a href="government-policies.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-landmark"></i>
+                            Government Policies
+                        </a>
+                        <a href="contact.html" class="dropdown-link" role="menuitem">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mobile-controls">
+                    <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header-controls">
+                <button class="control-btn theme-toggle" aria-label="Toggle light/dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nav overlay for mobile -->
+        <div class="nav-overlay" tabindex="-1" aria-hidden="true"></div>
+    </header>
+
+
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Waste Sorting Challenge</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- Game Container -->
+        <div class="game-page-container">
+            <div class="game-container" id="game-container">
+                <!-- Start Screen -->
+                <div class="game-screen start-screen active" id="start-screen">
+                    <div class="game-hero">
+                        <div class="game-title">
+                            <h1>♻️ EcoMidori Waste Sorting Challenge</h1>
+                            <p class="game-subtitle">Drag items into the correct bin before time runs out!</p>
+                        </div>
+                        
+                        <div class="game-instructions">
+                            <div class="instruction-card">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3>60 Second Timer</h3>
+                                <p>Sort as many items as you can before time runs out</p>
+                            </div>
+                            
+                            <div class="instruction-card">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Score Points</h3>
+                                <p>+10 for correct sorting, -5 for mistakes</p>
+                            </div>
+                            
+                            <div class="instruction-card">
+                                <div class="instruction-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Learn & Play</h3>
+                                <p>Discover proper waste segregation techniques</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bin-previews">
+                            <div class="bin-preview" data-type="organic">
+                                <div class="preview-icon organic">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <span>Organic</span>
+                            </div>
+                            <div class="bin-preview" data-type="recyclable">
+                                <div class="preview-icon recyclable">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <span>Recyclable</span>
+                            </div>
+                            <div class="bin-preview" data-type="hazardous">
+                                <div class="preview-icon hazardous">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                </div>
+                                <span>Hazardous</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary start-game-btn" id="start-btn">
+                            <i class="fas fa-play"></i>
+                            Start Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Screen -->
+                <div class="game-screen game-area" id="game-area">
+                    <header class="game-header">
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <span id="time">60</span>s</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <span>Score: <span id="score">0</span></span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Streak: <span id="streak">0</span></span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="game-content">
+                        <div class="current-item-container">
+                            <div class="item-label">Drag this item to the correct bin:</div>
+                            <div class="item-area" id="item-area">
+                                <img id="waste-item" class="waste-item" draggable="true" src="" alt="waste item">
+                                <div class="item-name" id="item-name"></div>
+                            </div>
+                        </div>
+
+                        <div class="fun-fact-container" id="fun-fact">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Did you know? Proper waste sorting can reduce landfill waste by up to 60%!</span>
+                        </div>
+
+                        <div class="bins-container">
+                            <div class="bin" data-type="organic" id="bin-organic">
+                                <div class="bin-icon organic">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="bin-label">Organic</div>
+                                <div class="bin-description">Food waste, plants, biodegradable materials</div>
+                            </div>
+                            
+                            <div class="bin" data-type="recyclable" id="bin-recyclable">
+                                <div class="bin-icon recyclable">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="bin-label">Recyclable</div>
+                                <div class="bin-description">Paper, plastic, glass, metal</div>
+                            </div>
+                            
+                            <div class="bin" data-type="hazardous" id="bin-hazardous">
+                                <div class="bin-icon hazardous">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                </div>
+                                <div class="bin-label">Hazardous</div>
+                                <div class="bin-description">Batteries, chemicals, electronics</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-controls">
+                        <button class="btn btn-outline" id="pause-btn">
+                            <i class="fas fa-pause"></i>
+                            Pause
+                        </button>
+                        <button class="btn btn-secondary" id="quit-btn">
+                            <i class="fas fa-home"></i>
+                            Quit Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pause Screen -->
+                <div class="game-screen pause-screen" id="pause-screen">
+                    <div class="pause-content">
+                        <div class="pause-icon">
+                            <i class="fas fa-pause"></i>
+                        </div>
+                        <h2>Game Paused</h2>
+                        <p>Take your time to think about where each item belongs!</p>
+                        <div class="pause-stats">
+                            <div class="pause-stat">
+                                <span class="stat-value" id="pause-time">60s</span>
+                                <span class="stat-label">Time Left</span>
+                            </div>
+                            <div class="pause-stat">
+                                <span class="stat-value" id="pause-score">0</span>
+                                <span class="stat-label">Score</span>
+                            </div>
+                            <div class="pause-stat">
+                                <span class="stat-value" id="pause-streak">0</span>
+                                <span class="stat-label">Streak</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="resume-btn">
+                            <i class="fas fa-play"></i>
+                            Resume Game
+                        </button>
+                    </div>
+                </div>
+
+                <!-- End Screen -->
+                <div class="game-screen end-screen" id="end-screen">
+                    <div class="end-content">
+                        <div class="result-icon">
+                            <i class="fas fa-trophy" id="result-trophy"></i>
+                        </div>
+                        <h2 id="result-title">You're an Eco-Hero! 🌍</h2>
+                        <p class="result-subtitle" id="result-subtitle">Your dedication to proper waste sorting is inspiring!</p>
+                        
+                        <div class="score-display">
+                            <div class="final-score">
+                                <span class="score-label">Final Score</span>
+                                <span class="score-value" id="final-score">0</span>
+                            </div>
+                            <div class="score-breakdown">
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Correct Answers:</span>
+                                    <span class="breakdown-value" id="correct-answers">0</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Incorrect Answers:</span>
+                                    <span class="breakdown-value" id="incorrect-answers">0</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Best Streak:</span>
+                                    <span class="breakdown-value" id="best-streak">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="end-actions">
+                            <button class="btn btn-primary" id="retry-btn">
+                                <i class="fas fa-redo"></i>
+                                Play Again
+                            </button>
+                            <a href="../index.html" class="btn btn-secondary">
+                                <i class="fas fa-home"></i>
+                                Back to Home
+                            </a>
+                        </div>
+                        
+                        <div class="share-game">
+                            <p>Challenge your friends!</p>
+                            <div class="share-buttons">
+                                <button class="share-btn" id="share-score">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share Score
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Updated Footer Section -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="EcoMidori Logo" class="logo-img">
+                    <span class="logo-text">EcoMidori</span>
+                </div>
+                <p class="footer-description">
+                    Promoting green entrepreneurship and circular economy solutions for sustainable development.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="green-entrepreneurship.html">Green Entrepreneurship</a></li>
+                    <li><a href="circular-economy.html">Circular Economy</a></li>
+                    <li><a href="ecosymbiosis.html">EcoSymbiosis</a></li>
+                    <li><a href="sustainable-development.html">Sustainable Development</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                  <li><a href="eco-games.html">Eco Games</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="government-policies.html">Government Policies</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> VishnuGawas07x@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 84590 86575</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Shri Bhumika HSS, Parye, Sattari, Goa</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoMidori. All rights reserved. Created by Vishnu Gawas.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="../universal.js"></script>
+    <script src="../js/game.js"></script>
+</body>
+</html>
